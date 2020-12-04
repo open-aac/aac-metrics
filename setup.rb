@@ -32,7 +32,6 @@ common_words = common_words_obj['words']
 too_easy = []
 too_hard = []
 target[:buttons].each do |btn|
-  puts "#{btn[:effort]} #{common_words_obj['efforts'][btn[:label]]}"
   if btn[:effort] && common_words_obj['efforts'][btn[:label]]
     if btn[:effort] < common_words_obj['efforts'][btn[:label]] - 5
       too_easy << btn[:label]

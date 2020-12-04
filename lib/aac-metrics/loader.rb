@@ -27,7 +27,7 @@ module AACMetrics::Loader
     visited_paths = {}
     queued_paths = {}
     idx = 1
-    words_path = File.expand_path(File.join(File.dirname(__FILE__), '..', 'sets', "base_words"))
+    words_path = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'sets', "base_words"))
     words = nil
     do_ingest = true
     
@@ -43,6 +43,9 @@ module AACMetrics::Loader
       idx += 1
       json = nil
       if path.match(/^http/)
+        if token
+          path += "?access_token=#{token}"
+        end
         req = Typhoeus.get(path)
         json = JSON.parse(req.body)
         puts path
@@ -61,7 +64,7 @@ module AACMetrics::Loader
     #    puts JSON.pretty_generate(json)
         new_json['locale'] = json['locale'] || 'en'
         if !words
-          words_path = words_path + "." + new_json['locale'] + ".json"
+          words_path = words_path + "." + new_json['locale'].split(/-|_/)[0] + ".json"
           words = JSON.parse(File.read(words_path))
         end
         btn_idx = 1
@@ -132,12 +135,16 @@ module AACMetrics::Loader
         end
       end
     end
+    {boards: boards, words: words, words_path: words_path}
   end
 
   def self.ingest(fn, token=nil)
-    boards = process(fn, token)
+    content = process(fn, token)
+    boards = content[:boards]
+    words = content[:words]
+    words_path = content[:words_path]
     output_fn = Digest::MD5.hexdigest(Time.now.to_i.to_s + rand(9999).to_s)[0, 10] + ".obfset"
-    output = File.expand_path(File.join(File.dirname(__FILE__), '..', 'sets', output_fn))
+    output = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'sets', output_fn))
     f = File.open(output, 'w')
     f.write(JSON.pretty_generate(boards))
     f.close
@@ -152,6 +159,7 @@ module AACMetrics::Loader
   end
 
   def self.core_lists(locale)
+    locale = locale.split(/-|_/)[0]
     @@core_lists ||= {}
     return @@core_lists[locale] if @@core_lists[locale]
     path = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'sets', "core_lists.#{locale}.json"))    
@@ -160,6 +168,7 @@ module AACMetrics::Loader
   end
 
   def self.common_words(locale)
+    locale = locale.split(/-|_/)[0]
     common_paths = Dir.glob(File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'sets', "*.common.#{locale}.obfset")))
     files = common_paths.map{|p| File.basename(p) }.sort
     path = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'sets', "common_words.#{locale}.json"))    
@@ -179,7 +188,6 @@ module AACMetrics::Loader
         common_words &= words
       end
       common_words -= ['']
-      puts JSON.pretty_generate(efforts)
       efforts.each do |word, vals|
         if vals.length == common_paths.length
           efforts[word] = vals.sum.to_f / vals.length
@@ -206,7 +214,8 @@ module AACMetrics::Loader
   def self.base_words(locale)
     @@base_words ||= {}
     return @@base_words[locale] if @@base_words[locale]
-    path = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'sets', "base_words.#{locale}.json"))    
+    locale = locale.split(/-|_/)[0]
+    path = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'sets', "base_words.#{locale}.json"))
     res = JSON.parse(File.read(path))
     @@base_words[locale] = res
   end
