@@ -4,10 +4,38 @@ require 'digest'
 
 module AACMetrics::Loader
   def self.retrieve(obfset)
-    if !obfset.match(/\.obfset/)
+    if obfset.is_a?(Hash) && obfset['boards']
+      json = []
+      obfset['boards'].each do |board|
+        new_board = {
+          "format" => "open-board-0.1",
+          "id" => board['id'],
+          "buttons" => [],
+          "locale" => board['locale'] || 'en',
+          "grid" => board['grid'],
+        }
+        board['buttons'].each do |button|
+          new_button = {
+            "label" => ((button['vocalization'] || '').length > 0 ? button['vocalization'] : button['label']).to_s.downcase.gsub(/’/, ''),
+            "id" => button['id']
+          }
+          if button['load_board'] && button['load_board']['id']
+            new_button['load_board'] = {'id' => button['load_board']['id']}
+          end
+          new_board['buttons'].push(new_button)
+        end
+        json << new_board
+      end
+      return json
+    elsif obfset.match(/^http/)
+      res = Typhoeus.get(obfset, timeout: 10)
+      json = JSON.parse(res.body)
+    elsif !obfset.match(/\.obfset/)
       obfset = Dir.glob(File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'sets', obfset + '*.obfset')))[0]
+      json = JSON.parse(File.read(obfset))
+    else
+      json = JSON.parse(File.read(obfset))
     end
-    json = JSON.parse(File.read(obfset))
     base = self.base_words(json[0]['locale'])
     json.each do |brd|
       brd['buttons'].each do |btn|
@@ -46,9 +74,9 @@ module AACMetrics::Loader
         if token
           path += "?access_token=#{token}"
         end
-        req = Typhoeus.get(path)
+        req = Typhoeus.get(path, timeout: 10)
         json = JSON.parse(req.body)
-        puts path
+        # puts path
       else
         if !File.exist?(path)
           orig_path = path
@@ -57,7 +85,7 @@ module AACMetrics::Loader
             path = File.expand_path(File.join(fn, "..", "..", orig_path))
           end
         end
-        puts "#{path}"
+        # puts "#{path}"
         json = JSON.parse(File.read(path))
       end
       if json && json['grid']
@@ -205,7 +233,7 @@ module AACMetrics::Loader
         'efforts' => sorted_efforts
       }
       f = File.open(path, 'w')
-      f.puts JSON.pretty_generate(res)
+      # f.puts JSON.pretty_generate(res)
       f.close
     end
     res

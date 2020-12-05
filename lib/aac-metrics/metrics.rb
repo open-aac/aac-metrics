@@ -76,20 +76,92 @@ module AACMetrics::Metrics
     buttons = known_buttons.to_a.map(&:last).sort_by{|b| b[:effort] }
     clusters = {}
     buttons.each do |btn| 
-      puts "#{btn[:label]}\t#{btn[:effort]}" if output
       clusters[btn[:level]] ||= []
       clusters[btn[:level]] << btn
     end
-    clusters.each do |level, buttons|
-      puts "HITS: #{level + 1}" if output
-      puts buttons.map{|b| b[:label] }.join('  ') if output
-    end
-    puts "TOTAL BOARDS: #{visited_board_ids.keys.length}" if output
-    puts "TOTAL WORDS: #{buttons.length}" if output
     {
       locale: locale,
+      total_boards: visited_board_ids.keys.length,
+      total_buttons: buttons.length,
       buttons: buttons,
       levels: clusters
     }
+  end
+
+  def self.analyze_and_compare(obfset, compset)
+    target = AACMetrics::Metrics.analyze(obfset, false)
+    res = {}.merge(target)
+
+    compare = AACMetrics::Metrics.analyze(compset, false)
+    
+    target_words = target[:buttons].map{|b| b[:label] }
+    compare_words = compare[:buttons].map{|b| b[:label] }
+    efforts = {}
+    target[:buttons].each{|b| efforts[b[:label]] = b[:effort] }
+    compare[:buttons].each{|b| 
+      if efforts[b[:label]]
+        efforts[b[:label]] += b[:effort] 
+        efforts[b[:label]] /= 2
+      else
+        efforts[b[:label]] ||= b[:effort] 
+      end
+    }
+    
+    core_lists = AACMetrics::Loader.core_lists(target[:locale])
+    common_words_obj = AACMetrics::Loader.common_words(target[:locale])
+    common_words_obj['efforts'].each{|w, e| efforts[w] ||= e }
+    common_words = common_words_obj['words']
+    
+    too_easy = []
+    too_hard = []
+    target[:buttons].each do |btn|
+      if btn[:effort] && common_words_obj['efforts'][btn[:label]]
+        if btn[:effort] < common_words_obj['efforts'][btn[:label]] - 5
+          too_easy << btn[:label]
+        elsif btn[:effort] > common_words_obj['efforts'][btn[:label]] + 3
+          too_hard << btn[:label]
+        end
+      end
+    end
+    
+    missing = (compare_words - target_words).sort_by{|w| efforts[w] }
+    extras = (target_words - compare_words).sort_by{|w| efforts[w] }
+    # puts "MISSING WORDS (#{missing.length}):"
+    res[:missing_words] = missing
+    # puts missing.join('  ')
+    # puts "EXTRA WORDS (#{extras.length}):"
+    res[:extra_words] = extras
+    # puts extras.join('  ')
+    overlap = (target_words & compare_words & common_words)
+    # puts "OVERLAPPING WORDS (#{overlap.length}):"
+    res[:overlapping_words] = overlap
+    # puts overlap.join('  ')
+    missing = (common_words - target_words)
+    # puts "MISSING FROM COMMON (#{missing.length})"
+    res[:missing] = {
+      :common => {name: "Common Word List", list: missing}
+    }
+    # puts missing.join('  ')
+    core_lists.each do |list|
+      missing = []
+      list['words'].each do |word|
+        words = word.gsub(/’/, '').downcase.split(/\|/)
+        if (target_words & words).length == 0
+          missing << words[0] 
+        end
+      end
+      if missing.length > 0
+        # puts "MISSING FROM #{list['id']} (#{missing.length}):"
+        res[:missing][list['id']] = {name: list['name'], list: missing}
+        # puts missing.join('  ')
+      end
+    end
+    # puts "CONSIDER MAKING EASIER"
+    res[:high_effort_words] = too_hard
+    # puts too_hard.join('  ')
+    # puts "CONSIDER LESS PRIORITY"
+    res[:low_effort_words] = too_easy
+    # puts too_easy.join('  ')
+    res
   end
 end
