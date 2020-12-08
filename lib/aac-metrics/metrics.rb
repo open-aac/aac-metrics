@@ -123,7 +123,7 @@ module AACMetrics::Metrics
     
     compare_words = []
     compare_buttons = {}
-    compare_words = compare[:buttons].each do |btn|
+    compare[:buttons].each do |btn|
       compare_words << btn[:label]
       compare_buttons[btn[:label]] = btn
     end
