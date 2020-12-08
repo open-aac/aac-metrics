@@ -11,7 +11,6 @@ require 'aac-metrics'
 obfset1 = AACMetrics::Loader.retrieve(ARGV[0])
 obfset2 = AACMetrics::Loader.retrieve(ARGV[1] || 'qc24')
 
-
 res = AACMetrics::Metrics.analyze_and_compare(obfset1, obfset2)
 
 res[:levels].each do |level, buttons|

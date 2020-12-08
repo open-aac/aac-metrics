@@ -3,7 +3,7 @@ require 'typhoeus'
 require 'digest'
 
 module AACMetrics::Loader
-  def self.retrieve(obfset)
+  def self.retrieve(obfset, unsub=true)
     if obfset.is_a?(Hash) && obfset['boards']
       json = []
       obfset['boards'].each do |board|
@@ -30,19 +30,41 @@ module AACMetrics::Loader
       res = Typhoeus.get(obfset, timeout: 10)
       json = JSON.parse(res.body)
     elsif !obfset.match(/\.obfset/)
-      obfset = Dir.glob(File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'sets', obfset + '*.obfset')))[0]
-      json = JSON.parse(File.read(obfset))
+      fn = obfset
+      obfset = Dir.glob(File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'sets', fn + '*.obfset')))[0]
+      analysis = nil
+      if !obfset
+        analysis = Dir.glob(File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'sets', fn + '*.analysis')))[0]
+      end
+      if obfset
+        json = JSON.parse(File.read(obfset))
+      elsif analysis
+        json = JSON.parse(File.read(analysis))
+      end
     else
       json = JSON.parse(File.read(obfset))
     end
-    base = self.base_words(json[0]['locale'])
-    json.each do |brd|
-      brd['buttons'].each do |btn|
-        if btn['label'].match(/^\$/)
-          word = base[btn['label'].sub(/^\$/, '')]
-          btn['label'] = word if word
+    if unsub
+      locale = json.is_a?(Array) ? json[0]['locale'] : json['locale']
+      base = self.base_words(locale)
+      if json.is_a?(Array)
+        json.each do |brd|
+          brd['buttons'].each do |btn|
+            if btn['label'].match(/^\$/)
+              word = base[btn['label'].sub(/^\$/, '')]
+              btn['label'] = word if word
+            end
+            btn['label'] = btn['label'].gsub(/’/, '')
+          end
         end
-        btn['label'] = btn['label'].gsub(/’/, '')
+      elsif json.is_a?(Hash)
+        (json['buttons'] || []).each do |button|
+          if button['label'].match(/^\$/)
+            word = base[button['label'].sub(/^\$/, '')]
+            button['label'] = word if word
+          end
+          button['label'] = button['label'].gsub(/’/, '')
+        end
       end
     end
     json
@@ -165,20 +187,34 @@ module AACMetrics::Loader
   end
 
   def self.ingest(fn, token=nil)
-    content = process(fn, token)
-    boards = content[:boards]
-    words = content[:words]
-    words_path = content[:words_path]
-    output_fn = Digest::MD5.hexdigest(Time.now.to_i.to_s + rand(9999).to_s)[0, 10] + ".obfset"
-    output = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'sets', output_fn))
-    f = File.open(output, 'w')
-    f.write(JSON.pretty_generate(boards))
-    f.close
-    if words
-      new_words = {}
-      words.to_a.sort_by{|h, w| w }.each{|h, w| new_words[h] = w }
-      f = File.open(words_path, 'w')
-      f.write(JSON.pretty_generate(new_words))
+    output = nil
+    boards = nil
+    if fn.match(/\.obfset$/)
+      boards = retrieve(fn, false)
+      output = fn
+    else
+      content = process(fn, token)
+      boards = content[:boards]
+      words = content[:words]
+      words_path = content[:words_path]
+      output_fn = Digest::MD5.hexdigest(Time.now.to_i.to_s + rand(9999).to_s)[0, 10] + ".obfset"
+      output = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'sets', output_fn))
+      f = File.open(output, 'w')
+      f.write(JSON.pretty_generate(boards))
+      f.close
+      if words
+        new_words = {}
+        words.to_a.sort_by{|h, w| w }.each{|h, w| new_words[h] = w }
+        f = File.open(words_path, 'w')
+        f.write(JSON.pretty_generate(new_words))
+        f.close
+      end
+    end
+    if boards
+      analysis = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'sets', fn.sub(/\.obfset$/, '.analysis')))
+      res = AACMetrics::Metrics.analyze(boards)
+      f = File.open(analysis, 'w')
+      f.write(JSON.pretty_generate(res))
       f.close
     end
     output
