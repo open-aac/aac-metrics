@@ -25,7 +25,6 @@ module AACMetrics::Loader
         end
         json << new_board
       end
-      return json
     elsif obfset.match(/^http/)
       res = Typhoeus.get(obfset, timeout: 10)
       json = JSON.parse(res.body)
