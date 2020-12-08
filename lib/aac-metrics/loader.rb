@@ -233,6 +233,8 @@ module AACMetrics::Loader
     locale = locale.split(/-|_/)[0]
     common_paths = Dir.glob(File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'sets', "*.common.#{locale}.obfset")))
     files = common_paths.map{|p| File.basename(p) }.sort
+    common_analysis_paths = Dir.glob(File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'sets', "*.common.#{locale}.analysis")))
+    files += common_analysis_paths.map{|p| File.basename(p) }.sort
     path = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'sets', "common_words.#{locale}.json"))    
     res = JSON.parse(File.read(path)) rescue nil
     if !res || true

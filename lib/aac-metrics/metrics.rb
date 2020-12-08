@@ -121,10 +121,24 @@ module AACMetrics::Metrics
 
     compare = AACMetrics::Metrics.analyze(compset, false)
     
-    target_words = target[:buttons].map{|b| b[:label] }
-    compare_words = compare[:buttons].map{|b| b[:label] }
+    compare_words = []
+    compare_buttons = {}
+    compare_words = compare[:buttons].each do |btn|
+      compare_words << btn[:label]
+      compare_buttons[btn[:label]] = btn
+    end
+
     efforts = {}
-    target[:buttons].each{|b| efforts[b[:label]] = b[:effort] }
+    target_words = []
+    res[:buttons].each{|b| 
+      target_words << b[:label]
+      efforts[b[:label]] = b[:effort] 
+      comp = compare_buttons[b[:label]]
+      if comp
+        b[:comp_level] = comp[:level]
+        b[:comp_effort] = comp[:effort]
+      end
+    }
     compare[:buttons].each{|b| 
       if efforts[b[:label]]
         efforts[b[:label]] += b[:effort] 
