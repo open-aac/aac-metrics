@@ -69,7 +69,7 @@ module AACMetrics::Loader
     json
   end
 
-  def self.process(fn, token=nil)
+  def self.process(fn, token=nil, add_words=false)
     paths = [fn]
     boards = []
     visited_paths = {}
@@ -135,8 +135,10 @@ module AACMetrics::Loader
                 if str.scan(/\s+/).length < 2
                   word_hash = Digest::MD5.hexdigest(str)[0, 10]
                   raise "collision!" if words[word_hash] && words[word_hash] != str
-                  words[word_hash] = str
-                  new_btn['label'] = "$#{word_hash}"
+                  if add_words || words[word_hash]
+                    words[word_hash] = str
+                    new_btn['label'] = "$#{word_hash}"
+                  end
                 end
               end
               btn_idx += 1
@@ -192,7 +194,7 @@ module AACMetrics::Loader
       boards = retrieve(fn, false)
       output = fn
     else
-      content = process(fn, token)
+      content = process(fn, token, true)
       boards = content[:boards]
       words = content[:words]
       words_path = content[:words_path]
