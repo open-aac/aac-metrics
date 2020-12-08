@@ -27,10 +27,17 @@ module AACMetrics::Metrics
           prior_buttons = (row_idx * board[:board]['grid']['columns']) + col_idx
           effort = 0
           effort += board_effort
-          # add small effort for every prior button when visually scanning
-          effort += prior_buttons * 0.05
           # add effort for percent distance from entry point
-          effort += Math.sqrt((x - board[:entry_x]) ** 2 + (y - board[:entry_y]) ** 2) / sqrt2
+          distance = Math.sqrt((x - board[:entry_x]) ** 2 + (y - board[:entry_y]) ** 2) / sqrt2
+          effort += distance
+          if distance > 0.1 || (board[:entry_x] == 1.0 && board[:entry_y] == 1.0)
+            # add small effort for every prior button when visually scanning
+            effort += prior_buttons * 0.05
+          else
+            # ..unless it's right by the previous button, then
+            # add tiny effort for local scan
+            effort += distance * 0.5
+          end
           # add cumulative effort from previous sequence
           effort += board[:prior_effort] || 0
           if button['load_board']

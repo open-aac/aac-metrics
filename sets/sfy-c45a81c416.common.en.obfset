@@ -1,6 +1,6 @@
 [
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd1",
     "buttons": [
       {
@@ -887,7 +887,7 @@
     "locale": "en_US"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd2",
     "buttons": [
       {
@@ -1144,7 +1144,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd3",
     "buttons": [
       {
@@ -1505,7 +1505,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd4",
     "buttons": [
       {
@@ -1746,7 +1746,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd5",
     "buttons": [
       {
@@ -1919,7 +1919,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd6",
     "buttons": [
       {
@@ -2420,7 +2420,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd7",
     "buttons": [
       {
@@ -2589,7 +2589,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd8",
     "buttons": [
       {
@@ -2842,7 +2842,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd9",
     "buttons": [
       {
@@ -3423,7 +3423,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd10",
     "buttons": [
       {
@@ -3660,7 +3660,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd11",
     "buttons": [
       {
@@ -4169,7 +4169,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd12",
     "buttons": [
       {
@@ -4334,7 +4334,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd13",
     "buttons": [
       {
@@ -4743,7 +4743,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd14",
     "buttons": [
       {
@@ -5192,7 +5192,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd15",
     "buttons": [
       {
@@ -5441,7 +5441,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd16",
     "buttons": [
       {
@@ -5606,7 +5606,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd17",
     "buttons": [
       {
@@ -6123,7 +6123,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd18",
     "buttons": [
       {
@@ -6396,7 +6396,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd19",
     "buttons": [
       {
@@ -6569,7 +6569,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd20",
     "buttons": [
       {
@@ -6830,7 +6830,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd21",
     "buttons": [
       {
@@ -7283,7 +7283,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd22",
     "buttons": [
       {
@@ -7824,7 +7824,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd23",
     "buttons": [
       {
@@ -8405,7 +8405,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd24",
     "buttons": [
       {
@@ -8738,7 +8738,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd25",
     "buttons": [
       {
@@ -8919,7 +8919,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd26",
     "buttons": [
       {
@@ -9132,7 +9132,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd27",
     "buttons": [
       {
@@ -9745,7 +9745,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd28",
     "buttons": [
       {
@@ -9942,7 +9942,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd29",
     "buttons": [
       {
@@ -10383,7 +10383,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd30",
     "buttons": [
       {
@@ -10716,7 +10716,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd31",
     "buttons": [
       {
@@ -10889,7 +10889,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd32",
     "buttons": [
       {
@@ -11350,7 +11350,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd33",
     "buttons": [
       {
@@ -11603,7 +11603,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd34",
     "buttons": [
       {
@@ -12104,7 +12104,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd35",
     "buttons": [
       {
@@ -12701,7 +12701,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd36",
     "buttons": [
       {
@@ -13290,7 +13290,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd37",
     "buttons": [
       {
@@ -13479,7 +13479,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd38",
     "buttons": [
       {
@@ -14092,7 +14092,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd39",
     "buttons": [
       {
@@ -14433,7 +14433,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd40",
     "buttons": [
       {
@@ -14618,7 +14618,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd41",
     "buttons": [
       {
@@ -14995,7 +14995,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd42",
     "buttons": [
       {
@@ -15528,7 +15528,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd43",
     "buttons": [
       {
@@ -15977,7 +15977,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd44",
     "buttons": [
       {
@@ -16478,7 +16478,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd45",
     "buttons": [
       {
@@ -16711,7 +16711,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd46",
     "buttons": [
       {
@@ -17328,7 +17328,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd47",
     "buttons": [
       {
@@ -17921,7 +17921,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd48",
     "buttons": [
       {
@@ -18510,7 +18510,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd49",
     "buttons": [
       {
@@ -18703,7 +18703,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd50",
     "buttons": [
       {
@@ -18916,7 +18916,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd51",
     "buttons": [
       {
@@ -19117,7 +19117,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd52",
     "buttons": [
       {
@@ -19586,7 +19586,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd53",
     "buttons": [
       {
@@ -20139,7 +20139,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd54",
     "buttons": [
       {
@@ -20500,7 +20500,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd55",
     "buttons": [
       {
@@ -21077,7 +21077,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd56",
     "buttons": [
       {
@@ -21426,7 +21426,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd57",
     "buttons": [
       {
@@ -21727,7 +21727,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd58",
     "buttons": [
       {
@@ -22048,7 +22048,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd59",
     "buttons": [
       {
@@ -22429,7 +22429,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd60",
     "buttons": [
       {
@@ -22614,7 +22614,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd61",
     "buttons": [
       {
@@ -22803,7 +22803,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd62",
     "buttons": [
       {
@@ -23108,7 +23108,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd63",
     "buttons": [
       {
@@ -23349,7 +23349,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd64",
     "buttons": [
       {
@@ -23974,7 +23974,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd65",
     "buttons": [
       {
@@ -24579,7 +24579,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd66",
     "buttons": [
       {
@@ -25080,7 +25080,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd67",
     "buttons": [
       {
@@ -25493,7 +25493,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd68",
     "buttons": [
       {
@@ -25898,7 +25898,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd69",
     "buttons": [
       {
@@ -26319,7 +26319,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd70",
     "buttons": [
       {
@@ -26792,7 +26792,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd71",
     "buttons": [
       {
@@ -27033,7 +27033,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd72",
     "buttons": [
       {
@@ -27546,7 +27546,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd73",
     "buttons": [
       {
@@ -28071,7 +28071,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd74",
     "buttons": [
       {
@@ -28636,7 +28636,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd75",
     "buttons": [
       {
@@ -28833,7 +28833,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd76",
     "buttons": [
       {
@@ -29146,7 +29146,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd77",
     "buttons": [
       {
@@ -29619,7 +29619,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd78",
     "buttons": [
       {
@@ -30208,7 +30208,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd79",
     "buttons": [
       {
@@ -30577,7 +30577,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd80",
     "buttons": [
       {
@@ -30766,7 +30766,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd81",
     "buttons": [
       {
@@ -31183,7 +31183,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd82",
     "buttons": [
       {
@@ -31752,7 +31752,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd83",
     "buttons": [
       {
@@ -32225,7 +32225,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd84",
     "buttons": [
       {
@@ -32562,7 +32562,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd85",
     "buttons": [
       {
@@ -33099,7 +33099,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd86",
     "buttons": [
       {
@@ -33640,7 +33640,7 @@
     "locale": "en"
   },
   {
-    "format": "open-board-0.1",
+    "format": "obs",
     "id": "brd87",
     "buttons": [
       {

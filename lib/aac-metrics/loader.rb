@@ -8,7 +8,6 @@ module AACMetrics::Loader
       json = []
       obfset['boards'].each do |board|
         new_board = {
-          "format" => "open-board-0.1",
           "id" => board['id'],
           "buttons" => [],
           "locale" => board['locale'] || 'en',
@@ -63,7 +62,6 @@ module AACMetrics::Loader
       path = paths.shift
       visited_paths[path] = idx
       new_json = {
-        "format" => "open-board-0.1",
         "id" => "brd#{idx}",
         "buttons" => [],
         "grid" => {},
@@ -233,7 +231,7 @@ module AACMetrics::Loader
         'efforts' => sorted_efforts
       }
       f = File.open(path, 'w')
-      # f.puts JSON.pretty_generate(res)
+      f.puts JSON.pretty_generate(res)
       f.close
     end
     res
