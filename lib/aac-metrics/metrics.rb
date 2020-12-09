@@ -1,3 +1,8 @@
+# TODO:
+# Scores for average effort level for word sets (spelling if that's th only way)
+# Effort scores for sentence corpus
+# Effort algorithms for scanning/eyes
+
 module AACMetrics::Metrics
   def self.analyze(obfset, output=true)
     locale = nil
@@ -30,26 +35,28 @@ module AACMetrics::Metrics
         btn_width = 1.0  / board[:board]['grid']['columns'].to_f
         board_effort = 0
         # add effort for level of complexity when new board is rendered
-        board_effort += 0.005 * board[:board]['grid']['rows'] * board[:board]['grid']['columns']
+        board_effort += 0.003 * board[:board]['grid']['rows'] * board[:board]['grid']['columns']
         # add effort for number of visible buttons
-        board_effort += 0.01 * board[:board]['grid']['order'].flatten.length
+        board_effort += 0.007 * board[:board]['grid']['order'].flatten.length
+        prior_buttons = 0
 
         board[:board]['grid']['rows'].times do |row_idx|
           board[:board]['grid']['columns'].times do |col_idx|
             button_id = (board[:board]['grid']['order'][row_idx] || [])[col_idx]
             button = board[:board]['buttons'].detect{|b| b['id'] == button_id }
+            prior_buttons += 0.1 if !button
             next unless button
             x = (btn_width / 2)  + (btn_width * col_idx)
             y = (btn_height / 2) + (btn_height * row_idx)
-            prior_buttons = (row_idx * board[:board]['grid']['columns']) + col_idx
+            # prior_buttons = (row_idx * board[:board]['grid']['columns']) + col_idx
             effort = 0
             effort += board_effort
             # add effort for percent distance from entry point
             distance = Math.sqrt((x - board[:entry_x]) ** 2 + (y - board[:entry_y]) ** 2) / sqrt2
             effort += distance
             if distance > 0.1 || (board[:entry_x] == 1.0 && board[:entry_y] == 1.0)
-              # add small effort for every prior button when visually scanning
-              effort += prior_buttons * 0.05
+              # add small effort for every prior (visible) button when visually scanning
+              effort += prior_buttons * 0.001
             else
               # ..unless it's right by the previous button, then
               # add tiny effort for local scan
@@ -57,6 +64,8 @@ module AACMetrics::Metrics
             end
             # add cumulative effort from previous sequence
             effort += board[:prior_effort] || 0
+            prior_buttons += 1
+
             if button['load_board']
               try_visit = false
               # For linked buttons, only traverse if
@@ -107,6 +116,7 @@ module AACMetrics::Metrics
       clusters[btn[:level]] << btn
     end
     {
+      analysis_version: AACMetrics::VERSION,
       locale: locale,
       total_boards: total_boards,
       total_buttons: buttons.length,
@@ -150,6 +160,7 @@ module AACMetrics::Metrics
     
     core_lists = AACMetrics::Loader.core_lists(target[:locale])
     common_words_obj = AACMetrics::Loader.common_words(target[:locale])
+    synonyms = AACMetrics::Loader.synonyms(target[:locale])
     common_words_obj['efforts'].each{|w, e| efforts[w] ||= e }
     common_words = common_words_obj['words']
     
@@ -164,9 +175,16 @@ module AACMetrics::Metrics
         end
       end
     end
+
     
     missing = (compare_words - target_words).sort_by{|w| efforts[w] }
+    missing = missing.select do |word|
+      !synonyms[word] || (synonyms[word] & target_words).length == 0
+    end
     extras = (target_words - compare_words).sort_by{|w| efforts[w] }
+    extras = extras.select do |word|
+      !synonyms[word] || (synonyms[word] & compare_words).length == 0
+    end
     # puts "MISSING WORDS (#{missing.length}):"
     res[:missing_words] = missing
     # puts missing.join('  ')
@@ -178,17 +196,22 @@ module AACMetrics::Metrics
     res[:overlapping_words] = overlap
     # puts overlap.join('  ')
     missing = (common_words - target_words)
+    missing = missing.select do |word|
+      !synonyms[word] || (synonyms[word] & target_words).length == 0
+    end
     # puts "MISSING FROM COMMON (#{missing.length})"
     res[:missing] = {
       :common => {name: "Common Word List", list: missing}
     }
     # puts missing.join('  ')
     core_lists.each do |list|
+      puts list['id']
       missing = []
       list['words'].each do |word|
-        words = word.gsub(/’/, '').downcase.split(/\|/)
+        words = [word] + (synonyms[word] || [])
         if (target_words & words).length == 0
-          missing << words[0] 
+          missing << word
+          raise "orng" if word == 'orange'
         end
       end
       if missing.length > 0

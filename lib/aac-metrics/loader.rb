@@ -238,7 +238,7 @@ module AACMetrics::Loader
     files += common_analysis_paths.map{|p| File.basename(p) }.sort
     path = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'sets', "common_words.#{locale}.json"))    
     res = JSON.parse(File.read(path)) rescue nil
-    if !res || true
+    if !res || res['version'] != AACMetrics::VERSION || res['files'] != files
       efforts = {}
       common_words = nil
       common_paths.each do |path|
@@ -265,6 +265,7 @@ module AACMetrics::Loader
         sorted_efforts[str] = val
       end
       res = {
+        'version' => AACMetrics::VERSION,
         'files' => files,
         'words' => sorted_efforts.keys,
         'efforts' => sorted_efforts
@@ -275,6 +276,22 @@ module AACMetrics::Loader
     end
     res
   end
+
+  def self.synonyms(locale)
+    @@synonyms ||= {}
+    return @@synonyms[locale] if @@synonyms[locale]
+    locale = locale.split(/-|_/)[0]
+    path = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'sets', "synonyms.#{locale}.json"))
+    res = {}
+    list = JSON.parse(File.read(path))
+    list.each do |words|
+      words.each do |word|
+        res[word] = words - [word]
+      end
+    end
+    @@synonyms[locale] = res
+  end
+
 
   def self.base_words(locale)
     @@base_words ||= {}
