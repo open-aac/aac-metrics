@@ -130,18 +130,24 @@ module AACMetrics::Metrics
     res = {}.merge(target)
 
     compare = AACMetrics::Metrics.analyze(compset, false)
+    res[:comp_boards] = compare[:total_boards]
+    res[:comp_buttons] = compare[:total_buttons]
     
     compare_words = []
     compare_buttons = {}
+    comp_efforts = {}
     compare[:buttons].each do |btn|
       compare_words << btn[:label]
       compare_buttons[btn[:label]] = btn
+      comp_efforts[btn[:label]] = btn[:effort]
     end
 
     efforts = {}
+    target_efforts = {}
     target_words = []
     res[:buttons].each{|b| 
       target_words << b[:label]
+      target_efforts[b[:label]] = b[:effort]
       efforts[b[:label]] = b[:effort] 
       comp = compare_buttons[b[:label]]
       if comp
@@ -199,26 +205,68 @@ module AACMetrics::Metrics
     missing = missing.select do |word|
       !synonyms[word] || (synonyms[word] & target_words).length == 0
     end
+    common_effort = 0
+    comp_effort = 0
+    common_words.each do |word|
+      effort = target_efforts[word]
+      if !effort && synonyms[word]
+        synonyms[word].each do |syn|
+          effort ||= target_efforts[syn]
+        end
+      end
+      effort ||= 2 + (word.length * 2.5)
+      common_effort += effort
+
+      effort = comp_efforts[word]
+      if !effort && synonyms[word]
+        synonyms[word].each do |syn|
+          effort ||= comp_efforts[syn]
+        end
+      end
+      effort ||= 2 + (word.length * 2.5)
+      comp_effort += effort
+    end
+    common_effort = common_effort.to_f / common_words.length.to_f
+    comp_effort = comp_effort.to_f / common_words.length.to_f
     # puts "MISSING FROM COMMON (#{missing.length})"
     res[:missing] = {
       :common => {name: "Common Word List", list: missing}
+    }
+    res[:cores] = {
+      :common => {name: "Common Word List", list: common_words, average_effort: common_effort, comp_effort: comp_effort}
     }
     # puts missing.join('  ')
     core_lists.each do |list|
       puts list['id']
       missing = []
+      list_effort = 0
+      comp_effort = 0
       list['words'].each do |word|
         words = [word] + (synonyms[word] || [])
         if (target_words & words).length == 0
           missing << word
-          raise "orng" if word == 'orange'
         end
+        effort = target_efforts[word]
+        if !effort
+          words.each{|w| effort ||= target_efforts[w] }
+        end
+        effort ||= 2 + (word.length * 2.5)
+        list_effort += effort
+        effort = comp_efforts[word]
+        if !effort
+          words.each{|w| effort ||= comp_efforts[w] }
+        end
+        effort ||= 2 + (word.length * 2.5)
+        comp_effort += effort
       end
       if missing.length > 0
         # puts "MISSING FROM #{list['id']} (#{missing.length}):"
-        res[:missing][list['id']] = {name: list['name'], list: missing}
+        res[:missing][list['id']] = {name: list['name'], list: missing, average_effort: list_effort}
         # puts missing.join('  ')
       end
+      list_effort = list_effort.to_f / list['words'].length.to_f
+      comp_effort = comp_effort.to_f / list['words'].length.to_f
+      res[:cores][list['id']] = {name: list['name'], list: list['words'], average_effort: list_effort, comp_effort: comp_effort}
     end
     # puts "CONSIDER MAKING EASIER"
     res[:high_effort_words] = too_hard

@@ -36,4 +36,7 @@ puts "CONSIDER MAKING EASIER"
 puts res[:high_effort_words].join('  ')
 puts "CONSIDER LESS PRIORITY"
 puts res[:low_effort_words].join('  ')
+res[:cores].each do |id, obj|
+  puts "SCORE FOR #{obj[:name]} #{obj[:average_effort]} vs. #{obj[:comp_effort]}"
+end
 
