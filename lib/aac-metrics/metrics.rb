@@ -2,7 +2,9 @@
 # Scores for average effort level for word sets (spelling if that's th only way)
 # Effort scores for sentence corpus
 # Effort algorithms for scanning/eyes
-
+# TODO: manual way to flag button as conceptually
+#       related to the same-locaed button on the
+#       prior board, allowing for a discounted penalty
 module AACMetrics::Metrics
   def self.analyze(obfset, output=true)
     locale = nil
@@ -81,6 +83,7 @@ module AACMetrics::Metrics
               end
               if try_visit
                 next_board = obfset.detect{|brd| brd['id'] == button['load_board']['id'] }
+                puts "LIKE[] #{effort}" if button['label'] == 'like'
                 if next_board
                   to_visit.push({
                     board: next_board,
@@ -94,7 +97,8 @@ module AACMetrics::Metrics
             else
               word = button['label']
               existing = known_buttons[word]
-              if !existing || board[:level] < existing[:level]
+              if !existing || existing[:effort] < effort #board[:level] < existing[:level]
+                puts "LIKE #{effort}" if button['label'] == 'like'
                 known_buttons[word] = {
                   id: "#{button['id']}::#{board[:board]['id']}",
                   label: word,
@@ -237,7 +241,6 @@ module AACMetrics::Metrics
     }
     # puts missing.join('  ')
     core_lists.each do |list|
-      puts list['id']
       missing = []
       list_effort = 0
       comp_effort = 0

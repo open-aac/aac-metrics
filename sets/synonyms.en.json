@@ -20,6 +20,12 @@
   ["bug", "bugs"],
   ["cow", "cows"],
   ["not", "don't"],
+  ["my turn", "turn"],
+  ["your turn", "turn"],
+  ["afraid", "scared","frightened"],
+  ["really", "very"],
+  ["kind", "nice"],
+  ["mad", "angry"],
   ["grandma", "grandmother"],
   ["grandpa", "grandfather"],
   ["bye", "goodbye", "good bye"],
@@ -31,7 +37,13 @@
   ["clothes", "clothing"],
   ["butt", "bum", "bottom"],
   ["fast", "quick"],
-  ["done", "all done", "all gone"],
+  ["done", "all done", "all gone", "finished"],
   ["divorce", "divorced"],
-  ["marriage", "married"]
+  ["marriage", "married"],
+  ["mom", "mother"],
+  ["dad", "father"],
+  ["grandma", "grandmother"],
+  ["grandpa", "grandfather"],
+  ["kid", "child"],
+  ["bug", "insect"]
 ]
