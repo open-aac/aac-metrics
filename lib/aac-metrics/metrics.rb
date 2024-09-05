@@ -2,12 +2,9 @@
 # Scores for average effort level for word sets (spelling if that's th only way)
 # Effort scores for sentence corpus
 # Effort algorithms for scanning/eyes
-<<<<<<< HEAD
 # TODO: manual way to flag button as conceptually
 #       related to the same-locaed button on the
 #       prior board, allowing for a discounted penalty
-=======
->>>>>>> 5efd35d (start tracking sentence generation, and add summative score)
 module AACMetrics::Metrics
     # TODO: 
     # 1. When navigating from one board to the next, grid locations
