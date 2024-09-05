@@ -8,7 +8,7 @@
 # Are grammar inflections available?
 # Does this support auto-home, or other motor planning supports?
 # Are other language options available?
-# How is thee vocabulary organized?
+# How is the vocabulary organized?
 # What platforms are supported?
 # Access to keyboard w/ prediction? Numbers?
 # How easy is it to say these personalized sentences: _____

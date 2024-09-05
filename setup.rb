@@ -37,6 +37,17 @@ puts res[:high_effort_words].join('  ')
 puts "CONSIDER LESS PRIORITY"
 puts res[:low_effort_words].join('  ')
 res[:cores].each do |id, obj|
-  puts "SCORE FOR #{obj[:name]} #{obj[:average_effort]} vs. #{obj[:comp_effort]}"
+  puts "SCORE FOR #{obj[:name]} #{obj[:average_effort].round(2)} vs. #{obj[:comp_effort].round(2)}"
 end
+
+puts ""
+res[:sentences].each do |sentence|
+  puts "SCORE FOR #{sentence[:sentence]} #{sentence[:effort].round(2)} vs #{sentence[:comp_effort].round(2)}"
+end
+
+puts ""
+puts "#{ARGV[0]} #{res[:target_effort_score].round(2)}"
+puts "#{ARGV[1] || 'qc24'} #{res[:comp_effort_score].round(2)}"
+
+# puts JSON.pretty_generate(res[:sentences])
 

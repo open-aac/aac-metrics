@@ -78,6 +78,7 @@ module AACMetrics::Loader
     words_path = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'sets', "base_words"))
     words = nil
     do_ingest = true
+    relations_hash = {}
     
     while paths.length > 0
       path = paths.shift
@@ -130,17 +131,7 @@ module AACMetrics::Loader
                 "id" => "btn#{btn_idx}",
                 "label" => (btn['vocalization'] || '').length > 0 ? btn['vocalization'] : btn['label']
               }
-              if do_ingest && new_btn['label']
-                str = new_btn['label'].downcase.sub(/^\s+/, '').sub(/\s+$/, '')
-                if str.scan(/\s+/).length < 2
-                  word_hash = Digest::MD5.hexdigest(str)[0, 10]
-                  raise "collision!" if words[word_hash] && words[word_hash] != str
-                  if add_words || words[word_hash]
-                    words[word_hash] = str
-                    new_btn['label'] = "$#{word_hash}"
-                  end
-                end
-              end
+              # record load_board reference
               btn_idx += 1
               if btn['load_board']
                 if btn['load_board']['path']
@@ -167,6 +158,36 @@ module AACMetrics::Loader
                 # treat action buttons for metrics
                 new_btn = nil
               end
+              # temporarily save semantic_id and possible clone_id for later use
+              # 1. Buttons in the same location with the same
+              # semantic_id should be marked in the obfset as having
+              # the same semantic_id
+              # 2. Buttons in the same location with the same label & voc
+              # and same load_board setting
+              # should be marked in the obfset as having the same clone_id
+              ref = "#{new_json['grid']['rows']}x#{new_json['grid']['columns']}-#{row_ids}.#{col_id}"
+              if btn['semantic_id']
+                relations_hash["s#{ref}-#{btn['semantic_id']}"] ||= []
+                relations_hash["s#{ref}-#{btn['semantic_id']}"] << [new_json['id'], new_btn['id']]
+              end
+              if new_btn['label']
+                # TODO: currently doesn't enforce same-location on links, just whether it's a linked button or not
+                pre = new_btn['load_board'] ? 'cl' : 'c'
+                relations_hash["#{pre}#{ref}-#{new_btn['label']}"] ||= []
+                relations_hash["#{pre}#{ref}-#{new_btn['label']}"] ||= [new_json['id'], new_btn['id']]
+              end
+              if do_ingest && new_btn['label']
+                str = new_btn['label'].downcase.sub(/^\s+/, '').sub(/\s+$/, '')
+                if str.scan(/\s+/).length < 2
+                  word_hash = Digest::MD5.hexdigest(str)[0, 10]
+                  raise "collision!" if words[word_hash] && words[word_hash] != str
+                  if add_words || words[word_hash]
+                    words[word_hash] = str
+                    new_btn['label'] = "$#{word_hash}"
+                  end
+                end
+              end
+
             end
             new_row.push(new_btn ? new_btn['id'] : nil)
             new_json['buttons'].push(new_btn) if new_btn
@@ -174,6 +195,29 @@ module AACMetrics::Loader
           new_json['grid']['order'].push(new_row)
         end
         boards << new_json
+      end
+    end
+    # any semantic_id or clone_id repeats must be recorded
+    relations_hash.each do |id, btns|
+      if btns && btns.length > 0
+        btns.each do |brd_id, btn_id|
+          brd = boards.detect{|b| b['id'] == brd_id }
+          if brd && brd['buttons']
+            btn = brd['buttons'].detect{|b| b['id'] == btn_id }
+            if btn
+              if id.match(/^s/)
+                btn['semantic_id'] = id
+                brd['semantic_ids'] ||= []
+                brd['semantic_ids'] << id
+              elsif id.match(/^c/)
+                btn['clone_id'] = id
+                brd['clone_ids'] ||= []
+                brd['clone_ids'] << id
+              end
+            end
+          end
+        end
+        # 
       end
     end
     boards.each do |brd|
@@ -184,8 +228,20 @@ module AACMetrics::Loader
         end
       end
     end
+    # TODO: record whether the board set is expected to have auto-home
     {boards: boards, words: words, words_path: words_path}
   end
+
+  # TODO: Qualitative assessments of common vocabularies,
+  # gather perspectives on what makes a "good" vocabulary
+  # and collect reviews from field experts, also free
+  # response sections.
+  # Some criteria:
+  # - works well for age group X, Y, Z
+  # - works well for a beginning communicator
+  # - allows long-term growth as-is
+  # - comprehensive core
+  # - 
 
   def self.ingest(fn, token=nil)
     output = nil
@@ -292,6 +348,14 @@ module AACMetrics::Loader
     @@synonyms[locale] = res
   end
 
+  def self.sentences(locale)
+    @@sentences ||= {}
+    return @@sentences[locale] if @@sentences[locale]
+    locale = locale.split(/-|_/)[0]
+    path = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'sets', "sentences.#{locale}.json"))
+    res = JSON.parse(File.read(path))
+    @@sentences[locale] = res
+  end
 
   def self.base_words(locale)
     @@base_words ||= {}
