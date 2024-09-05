@@ -43,7 +43,7 @@
 # thing explainer phrases, lists of words
 
 module AACMetrics
-  VERSION = "0.1"
+  VERSION = "0.2"
   require 'aac-metrics/loader'
   require 'aac-metrics/metrics'
 end

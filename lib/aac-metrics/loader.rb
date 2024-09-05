@@ -357,6 +357,22 @@ module AACMetrics::Loader
     @@sentences[locale] = res
   end
 
+  def self.fringe_words(locale)
+    @@fringe_words ||= {}
+    return @@fringe_words[locale] if @@fringe_words[locale]
+    locale = locale.split(/-|_/)[0]
+    path = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'sets', "fringe.#{locale}.json"))
+    all_words = []
+    list = JSON.parse(File.read(path))
+    list.each do |set|
+      set['categories'].each do |cat|
+        all_words += cat['words']
+      end
+    end
+    all_words.uniq!
+    @@synonyms[locale] = all_words
+  end
+  
   def self.base_words(locale)
     @@base_words ||= {}
     return @@base_words[locale] if @@base_words[locale]

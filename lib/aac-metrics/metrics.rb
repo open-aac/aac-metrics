@@ -27,11 +27,12 @@ module AACMetrics::Metrics
     locale = nil
     buttons = []
     refs = {}
-    total_boards = 1
+    grid = {}
 
     if obfset.is_a?(Hash) && obfset['buttons']
       locale = obfset['locale'] || 'en'
       refs = obfset['reference_counts']
+      grid = obfset['grid']
       buttons = []
       obfset['buttons'].each do |btn|
         buttons << {
@@ -48,7 +49,15 @@ module AACMetrics::Metrics
       visited_board_ids = {}
       to_visit = [{board: obfset[0], level: 0, entry_x: 1.0, entry_y: 1.0}]
       refs = {}
+      rows_tally = 0.0
+      cols_tally = 0.0
+      root_rows = nil
+      root_cols = nil
       obfset.each do |board|
+        root_rows ||= board['grid']['rows']
+        root_cols ||= board['grid']['columns']
+        rows_tally += board['grid']['rows']
+        cols_tally += board['grid']['columns']
         # determine frequency within the board set
         # for each semantic_id and clone_id
         if board['clone_ids']
@@ -63,6 +72,10 @@ module AACMetrics::Metrics
             refs[id] += 1
           end
         end
+      end
+      if (rows_tally / obfset.length.to_f - root_rows).abs > 3 || (cols_tally / obfset.length.to_f - root_cols).abs > 3
+        root_rows = (rows_tally / obfset.length.to_f).floor
+        root_cols = (cols_tally / obfset.length.to_f).floor
       end
       pcts = {}
       refs.each do |id, cnt|
@@ -197,6 +210,10 @@ module AACMetrics::Metrics
       total_boards: total_boards,
       total_buttons: buttons.length,
       reference_counts: refs,
+      grid: {
+        rows: root_rows,
+        columns: root_cols
+      },
       buttons: buttons,
       levels: clusters
     }
@@ -280,6 +297,7 @@ module AACMetrics::Metrics
     common_words_obj = AACMetrics::Loader.common_words(target[:locale])
     synonyms = AACMetrics::Loader.synonyms(target[:locale])
     sentences = AACMetrics::Loader.sentences(target[:locale])
+    fringe = AACMetrics::Loader.fringe_words(target[:locale])
     common_words_obj['efforts'].each{|w, e| sortable_efforts[w] ||= e }
     common_words = common_words_obj['words']
     
@@ -429,7 +447,6 @@ module AACMetrics::Metrics
         effort ||= spelling_effort(word)
         effort += (idx == 0) ? 0.0 : BOARD_CHANGE_PROCESSING_EFFORT
         comp_effort_score += effort
-        puts "      #{word} #{ee} #{effort}"
       end
       target_effort_score = target_effort_score / words.length
       comp_effort_score = comp_effort_score / words.length
@@ -437,8 +454,32 @@ module AACMetrics::Metrics
     end
     target_effort_tally += res[:sentences].map{|s| s[:effort] }.sum.to_f / res[:sentences].length.to_f * 3.0
     comp_effort_tally += res[:sentences].map{|s| s[:comp_effort] }.sum.to_f / res[:sentences].length.to_f * 3.0
-    target_effort_tally += 100 # placeholder value for future added calculations
-    comp_effort_tally += 100
+
+    res[:fringe_words] = []
+    fringe.each do |word|
+      target_effort_score = 0.0
+      comp_effort_score = 0.0
+      synonym_words = [word] + (synonyms[word] || [])
+      effort = target_efforts[word] || target_efforts[word.downcase]
+      if !effort
+        synonym_words.each{|w| effort ||= target_efforts[w] }
+      end
+      effort ||= spelling_effort(word)
+      target_effort_score += effort
+
+      effort = comp_efforts[word] || comp_efforts[word.downcase]
+      if !effort
+        synonym_words.each{|w| effort ||= comp_efforts[w] }
+      end
+      effort ||= spelling_effort(word)
+      comp_effort_score += effort
+      res[:fringe_words] << {word: word, effort: target_effort_score, comp_effort: comp_effort_score}
+    end
+    target_effort_tally += res[:fringe_words].map{|s| s[:effort] }.sum.to_f / res[:fringe_words].length.to_f * 2.0
+    comp_effort_tally += res[:fringe_words].map{|s| s[:comp_effort] }.sum.to_f / res[:fringe_words].length.to_f * 2.0
+
+    target_effort_tally += 80 # placeholder value for future added calculations
+    comp_effort_tally += 80
 
 
 
