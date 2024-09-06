@@ -256,14 +256,17 @@ module AACMetrics::Metrics
     compare_words = []
     compare_buttons = {}
     comp_efforts = {}
+    comp_levels = {}
     compare[:buttons].each do |btn|
       compare_words << btn[:label]
       compare_buttons[btn[:label]] = btn
       comp_efforts[btn[:label]] = btn[:effort]
+      comp_levels[btn[:label]] = btn[:level]
     end
 
     sortable_efforts = {}
     target_efforts = {}
+    target_levels = {}
     target_words = []
     # Track effort scores for each button in the set,
     # used to sort and for assessing priority
@@ -272,6 +275,7 @@ module AACMetrics::Metrics
     res[:buttons].each{|b| 
       target_words << b[:label]
       target_efforts[b[:label]] = b[:effort]
+      target_levels[b[:label]] = b[:level]
       sortable_efforts[b[:label]] = b[:effort] 
       comp = compare_buttons[b[:label]]
       if comp
@@ -414,7 +418,6 @@ module AACMetrics::Metrics
       res[:cores][list['id']] = {name: list['name'], list: list['words'], average_effort: list_effort, comp_effort: comp_effort}
     end
     target_effort_tally = (target_effort_tally / core_lists.to_a.length) * 5.0
-
     comp_effort_tally = (comp_effort_tally / core_lists.to_a.length) * 5.0
 
     # TODO: Assemble or allow a battery of word combinations,
@@ -422,27 +425,41 @@ module AACMetrics::Metrics
     # as well as an average level of effort across combinations.
     res[:sentences] = []
     sentences.each do |words|
-      puts "  #{words.join(' ')}"
-      BOARD_CHANGE_PROCESSING_EFFORT
       target_effort_score = 0.0
       comp_effort_score = 0.0
       words.each_with_index do |word, idx|
         synonym_words = [word] + (synonyms[word] || [])
         effort = target_efforts[word] || target_efforts[word.downcase]
+        level = target_levels[word] || target_levels[word.downcase]
         if !effort
-          synonym_words.each{|w| effort ||= target_efforts[w] }
+          synonym_words.each do |w| 
+            if !effort && target_efforts[w]
+              effort = target_efforts[w]
+              level = target_levels[w]
+            end
+          end
         end
         effort ||= spelling_effort(word)
-        effort += (idx == 0) ? 0.0 : BOARD_CHANGE_PROCESSING_EFFORT
+        if level && level > 0 && idx > 0
+          effort += BOARD_CHANGE_PROCESSING_EFFORT
+        end
         ee = effort
         target_effort_score += effort
 
         effort = comp_efforts[word] || comp_efforts[word.downcase]
+        level = comp_levels[word] || comp_levels[word.downcase]
         if !effort
-          synonym_words.each{|w| effort ||= comp_efforts[w] }
+          synonym_words.each do |w| 
+            if !effort && comp_efforts[w]
+              effort = comp_efforts[w]
+              level = comp_levels[w]
+            end
+          end
         end
         effort ||= spelling_effort(word)
-        effort += (idx == 0) ? 0.0 : BOARD_CHANGE_PROCESSING_EFFORT
+        if level && level > 0 && idx > 0
+          effort += BOARD_CHANGE_PROCESSING_EFFORT
+        end
         comp_effort_score += effort
       end
       target_effort_score = target_effort_score / words.length
