@@ -252,6 +252,7 @@ module AACMetrics::Metrics
     compare = AACMetrics::Metrics.analyze(compset, false)
     res[:comp_boards] = compare[:total_boards]
     res[:comp_buttons] = compare[:total_buttons]
+    res[:comp_grid] = compare[:grid]
     
     compare_words = []
     compare_buttons = {}
