@@ -1,6 +1,10 @@
 # TODO:
-# Scores for average effort level for word sets (spelling if that's th only way)
-# Effort scores for sentence corpus
+# Qualitative evaluation criteria:
+# - this set is easy to learn for communicators
+# - this set is easy to learn for supporters
+# - the vocabulary organization of this set makes sense
+# - this set provides clear opportunities for user-specific words to be added
+# - grammatical forms, growth over time
 # Effort algorithms for scanning/eyes
 # TODO: manual way to flag button as conceptually
 #       related to the same-locaed button on the
@@ -20,7 +24,7 @@ module AACMetrics::Metrics
     # 3.5 When selecting a button with a semantic_id or clone_id,
     # if the same id was present on the previous board,
     # an additional discount to search and selection should be applied
-    def self.analyze(obfset, output=true)
+    def self.analyze(obfset, output=true, include_obfset=false)
     locale = nil
     buttons = []
     refs = {}
@@ -50,6 +54,7 @@ module AACMetrics::Metrics
       cols_tally = 0.0
       root_rows = nil
       root_cols = nil
+      # Gather repeated words/concepts
       obfset.each do |board|
         root_rows ||= board['grid']['rows']
         root_cols ||= board['grid']['columns']
@@ -179,6 +184,7 @@ module AACMetrics::Metrics
             else
               word = button['label']
               existing = known_buttons[word]
+              button['effort'] = effort
               if !existing || existing[:effort] < effort #board[:level] < existing[:level]
                 puts "LIKE #{effort}" if button['label'] == 'like'
                 known_buttons[word] = {
@@ -201,7 +207,7 @@ module AACMetrics::Metrics
       clusters[btn[:level]] ||= []
       clusters[btn[:level]] << btn
     end
-    {
+    res = {
       analysis_version: AACMetrics::VERSION,
       locale: locale,
       total_boards: total_boards,
@@ -214,6 +220,10 @@ module AACMetrics::Metrics
       buttons: buttons,
       levels: clusters
     }
+    if include_obfset
+      res[:obfset] = obfset
+    end
+    res
   end
 
   SQRT2 = Math.sqrt(2)
@@ -245,8 +255,8 @@ module AACMetrics::Metrics
     10 + (word.length * 2.5)
   end
 
-  def self.analyze_and_compare(obfset, compset)
-    target = AACMetrics::Metrics.analyze(obfset, false)
+  def self.analyze_and_compare(obfset, compset, include_obfset=false)
+    target = AACMetrics::Metrics.analyze(obfset, false, include_obfset)
     res = {}.merge(target)
 
     compare = AACMetrics::Metrics.analyze(compset, false)

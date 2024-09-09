@@ -269,7 +269,7 @@ module AACMetrics::Loader
     end
     if boards
       analysis = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'sets', fn.sub(/\.obfset$/, '.analysis')))
-      res = AACMetrics::Metrics.analyze(boards)
+      res = AACMetrics::Metrics.analyze(boards, false)
       f = File.open(analysis, 'w')
       f.write(JSON.pretty_generate(res))
       f.close

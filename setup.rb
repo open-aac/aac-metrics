@@ -13,7 +13,7 @@ obfset2 = AACMetrics::Loader.retrieve(ARGV[1] || 'qc24')
 
 puts ARGV[0]
 puts ARGV[1]
-res = AACMetrics::Metrics.analyze_and_compare(obfset1, obfset2)
+res = AACMetrics::Metrics.analyze_and_compare(obfset1, obfset2, ARGV[2] == 'export')
 
 res[:levels].each do |level, buttons|
   puts "HITS: #{level + 1}"
@@ -49,5 +49,12 @@ puts ""
 puts "#{ARGV[0]} #{res[:target_effort_score].round(2)}"
 puts "#{ARGV[1] || 'qc24'} #{res[:comp_effort_score].round(2)}"
 
+if ARGV[2] == 'export'
+  output = File.expand_path(File.join(File.dirname(__FILE__), 'export.json'))
+  f = File.open(output, 'w')
+  f.write(JSON.pretty_generate(res[:obfset]))
+  f.close
+
+end
 # puts JSON.pretty_generate(res[:sentences])
 

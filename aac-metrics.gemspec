@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'ruby-debug'
 
-  s.version     = '0.1.5'
-  s.date        = '2024-09-05'
+  s.version     = '0.1.6'
+  s.date        = '2024-09-09'
   s.summary     = "AAC Board Set Metrics"
   s.extra_rdoc_files = %W(LICENSE)
   s.description = "A tool for analysing and comparing grid-based AAC board sets"
