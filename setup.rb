@@ -13,7 +13,7 @@ obfset2 = AACMetrics::Loader.retrieve(ARGV[1] || 'qc24')
 
 puts ARGV[0]
 puts ARGV[1]
-res = AACMetrics::Metrics.analyze_and_compare(obfset1, obfset2, ARGV[2] == 'export')
+res = AACMetrics::Metrics.analyze_and_compare(obfset1, obfset2, (ARGV[2] == 'export' || ARGV[2] == 'render'))
 
 res[:levels].each do |level, buttons|
   puts "HITS: #{level + 1}"
@@ -54,7 +54,25 @@ if ARGV[2] == 'export'
   f = File.open(output, 'w')
   f.write(JSON.pretty_generate(res[:obfset]))
   f.close
-
+elsif ARGV[2] == 'render'
+  puts res[:obfset][0].to_json
+  board = res[:obfset][0]
+  board['grid']['order'].each do |row|
+    row_str = ""
+    row.each do |col|
+      btn = col && board['buttons'].detect{|b| b['id'] == col}
+      if btn
+        str = btn['label']
+        if btn['effort']
+          str += " (#{btn['effort'].round(1)})"
+        end
+        row_str += str + "\t"
+      else
+        row_str += "_" + "\t"
+      end
+    end
+    puts row_str
+  end
 end
 # puts JSON.pretty_generate(res[:sentences])
 
