@@ -5,34 +5,38 @@
 # - the vocabulary organization of this set makes sense
 # - this set provides clear opportunities for user-specific words to be added
 # - grammatical forms, growth over time
+# - works well for age group X, Y, Z
+# - works well for a beginning communicator
+# - allows long-term growth as-is
+# - comprehensive core
+
 # Effort algorithms for scanning/eyes
-# TODO: manual way to flag button as conceptually
-#       related to the same-locaed button on the
-#       prior board, allowing for a discounted penalty
 module AACMetrics::Metrics
-    # TODO: 
-    # 1. When navigating from one board to the next, grid locations
+    # A. When navigating from one board to the next, grid locations
     # with the same clone_id or semantic_id should result in a
     # discount to overall search based more on the number of
     # uncloned/unsemantic buttons than the number of total buttons
     # (perhaps also factoring in the percent of board with that
     # id present in the full board set)
-    # 2. When selecting a button with a semantic_id or clone_id,
+    # B. When selecting a button with a semantic_id or clone_id,
     # a discount to both search and selection should
     # be applied based on the percent of boards that
     # contain the same id at that grid location
-    # 3.5 When selecting a button with a semantic_id or clone_id,
+    # C. When selecting a button with a semantic_id or clone_id,
     # if the same id was present on the previous board,
     # an additional discount to search and selection should be applied
-    def self.analyze(obfset, output=true, include_obfset=false)
+    # D When selecting a button with a semantic_id or clone_id,
+    # apply a steep discount to the button in the same location
+    # as the link used to get there if they share an id
+  def self.analyze(obfset, output=true, include_obfset=false)
     locale = nil
     buttons = []
-    refs = {}
+    set_refs = {}
     grid = {}
 
     if obfset.is_a?(Hash) && obfset['buttons']
       locale = obfset['locale'] || 'en'
-      refs = obfset['reference_counts']
+      set_refs = obfset['reference_counts']
       grid = obfset['grid']
       buttons = []
       obfset['buttons'].each do |btn|
@@ -49,13 +53,14 @@ module AACMetrics::Metrics
     else
       visited_board_ids = {}
       to_visit = [{board: obfset[0], level: 0, entry_x: 1.0, entry_y: 1.0}]
-      refs = {}
+      set_refs = {}
       rows_tally = 0.0
       cols_tally = 0.0
       root_rows = nil
       root_cols = nil
       # Gather repeated words/concepts
       obfset.each do |board|
+        # try to figure out the average grid size for board set
         root_rows ||= board['grid']['rows']
         root_cols ||= board['grid']['columns']
         rows_tally += board['grid']['rows']
@@ -63,25 +68,27 @@ module AACMetrics::Metrics
         # determine frequency within the board set
         # for each semantic_id and clone_id
         if board['clone_ids']
-          boards['clone_ids'].each do |id|
-            refs[id] ||= 0
-            refs[id] += 1
+          board['clone_ids'].each do |id|
+            set_refs[id] ||= 0
+            set_refs[id] += 1
           end
         end
         if board['semantic_ids']
-          boards['semantic_ids'].each do |id|
-            refs[id] ||= 0
-            refs[id] += 1
+          board['semantic_ids'].each do |id|
+            set_refs[id] ||= 0
+            set_refs[id] += 1
           end
         end
       end
+      # If the average grid size is much different than the root
+      # grid size, only then use the average as the size for this board set
       if (rows_tally / obfset.length.to_f - root_rows).abs > 3 || (cols_tally / obfset.length.to_f - root_cols).abs > 3
         root_rows = (rows_tally / obfset.length.to_f).floor
         root_cols = (cols_tally / obfset.length.to_f).floor
       end
-      pcts = {}
-      refs.each do |id, cnt|
-        pcts[id] = cnt.to_f / obfset.length.to_f
+      set_pcts = {}
+      set_refs.each do |id, cnt|
+        set_pcts[id] = cnt.to_f / obfset.length.to_f
       end
       locale = obfset[0]['locale']
       known_buttons = {}
@@ -102,19 +109,55 @@ module AACMetrics::Metrics
         # whose semantic_id or clone_id is repeated in the board set
         #       -0.0025 (* pct of matching boards) for semantic_id
         #       -0.005 (* pct of matching boards) for clone_id
+        reuse_discount = 0.0
         board[:board]['grid']['rows'].times do |row_idx|
           board[:board]['grid']['columns'].times do |col_idx|
             button_id = (board[:board]['grid']['order'][row_idx] || [])[col_idx]
             button = board[:board]['buttons'].detect{|b| b['id'] == button_id }
-            if button && button['clone_id'] && pcts[button['clone_id']]
-              board_effort -= 0.005 * pcts[button['clone_id']]
-            elsif button && button['semantic_id'] && pcts[button['semantic_id']]
-              board_effort -= 0.0025 * pcts[button['semantic_id']]
+            if button && button['clone_id'] && set_pcts[button['clone_id']]
+              reuse_discount += REUSED_CLONE_FROM_OTHER_DISCOUNT * set_pcts[button['clone_id']]
+            elsif button && button['semantic_id'] && set_pcts[button['semantic_id']]
+              reuse_discount += REUSED_SEMANTIC_FROM_OTHER_DISCOUNT * set_pcts[button['semantic_id']]
             end
           end
         end
-
+        board_effort -= reuse_discount
         prior_buttons = 0
+
+        # Calculate the percent of links to this board
+        # that had or were linked by clone_ids or semantic_ids
+        board_pcts = {}
+        obfset.each do |brd|
+          brd['buttons'].each do |link_btn|
+            #  For every board that links to this board
+            if link_btn['load_board'] && link_btn['load_board']['id'] == board[:board]['id']
+              board_pcts['all'] ||= 0
+              board_pcts['all'] += 1
+              # Count how many of those links have a clone_id or semantic_id
+              if link_btn['clone_id']
+                board_pcts[link_btn['clone_id']] ||= 0
+                board_pcts[link_btn['clone_id']] += 1
+              end
+              if link_btn['semantic_id']
+                board_pcts[link_btn['semantic_id']] ||= 0
+                board_pcts[link_btn['semantic_id']] += 1
+              end
+              # Also count all the clone_ids and semantic_ids
+              # anywhere on the boards that link to this one
+              (brd['clone_ids'] || []).uniq.each do |cid|
+                board_pcts["upstream-#{cid}"] ||= 0
+                board_pcts["upstream-#{cid}"] += 1
+              end
+              (brd['semantic_ids'] || []).uniq.each do |sid|
+                board_pcts["upstream-#{sid}"] ||= 0
+                board_pcts["upstream-#{sid}"] += 1
+              end
+            end
+          end
+        end
+        board_pcts.each do |id, cnt|
+          board_pcts[id] = board_pcts[id].to_f / board_pcts['all'].to_f
+        end
 
         board[:board]['grid']['rows'].times do |row_idx|
           board[:board]['grid']['columns'].times do |col_idx|
@@ -125,13 +168,34 @@ module AACMetrics::Metrics
             x = (btn_width / 2)  + (btn_width * col_idx)
             y = (btn_height / 2) + (btn_height * row_idx)
             # prior_buttons = (row_idx * board[:board]['grid']['columns']) + col_idx
+            # calculate the percentage of links that point to this button
+            # and match on semantic_id or clone_id
             effort = 0
-            # TODO: additional discount on board search effort
-            #       if this button's semantic_id or clone_id
-            #       was also present on the prior board
-            #       board_effort * 0.5 for semantic_id
-            #       board_effort * 0.33 for clone_id
-            effort += board_effort
+            # Additional discount on board search effort,
+            # remember that semantic_id and clone_id are 
+            # keyed to the same grid location, so matches only
+            # apply to that specific location
+            #       - if this button's semantic_id or clone_id
+            #         was also present anywhere on the prior board
+            #         board_effort * 0.5 for semantic_id
+            #         board_effort * 0.33 for clone_id
+            #       - if this button's semantic_id or clone_id
+            #         is directly used to navigate to this board
+            #         board_effort * 0.1 for semantic_id
+            #         board_effort * 0.1 for clone_id
+            button_effort = board_effort
+            if board_pcts[button['semantic_id']]
+              # TODO: Pull out these magic numbers
+              button_effort = [button_effort, button_effort * SAME_LOCATION_AS_PRIOR_DISCOUNT / board_pcts[button['semantic_id']]].min
+            elsif board_pcts["upstream-#{button['semantic_id']}"]
+              button_effort = [button_effort, button_effort * RECOGNIZABLE_SEMANTIC_FROM_PRIOR_DISCOUNT / board_pcts["upstream-#{button['semantic_id']}"]].min
+            end
+            if board_pcts[button['clone_id']]
+              button_effort = [button_effort, button_effort * SAME_LOCATION_AS_PRIOR_DISCOUNT / board_pcts[button['clone_id']]].min
+            elsif board_pcts["upstream-#{button['clone_id']}"]
+              button_effort = [button_effort, button_effort * RECOGNIZABLE_CLONE_FROM_PRIOR_DISCOUNT / board_pcts["upstream-#{button['clone_id']}"]].min
+            end
+            effort += button_effort
             # add effort for percent distance from entry point
             distance = distance_effort(x, y, board[:entry_x], board[:entry_y])
             # TODO: decrease effective distance if the semantic_id or clone_id:
@@ -141,6 +205,24 @@ module AACMetrics::Metrics
             #       - was also present on the prior board (total)
             #         distance * 0.5 for semantic_id
             #         distance * 0.33 for clone_id
+            #       - is directly used to navigate to this board
+            #         distance * 0.1 * (pct of links that match) for semantic_id
+            #         distance * 0.1 * (pct of links that match) for clone_id
+            if board_pcts[button['semantic_id']]
+              distance = [distance, distance * SAME_LOCATION_AS_PRIOR_DISCOUNT / board_pcts[button['semantic_id']]].min
+            elsif board_pcts["upstream-#{button['semantic_id']}"]
+              distance = [distance, distance * RECOGNIZABLE_SEMANTIC_FROM_PRIOR_DISCOUNT / board_pcts["upstream-#{button['semantic_id']}"]].min
+            elsif set_pcts[button['semantic_id']]
+              distance = [distance, distance * RECOGNIZABLE_SEMANTIC_FROM_OTHER_DISCOUNT / set_pcts[button['semantic_id']]].min
+            end
+            if board_pcts[button['clone_id']]
+              distance = [distance, distance * SAME_LOCATION_AS_PRIOR_DISCOUNT / board_pcts[button['clone_id']]].min
+            elsif board_pcts["upstream-#{button['clone_id']}"]
+              distance = [distance, distance * RECOGNIZABLE_CLONE_FROM_PRIOR_DISCOUNT / board_pcts["upstream-#{button['clone_id']}"]].min
+            elsif set_pcts[button['clone_id']]
+              distance = [distance, distance * RECOGNIZABLE_CLONE_FROM_OTHER_DISCOUNT / set_pcts[button['clone_id']]].min
+            end
+
             effort += distance
             if distance > DISTANCE_THRESHOLD_TO_SKIP_VISUAL_SCAN || (board[:entry_x] == 1.0 && board[:entry_y] == 1.0)
               # add small effort for every prior (visible) button when visually scanning
@@ -170,31 +252,39 @@ module AACMetrics::Metrics
               end
               if try_visit
                 next_board = obfset.detect{|brd| brd['id'] == button['load_board']['id'] }
-                puts "LIKE[] #{effort}" if button['label'] == 'like'
+                change_effort = BOARD_CHANGE_PROCESSING_EFFORT
                 if next_board
                   to_visit.push({
                     board: next_board,
                     level: board[:level] + 1,
-                    prior_effort: effort + BOARD_CHANGE_PROCESSING_EFFORT,
+                    prior_effort: effort + change_effort,
                     entry_x: x,
-                    entry_y: y
+                    entry_y: y,
+                    entry_clone_id: button['clone_id'],
+                    entry_semantic_id: button['semantic_id']
                   })
                 end
               end
             else
               word = button['label']
               existing = known_buttons[word]
-              button['effort'] = effort
-              if !existing || existing[:effort] < effort #board[:level] < existing[:level]
-                puts "LIKE #{effort}" if button['label'] == 'like'
+              if !existing || effort < existing[:effort] #board[:level] < existing[:level]
+                if board_pcts[button['clone_id']]
+                  effort -= [BOARD_CHANGE_PROCESSING_EFFORT, BOARD_CHANGE_PROCESSING_EFFORT * 0.3 / board_pcts[button['clone_id']]].min
+                elsif board_pcts[button['semantic_id']]
+                  effort -= [BOARD_CHANGE_PROCESSING_EFFORT, BOARD_CHANGE_PROCESSING_EFFORT * 0.5 / board_pcts[button['semantic_id']]].min
+                end
+
                 known_buttons[word] = {
                   id: "#{button['id']}::#{board[:board]['id']}",
                   label: word,
                   level: board[:level],
-                  effort: effort
+                  effort: effort,
                 }
               end
             end
+            button['effort'] = effort
+
           end
         end
       end
@@ -212,7 +302,7 @@ module AACMetrics::Metrics
       locale: locale,
       total_boards: total_boards,
       total_buttons: buttons.length,
-      reference_counts: refs,
+      reference_counts: set_refs,
       grid: {
         rows: root_rows,
         columns: root_cols
@@ -234,6 +324,13 @@ module AACMetrics::Metrics
   DISTANCE_MULTIPLIER = 0.4
   DISTANCE_THRESHOLD_TO_SKIP_VISUAL_SCAN = 0.1
   SKIPPED_VISUAL_SCAN_DISTANCE_MULTIPLIER = 0.5
+  SAME_LOCATION_AS_PRIOR_DISCOUNT = 0.1
+  RECOGNIZABLE_SEMANTIC_FROM_PRIOR_DISCOUNT = 0.5
+  RECOGNIZABLE_SEMANTIC_FROM_OTHER_DISCOUNT = 0.6
+  RECOGNIZABLE_CLONE_FROM_PRIOR_DISCOUNT = 0.33
+  RECOGNIZABLE_CLONE_FROM_OTHER_DISCOUNT = 0.4
+  REUSED_SEMANTIC_FROM_OTHER_DISCOUNT = 0.0025
+  REUSED_CLONE_FROM_OTHER_DISCOUNT = 0.005
 
   def self.button_size_effort(rows, cols)
     BUTTON_SIZE_MULTIPLIER * (rows + cols) / 2
