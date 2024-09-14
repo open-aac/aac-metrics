@@ -1,6 +1,5 @@
 [
   {
-    "format": "obs",
     "id": "brd1",
     "buttons": [
       {
@@ -16,49 +15,56 @@
         "label": "$ab86a1e1ef",
         "load_board": {
           "id": "brd2"
-        }
+        },
+        "clone_id": "c8x15-0.2-me"
       },
       {
         "id": "btn4",
         "label": "$6050ce63e4",
         "load_board": {
           "id": "brd3"
-        }
+        },
+        "clone_id": "c8x15-0.3-please"
       },
       {
         "id": "btn5",
         "label": "$12de3a4dab",
         "load_board": {
           "id": "brd4"
-        }
+        },
+        "clone_id": "c8x15-0.4-come"
       },
       {
         "id": "btn6",
         "label": "$df8fede7ff",
         "load_board": {
           "id": "brd5"
-        }
+        },
+        "clone_id": "c8x15-0.5-okay"
       },
       {
         "id": "btn7",
         "label": "$5ed33f7008",
         "load_board": {
           "id": "brd6"
-        }
+        },
+        "clone_id": "c8x15-0.6-ask"
       },
       {
         "id": "btn8",
         "label": "$8e13ffc9fd",
         "load_board": {
           "id": "brd7"
-        }
+        },
+        "clone_id": "c8x15-0.7-put"
       },
       {
         "id": "btn9",
         "label": "$d59be207a8",
         "load_board": {
           "id": "brd8"
-        }
+        },
+        "clone_id": "c8x15-0.8-+s"
       },
       {
         "id": "btn10",
@@ -69,14 +75,16 @@
         "label": "$657f8b8da6",
         "load_board": {
           "id": "brd9"
-        }
+        },
+        "clone_id": "c8x15-0.10-help"
       },
       {
         "id": "btn12",
         "label": "$8afc1e9bec",
         "load_board": {
           "id": "brd10"
-        }
+        },
+        "clone_id": "c8x15-0.11-thing"
       },
       {
         "id": "btn13",
@@ -103,14 +111,16 @@
         "label": "$4015e9ce43",
         "load_board": {
           "id": "brd11"
-        }
+        },
+        "clone_id": "c8x15-1.2-are"
       },
       {
         "id": "btn19",
         "label": "$a2a551a645",
         "load_board": {
           "id": "brd12"
-        }
+        },
+        "clone_id": "c8x15-1.3-is"
       },
       {
         "id": "btn20",
@@ -121,56 +131,64 @@
         "label": "$2c61ebff5a",
         "load_board": {
           "id": "brd13"
-        }
+        },
+        "clone_id": "c8x15-1.5-can"
       },
       {
         "id": "btn22",
         "label": "$18218139ee",
         "load_board": {
           "id": "brd14"
-        }
+        },
+        "clone_id": "c8x15-1.6-will"
       },
       {
         "id": "btn23",
         "label": "$a77b359894",
         "load_board": {
           "id": "brd15"
-        }
+        },
+        "clone_id": "c8x15-1.7-was"
       },
       {
         "id": "btn24",
         "label": "$2b016d9095",
         "load_board": {
           "id": "brd16"
-        }
+        },
+        "clone_id": "c8x15-1.8-were"
       },
       {
         "id": "btn25",
         "label": "$37598dad8f",
         "load_board": {
           "id": "brd17"
-        }
+        },
+        "clone_id": "c8x15-1.9-but"
       },
       {
         "id": "btn26",
         "label": "$4a2028ecea",
         "load_board": {
           "id": "brd18"
-        }
+        },
+        "clone_id": "c8x15-1.10-what"
       },
       {
         "id": "btn27",
         "label": "$b7b791e873",
         "load_board": {
           "id": "brd19"
-        }
+        },
+        "clone_id": "c8x15-1.11-said"
       },
       {
         "id": "btn28",
         "label": "$e81c4e4f2b",
         "load_board": {
           "id": "brd20"
-        }
+        },
+        "clone_id": "c8x15-1.12-or"
       },
       {
         "id": "btn29",
@@ -193,56 +211,64 @@
         "label": "$07cc694b9b",
         "load_board": {
           "id": "brd21"
-        }
+        },
+        "clone_id": "c8x15-2.2-time"
       },
       {
         "id": "btn34",
         "label": "$8c4291f695",
         "load_board": {
           "id": "brd22"
-        }
+        },
+        "clone_id": "c8x15-2.3-look"
       },
       {
         "id": "btn35",
         "label": "$ff07673105",
         "load_board": {
           "id": "brd23"
-        }
+        },
+        "clone_id": "c8x15-2.4-wear"
       },
       {
         "id": "btn36",
         "label": "$a3b34c0871",
         "load_board": {
           "id": "brd24"
-        }
+        },
+        "clone_id": "c8x15-2.5-play"
       },
       {
         "id": "btn37",
         "label": "$01b6e20344",
         "load_board": {
           "id": "brd25"
-        }
+        },
+        "clone_id": "c8x15-2.6-to"
       },
       {
         "id": "btn38",
         "label": "$b42dad5453",
         "load_board": {
           "id": "brd26"
-        }
+        },
+        "clone_id": "c8x15-2.7-have"
       },
       {
         "id": "btn39",
         "label": "$0cc175b9c0",
         "load_board": {
           "id": "brd27"
-        }
+        },
+        "clone_id": "c8x15-2.8-a"
       },
       {
         "id": "btn40",
         "label": "$03d59e663c",
         "load_board": {
           "id": "brd28"
-        }
+        },
+        "clone_id": "c8x15-2.9-some"
       },
       {
         "id": "btn41",
@@ -257,21 +283,24 @@
         "label": "$b807023f87",
         "load_board": {
           "id": "brd29"
-        }
+        },
+        "clone_id": "c8x15-2.12-so"
       },
       {
         "id": "btn44",
         "label": "$0e5243d996",
         "load_board": {
           "id": "brd30"
-        }
+        },
+        "clone_id": "c8x15-2.13-then"
       },
       {
         "id": "btn45",
         "label": "$46c48bec0d",
         "load_board": {
           "id": "brd31"
-        }
+        },
+        "clone_id": "c8x15-2.14-up"
       },
       {
         "id": "btn46",
@@ -286,28 +315,32 @@
         "label": "$70dda5dfb8",
         "load_board": {
           "id": "brd32"
-        }
+        },
+        "clone_id": "c8x15-3.2-color"
       },
       {
         "id": "btn49",
         "label": "$600d6af0f3",
         "load_board": {
           "id": "brd33"
-        }
+        },
+        "clone_id": "c8x15-3.3-take"
       },
       {
         "id": "btn50",
         "label": "$34d1f91fb2",
         "load_board": {
           "id": "brd34"
-        }
+        },
+        "clone_id": "c8x15-3.4-go"
       },
       {
         "id": "btn51",
         "label": "$0461ebd2b7",
         "load_board": {
           "id": "brd35"
-        }
+        },
+        "clone_id": "c8x15-3.5-buy"
       },
       {
         "id": "btn52",
@@ -318,35 +351,40 @@
         "label": "$ecae13117d",
         "load_board": {
           "id": "brd36"
-        }
+        },
+        "clone_id": "c8x15-3.7-read"
       },
       {
         "id": "btn54",
         "label": "$d529e94150",
         "load_board": {
           "id": "brd37"
-        }
+        },
+        "clone_id": "c8x15-3.8-not"
       },
       {
         "id": "btn55",
         "label": "$83ab982dd0",
         "load_board": {
           "id": "brd38"
-        }
+        },
+        "clone_id": "c8x15-3.9-every"
       },
       {
         "id": "btn56",
         "label": "$df53ca2682",
         "load_board": {
           "id": "brd39"
-        }
+        },
+        "clone_id": "c8x15-3.10-computer"
       },
       {
         "id": "btn57",
         "label": "$e1686078d1",
         "load_board": {
           "id": "brd40"
-        }
+        },
+        "clone_id": "c8x15-3.11-let"
       },
       {
         "id": "btn58",
@@ -361,7 +399,8 @@
         "label": "$74e8333ad1",
         "load_board": {
           "id": "brd41"
-        }
+        },
+        "clone_id": "c8x15-3.14-down"
       },
       {
         "id": "btn61",
@@ -376,56 +415,64 @@
         "label": "$67e92c8765",
         "load_board": {
           "id": "brd42"
-        }
+        },
+        "clone_id": "c8x15-4.2-work"
       },
       {
         "id": "btn64",
         "label": "$0d3fda0bdb",
         "load_board": {
           "id": "brd43"
-        }
+        },
+        "clone_id": "c8x15-4.3-family"
       },
       {
         "id": "btn65",
         "label": "$54c84b40e9",
         "load_board": {
           "id": "brd44"
-        }
+        },
+        "clone_id": "c8x15-4.4-think"
       },
       {
         "id": "btn66",
         "label": "$b5eda0a745",
         "load_board": {
           "id": "brd45"
-        }
+        },
+        "clone_id": "c8x15-4.5-get"
       },
       {
         "id": "btn67",
         "label": "$13b5bfe96f",
         "load_board": {
           "id": "brd46"
-        }
+        },
+        "clone_id": "c8x15-4.6-in"
       },
       {
         "id": "btn68",
         "label": "$9a97eda6d8",
         "load_board": {
           "id": "brd47"
-        }
+        },
+        "clone_id": "c8x15-4.7-eat"
       },
       {
         "id": "btn69",
         "label": "$23a58bf927",
         "load_board": {
           "id": "brd48"
-        }
+        },
+        "clone_id": "c8x15-4.8-with"
       },
       {
         "id": "btn70",
         "label": "$100b8cad7c",
         "load_board": {
           "id": "brd49"
-        }
+        },
+        "clone_id": "c8x15-4.9-any"
       },
       {
         "id": "btn71",
@@ -436,7 +483,8 @@
         "label": "$ea170e2caf",
         "load_board": {
           "id": "brd50"
-        }
+        },
+        "clone_id": "c8x15-4.11-find"
       },
       {
         "id": "btn73",
@@ -447,7 +495,8 @@
         "label": "$ef56b0b0dd",
         "load_board": {
           "id": "brd51"
-        }
+        },
+        "clone_id": "c8x15-4.13-much"
       },
       {
         "id": "btn75",
@@ -466,77 +515,88 @@
         "label": "$af9dc3cd6c",
         "load_board": {
           "id": "brd52"
-        }
+        },
+        "clone_id": "c8x15-5.2-know"
       },
       {
         "id": "btn79",
         "label": "$059763450f",
         "load_board": {
           "id": "brd53"
-        }
+        },
+        "clone_id": "c8x15-5.3-ride"
       },
       {
         "id": "btn80",
         "label": "$64b59718a4",
         "load_board": {
           "id": "brd54"
-        }
+        },
+        "clone_id": "c8x15-5.4-talk"
       },
       {
         "id": "btn81",
         "label": "$099dafc678",
         "load_board": {
           "id": "brd55"
-        }
+        },
+        "clone_id": "c8x15-5.5-make"
       },
       {
         "id": "btn82",
         "label": "$7d0db380a5",
         "load_board": {
           "id": "brd56"
-        }
+        },
+        "clone_id": "c8x15-5.6-at"
       },
       {
         "id": "btn83",
         "label": "$87d4eeb7de",
         "load_board": {
           "id": "brd57"
-        }
+        },
+        "clone_id": "c8x15-5.7-sit"
       },
       {
         "id": "btn84",
         "label": "$7c4f294078",
         "load_board": {
           "id": "brd58"
-        }
+        },
+        "clone_id": "c8x15-5.8-right"
       },
       {
         "id": "btn85",
         "label": "$efb5803993",
         "load_board": {
           "id": "brd59"
-        }
+        },
+        "clone_id": "c8x15-5.9-away"
       },
       {
         "id": "btn86",
         "label": "$c18788c2f2",
         "load_board": {
           "id": "brd60"
-        }
+        },
+        "clone_id": "c8x15-5.10-later"
       },
       {
         "id": "btn87",
         "label": "$080f651e3f",
         "load_board": {
           "id": "brd61"
-        }
+        },
+        "clone_id": "c8x15-5.11-try"
       },
       {
         "id": "btn88",
         "label": "$f970e2767d",
         "load_board": {
           "id": "brd62"
-        }
+        },
+        "clone_id": "c8x15-5.12-as"
       },
       {
         "id": "btn89",
@@ -555,77 +615,88 @@
         "label": "$a3186a309d",
         "load_board": {
           "id": "brd63"
-        }
+        },
+        "clone_id": "c8x15-6.1-want"
       },
       {
         "id": "btn93",
         "label": "$88698b6a45",
         "load_board": {
           "id": "brd64"
-        }
+        },
+        "clone_id": "c8x15-6.2-feel"
       },
       {
         "id": "btn94",
         "label": "$613d5e4f4c",
         "load_board": {
           "id": "brd65"
-        }
+        },
+        "clone_id": "c8x15-6.3-hear"
       },
       {
         "id": "btn95",
         "label": "$d4579b2688",
         "load_board": {
           "id": "brd66"
-        }
+        },
+        "clone_id": "c8x15-6.4-do"
       },
       {
         "id": "btn96",
         "label": "$fe17ec3c45",
         "load_board": {
           "id": "brd67"
-        }
+        },
+        "clone_id": "c8x15-6.5-tell"
       },
       {
         "id": "btn97",
         "label": "$c68271a63d",
         "load_board": {
           "id": "brd68"
-        }
+        },
+        "clone_id": "c8x15-6.6-out"
       },
       {
         "id": "btn98",
         "label": "$c9fab33e94",
         "load_board": {
           "id": "brd69"
-        }
+        },
+        "clone_id": "c8x15-6.7-sleep"
       },
       {
         "id": "btn99",
         "label": "$21582c6c30",
         "load_board": {
           "id": "brd70"
-        }
+        },
+        "clone_id": "c8x15-6.8-that"
       },
       {
         "id": "btn100",
         "label": "$9e925e9341",
         "load_board": {
           "id": "brd71"
-        }
+        },
+        "clone_id": "c8x15-6.9-this"
       },
       {
         "id": "btn101",
         "label": "$3af00c6cad",
         "load_board": {
           "id": "brd72"
-        }
+        },
+        "clone_id": "c8x15-6.10-friend"
       },
       {
         "id": "btn102",
         "label": "$46f9631576",
         "load_board": {
           "id": "brd73"
-        }
+        },
+        "clone_id": "c8x15-6.11-walk"
       },
       {
         "id": "btn103",
@@ -636,14 +707,16 @@
         "label": "$8b7af514f2",
         "load_board": {
           "id": "brd74"
-        }
+        },
+        "clone_id": "c8x15-6.13-which"
       },
       {
         "id": "btn105",
         "label": "$e680afd37e",
         "load_board": {
           "id": "brd75"
-        }
+        },
+        "clone_id": "c8x15-6.14-would"
       },
       {
         "id": "btn106",
@@ -658,84 +731,96 @@
         "label": "$22af645d18",
         "load_board": {
           "id": "brd76"
-        }
+        },
+        "clone_id": "c8x15-7.2-new"
       },
       {
         "id": "btn109",
         "label": "$be1ab1632e",
         "load_board": {
           "id": "brd77"
-        }
+        },
+        "clone_id": "c8x15-7.3-like"
       },
       {
         "id": "btn110",
         "label": "$e877c56e4f",
         "load_board": {
           "id": "brd78"
-        }
+        },
+        "clone_id": "c8x15-7.4-need"
       },
       {
         "id": "btn111",
         "label": "$a1ec23e9b9",
         "load_board": {
           "id": "brd79"
-        }
+        },
+        "clone_id": "c8x15-7.5-give"
       },
       {
         "id": "btn112",
         "label": "$a850c17cba",
         "load_board": {
           "id": "brd80"
-        }
+        },
+        "clone_id": "c8x15-7.6-turn"
       },
       {
         "id": "btn113",
         "label": "$0b18a3d7b9",
         "load_board": {
           "id": "brd81"
-        }
+        },
+        "clone_id": "c8x15-7.7-drink"
       },
       {
         "id": "btn114",
         "label": "$aae6635e04",
         "load_board": {
           "id": "brd82"
-        }
+        },
+        "clone_id": "c8x15-7.8-little"
       },
       {
         "id": "btn115",
         "label": "$d861877da5",
         "load_board": {
           "id": "brd83"
-        }
+        },
+        "clone_id": "c8x15-7.9-big"
       },
       {
         "id": "btn116",
         "label": "$ef399b2d44",
         "load_board": {
           "id": "brd84"
-        }
+        },
+        "clone_id": "c8x15-7.10-stop"
       },
       {
         "id": "btn117",
         "label": "$910955a907",
         "load_board": {
           "id": "brd85"
-        }
+        },
+        "clone_id": "c8x15-7.11-be"
       },
       {
         "id": "btn118",
         "label": "$cc70865f1e",
         "load_board": {
           "id": "brd86"
-        }
+        },
+        "clone_id": "c8x15-7.12-because"
       },
       {
         "id": "btn119",
         "label": "$755f85c272",
         "load_board": {
           "id": "brd87"
-        }
+        },
+        "clone_id": "c8x15-7.13-good"
       },
       {
         "id": "btn120",
@@ -884,10 +969,97 @@
         ]
       ]
     },
-    "locale": "en_US"
+    "locale": "en_US",
+    "clone_ids": [
+      "c8x15-0.2-me",
+      "c8x15-0.3-please",
+      "c8x15-0.4-come",
+      "c8x15-0.5-okay",
+      "c8x15-0.6-ask",
+      "c8x15-0.7-put",
+      "c8x15-0.8-+s",
+      "c8x15-0.10-help",
+      "c8x15-0.11-thing",
+      "c8x15-1.2-are",
+      "c8x15-1.3-is",
+      "c8x15-1.5-can",
+      "c8x15-1.6-will",
+      "c8x15-1.7-was",
+      "c8x15-1.8-were",
+      "c8x15-1.9-but",
+      "c8x15-1.10-what",
+      "c8x15-1.11-said",
+      "c8x15-1.12-or",
+      "c8x15-2.2-time",
+      "c8x15-2.3-look",
+      "c8x15-2.4-wear",
+      "c8x15-2.5-play",
+      "c8x15-2.6-to",
+      "c8x15-2.7-have",
+      "c8x15-2.8-a",
+      "c8x15-2.9-some",
+      "c8x15-2.12-so",
+      "c8x15-2.13-then",
+      "c8x15-2.14-up",
+      "c8x15-3.2-color",
+      "c8x15-3.3-take",
+      "c8x15-3.4-go",
+      "c8x15-3.5-buy",
+      "c8x15-3.7-read",
+      "c8x15-3.8-not",
+      "c8x15-3.9-every",
+      "c8x15-3.10-computer",
+      "c8x15-3.11-let",
+      "c8x15-3.14-down",
+      "c8x15-4.2-work",
+      "c8x15-4.3-family",
+      "c8x15-4.4-think",
+      "c8x15-4.5-get",
+      "c8x15-4.6-in",
+      "c8x15-4.7-eat",
+      "c8x15-4.8-with",
+      "c8x15-4.9-any",
+      "c8x15-4.11-find",
+      "c8x15-4.13-much",
+      "c8x15-5.2-know",
+      "c8x15-5.3-ride",
+      "c8x15-5.4-talk",
+      "c8x15-5.5-make",
+      "c8x15-5.6-at",
+      "c8x15-5.7-sit",
+      "c8x15-5.8-right",
+      "c8x15-5.9-away",
+      "c8x15-5.10-later",
+      "c8x15-5.11-try",
+      "c8x15-5.12-as",
+      "c8x15-6.1-want",
+      "c8x15-6.2-feel",
+      "c8x15-6.3-hear",
+      "c8x15-6.4-do",
+      "c8x15-6.5-tell",
+      "c8x15-6.6-out",
+      "c8x15-6.7-sleep",
+      "c8x15-6.8-that",
+      "c8x15-6.9-this",
+      "c8x15-6.10-friend",
+      "c8x15-6.11-walk",
+      "c8x15-6.13-which",
+      "c8x15-6.14-would",
+      "c8x15-7.2-new",
+      "c8x15-7.3-like",
+      "c8x15-7.4-need",
+      "c8x15-7.5-give",
+      "c8x15-7.6-turn",
+      "c8x15-7.7-drink",
+      "c8x15-7.8-little",
+      "c8x15-7.9-big",
+      "c8x15-7.10-stop",
+      "c8x15-7.11-be",
+      "c8x15-7.12-because",
+      "c8x15-7.13-good"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd2",
     "buttons": [
       {
@@ -896,7 +1068,8 @@
       },
       {
         "id": "btn2",
-        "label": "$ab86a1e1ef"
+        "label": "$ab86a1e1ef",
+        "clone_id": "c8x15-0.2-me"
       },
       {
         "id": "btn3",
@@ -941,10 +1114,6 @@
       {
         "id": "btn13",
         "label": "My name is"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -1018,7 +1187,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -1141,10 +1310,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-0.2-me"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd3",
     "buttons": [
       {
@@ -1157,7 +1328,8 @@
       },
       {
         "id": "btn3",
-        "label": "$6050ce63e4"
+        "label": "$6050ce63e4",
+        "clone_id": "c8x15-0.3-please"
       },
       {
         "id": "btn4",
@@ -1198,10 +1370,6 @@
       {
         "id": "btn13",
         "label": "$5d41402abc"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -1379,7 +1547,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -1502,10 +1670,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-0.3-please"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd4",
     "buttons": [
       {
@@ -1522,7 +1692,8 @@
       },
       {
         "id": "btn4",
-        "label": "$12de3a4dab"
+        "label": "$12de3a4dab",
+        "clone_id": "c8x15-0.4-come"
       },
       {
         "id": "btn5",
@@ -1559,10 +1730,6 @@
       {
         "id": "btn13",
         "label": "$f9cb365d43"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -1620,7 +1787,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -1743,10 +1910,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-0.4-come"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd5",
     "buttons": [
       {
@@ -1767,11 +1936,8 @@
       },
       {
         "id": "btn5",
-        "label": "$df8fede7ff"
-      },
-      {
-        "id": "btn6",
-        "label": "$106a6c241b"
+        "label": "$df8fede7ff",
+        "clone_id": "c8x15-0.5-okay"
       }
     ],
     "grid": {
@@ -1793,7 +1959,7 @@
           null,
           null,
           null,
-          "btn6"
+          null
         ],
         [
           null,
@@ -1916,10 +2082,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-0.5-okay"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd6",
     "buttons": [
       {
@@ -1944,7 +2112,8 @@
       },
       {
         "id": "btn6",
-        "label": "$5ed33f7008"
+        "label": "$5ed33f7008",
+        "clone_id": "c8x15-0.6-ask"
       },
       {
         "id": "btn7",
@@ -1973,10 +2142,6 @@
       {
         "id": "btn13",
         "label": "$6be1270290"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -2294,7 +2459,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -2417,10 +2582,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-0.6-ask"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd7",
     "buttons": [
       {
@@ -2437,11 +2604,8 @@
       },
       {
         "id": "btn4",
-        "label": "$8e13ffc9fd"
-      },
-      {
-        "id": "btn5",
-        "label": "$106a6c241b"
+        "label": "$8e13ffc9fd",
+        "clone_id": "c8x15-0.7-put"
       }
     ],
     "grid": {
@@ -2463,7 +2627,7 @@
           null,
           null,
           null,
-          "btn5"
+          null
         ],
         [
           null,
@@ -2586,10 +2750,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-0.7-put"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd8",
     "buttons": [
       {
@@ -2622,7 +2788,8 @@
       },
       {
         "id": "btn8",
-        "label": "$d59be207a8"
+        "label": "$d59be207a8",
+        "clone_id": "c8x15-0.8-+s"
       },
       {
         "id": "btn9",
@@ -2643,10 +2810,6 @@
       {
         "id": "btn13",
         "label": "$1001507c51"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -2716,7 +2879,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -2839,10 +3002,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-0.8-+s"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd9",
     "buttons": [
       {
@@ -2883,7 +3048,8 @@
       },
       {
         "id": "btn10",
-        "label": "$657f8b8da6"
+        "label": "$657f8b8da6",
+        "clone_id": "c8x15-0.10-help"
       },
       {
         "id": "btn11",
@@ -2896,10 +3062,6 @@
       {
         "id": "btn13",
         "label": "$b4bc95cf36"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -3297,7 +3459,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -3420,10 +3582,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-0.10-help"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd10",
     "buttons": [
       {
@@ -3468,7 +3632,8 @@
       },
       {
         "id": "btn11",
-        "label": "$8afc1e9bec"
+        "label": "$8afc1e9bec",
+        "clone_id": "c8x15-0.11-thing"
       },
       {
         "id": "btn12",
@@ -3477,10 +3642,6 @@
       {
         "id": "btn13",
         "label": "$d027eb0ee2"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -3534,7 +3695,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -3657,10 +3818,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-0.11-thing"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd11",
     "buttons": [
       {
@@ -3716,10 +3879,6 @@
         "label": "$6013221752"
       },
       {
-        "id": "btn14",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn15",
         "label": "$e7d057c460"
       },
@@ -3729,7 +3888,8 @@
       },
       {
         "id": "btn17",
-        "label": "$4015e9ce43"
+        "label": "$4015e9ce43",
+        "clone_id": "c8x15-1.2-are"
       },
       {
         "id": "btn18",
@@ -4043,7 +4203,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -4166,10 +4326,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-1.2-are"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd12",
     "buttons": [
       {
@@ -4181,12 +4343,9 @@
         "label": "$4de6581944"
       },
       {
-        "id": "btn3",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn4",
-        "label": "$a2a551a645"
+        "label": "$a2a551a645",
+        "clone_id": "c8x15-1.3-is"
       }
     ],
     "grid": {
@@ -4208,7 +4367,7 @@
           null,
           null,
           null,
-          "btn3"
+          null
         ],
         [
           null,
@@ -4331,10 +4490,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-1.3-is"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd13",
     "buttons": [
       {
@@ -4390,10 +4551,6 @@
         "label": "$dd73af2f98"
       },
       {
-        "id": "btn14",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn15",
         "label": "$70ca3a068b"
       },
@@ -4415,7 +4572,8 @@
       },
       {
         "id": "btn20",
-        "label": "$2c61ebff5a"
+        "label": "$2c61ebff5a",
+        "clone_id": "c8x15-1.5-can"
       },
       {
         "id": "btn21",
@@ -4617,7 +4775,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -4740,10 +4898,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-1.5-can"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd14",
     "buttons": [
       {
@@ -4799,10 +4959,6 @@
         "label": "$1fd8f3c8a8"
       },
       {
-        "id": "btn14",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn15",
         "label": "$93973f0cdc"
       },
@@ -4828,7 +4984,8 @@
       },
       {
         "id": "btn21",
-        "label": "$18218139ee"
+        "label": "$18218139ee",
+        "clone_id": "c8x15-1.6-will"
       },
       {
         "id": "btn22",
@@ -5066,7 +5223,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -5189,10 +5346,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-1.6-will"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd15",
     "buttons": [
       {
@@ -5248,10 +5407,6 @@
         "label": "$fdd8c46db5"
       },
       {
-        "id": "btn14",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn15",
         "label": "$04b67196dc"
       },
@@ -5281,7 +5436,8 @@
       },
       {
         "id": "btn22",
-        "label": "$a77b359894"
+        "label": "$a77b359894",
+        "clone_id": "c8x15-1.7-was"
       },
       {
         "id": "btn23",
@@ -5315,7 +5471,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -5438,10 +5594,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-1.7-was"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd16",
     "buttons": [
       {
@@ -5453,12 +5611,9 @@
         "label": "$a3252eb3d0"
       },
       {
-        "id": "btn3",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn4",
-        "label": "$2b016d9095"
+        "label": "$2b016d9095",
+        "clone_id": "c8x15-1.8-were"
       }
     ],
     "grid": {
@@ -5480,7 +5635,7 @@
           null,
           null,
           null,
-          "btn3"
+          null
         ],
         [
           null,
@@ -5603,10 +5758,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-1.8-were"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd17",
     "buttons": [
       {
@@ -5662,10 +5819,6 @@
         "label": "$8b373710bc"
       },
       {
-        "id": "btn14",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn15",
         "label": "$dbd782e4fa"
       },
@@ -5703,7 +5856,8 @@
       },
       {
         "id": "btn24",
-        "label": "$37598dad8f"
+        "label": "$37598dad8f",
+        "clone_id": "c8x15-1.9-but"
       },
       {
         "id": "btn25",
@@ -5997,7 +6151,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -6120,10 +6274,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-1.9-but"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd18",
     "buttons": [
       {
@@ -6179,10 +6335,6 @@
         "label": "$5c2c0d75fb"
       },
       {
-        "id": "btn14",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn15",
         "label": "$58110c37b2"
       },
@@ -6224,7 +6376,8 @@
       },
       {
         "id": "btn25",
-        "label": "$4a2028ecea"
+        "label": "$4a2028ecea",
+        "clone_id": "c8x15-1.10-what"
       },
       {
         "id": "btn26",
@@ -6270,7 +6423,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -6393,10 +6546,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-1.10-what"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd19",
     "buttons": [
       {
@@ -6416,12 +6571,9 @@
         "label": "$84eeb81e61"
       },
       {
-        "id": "btn5",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn6",
-        "label": "$b7b791e873"
+        "label": "$b7b791e873",
+        "clone_id": "c8x15-1.11-said"
       }
     ],
     "grid": {
@@ -6443,7 +6595,7 @@
           null,
           null,
           null,
-          "btn5"
+          null
         ],
         [
           null,
@@ -6566,10 +6718,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-1.11-said"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd20",
     "buttons": [
       {
@@ -6625,10 +6779,6 @@
         "label": "$e07e81c20c"
       },
       {
-        "id": "btn14",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn15",
         "label": "$449de32348"
       },
@@ -6678,7 +6828,8 @@
       },
       {
         "id": "btn27",
-        "label": "$e81c4e4f2b"
+        "label": "$e81c4e4f2b",
+        "clone_id": "c8x15-1.12-or"
       },
       {
         "id": "btn28",
@@ -6704,7 +6855,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -6827,10 +6978,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-1.12-or"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd21",
     "buttons": [
       {
@@ -6884,10 +7037,6 @@
       {
         "id": "btn13",
         "label": "$5fc7323119"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -6959,7 +7108,8 @@
       },
       {
         "id": "btn32",
-        "label": "$07cc694b9b"
+        "label": "$07cc694b9b",
+        "clone_id": "c8x15-2.2-time"
       },
       {
         "id": "btn33",
@@ -7157,7 +7307,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -7280,10 +7430,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-2.2-time"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd22",
     "buttons": [
       {
@@ -7337,10 +7489,6 @@
       {
         "id": "btn13",
         "label": "$f856645362"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -7416,7 +7564,8 @@
       },
       {
         "id": "btn33",
-        "label": "$8c4291f695"
+        "label": "$8c4291f695",
+        "clone_id": "c8x15-2.3-look"
       },
       {
         "id": "btn34",
@@ -7698,7 +7847,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -7821,10 +7970,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-2.3-look"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd23",
     "buttons": [
       {
@@ -7878,10 +8029,6 @@
       {
         "id": "btn13",
         "label": "$fcd65f301f"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -7961,7 +8108,8 @@
       },
       {
         "id": "btn34",
-        "label": "$ff07673105"
+        "label": "$ff07673105",
+        "clone_id": "c8x15-2.4-wear"
       },
       {
         "id": "btn35",
@@ -8279,7 +8427,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -8402,10 +8550,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-2.4-wear"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd24",
     "buttons": [
       {
@@ -8459,10 +8609,6 @@
       {
         "id": "btn13",
         "label": "$594c103f2c"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -8546,7 +8692,8 @@
       },
       {
         "id": "btn35",
-        "label": "$a3b34c0871"
+        "label": "$a3b34c0871",
+        "clone_id": "c8x15-2.5-play"
       },
       {
         "id": "btn36",
@@ -8612,7 +8759,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -8735,10 +8882,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-2.5-play"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd25",
     "buttons": [
       {
@@ -8766,12 +8915,9 @@
         "label": "$55ffc53f17"
       },
       {
-        "id": "btn7",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn8",
-        "label": "$01b6e20344"
+        "label": "$01b6e20344",
+        "clone_id": "c8x15-2.6-to"
       }
     ],
     "grid": {
@@ -8793,7 +8939,7 @@
           null,
           null,
           null,
-          "btn7"
+          null
         ],
         [
           null,
@@ -8916,10 +9062,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-2.6-to"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd26",
     "buttons": [
       {
@@ -8975,16 +9123,13 @@
         "label": "$9367f306be"
       },
       {
-        "id": "btn14",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn15",
         "label": "$3aeed85361"
       },
       {
         "id": "btn16",
-        "label": "$b42dad5453"
+        "label": "$b42dad5453",
+        "clone_id": "c8x15-2.7-have"
       }
     ],
     "grid": {
@@ -9006,7 +9151,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -9129,10 +9274,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-2.7-have"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd27",
     "buttons": [
       {
@@ -9186,10 +9333,6 @@
       {
         "id": "btn13",
         "label": "$7e59cb5b2f"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -9285,7 +9428,8 @@
       },
       {
         "id": "btn38",
-        "label": "$0cc175b9c0"
+        "label": "$0cc175b9c0",
+        "clone_id": "c8x15-2.8-a"
       },
       {
         "id": "btn39",
@@ -9619,7 +9763,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -9742,10 +9886,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-2.8-a"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd28",
     "buttons": [
       {
@@ -9789,12 +9935,9 @@
         "label": "$59ea424568"
       },
       {
-        "id": "btn11",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn12",
-        "label": "$03d59e663c"
+        "label": "$03d59e663c",
+        "clone_id": "c8x15-2.9-some"
       }
     ],
     "grid": {
@@ -9816,7 +9959,7 @@
           null,
           null,
           null,
-          "btn11"
+          null
         ],
         [
           null,
@@ -9939,10 +10082,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-2.9-some"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd29",
     "buttons": [
       {
@@ -9996,10 +10141,6 @@
       {
         "id": "btn13",
         "label": "$c709672894"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -10111,7 +10252,8 @@
       },
       {
         "id": "btn42",
-        "label": "$b807023f87"
+        "label": "$b807023f87",
+        "clone_id": "c8x15-2.12-so"
       },
       {
         "id": "btn43",
@@ -10257,7 +10399,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -10380,10 +10522,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-2.12-so"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd30",
     "buttons": [
       {
@@ -10437,10 +10581,6 @@
       {
         "id": "btn13",
         "label": "$98bd1c4568"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -10556,7 +10696,8 @@
       },
       {
         "id": "btn43",
-        "label": "$0e5243d996"
+        "label": "$0e5243d996",
+        "clone_id": "c8x15-2.13-then"
       },
       {
         "id": "btn44",
@@ -10590,7 +10731,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -10713,10 +10854,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-2.13-then"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd31",
     "buttons": [
       {
@@ -10736,12 +10879,9 @@
         "label": "$bb492e432e"
       },
       {
-        "id": "btn5",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn6",
-        "label": "$46c48bec0d"
+        "label": "$46c48bec0d",
+        "clone_id": "c8x15-2.14-up"
       }
     ],
     "grid": {
@@ -10763,7 +10903,7 @@
           null,
           null,
           null,
-          "btn5"
+          null
         ],
         [
           null,
@@ -10886,10 +11026,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-2.14-up"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd32",
     "buttons": [
       {
@@ -10943,10 +11085,6 @@
       {
         "id": "btn13",
         "label": "$2bc4bc5162"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -11078,7 +11216,8 @@
       },
       {
         "id": "btn47",
-        "label": "$70dda5dfb8"
+        "label": "$70dda5dfb8",
+        "clone_id": "c8x15-3.2-color"
       },
       {
         "id": "btn48",
@@ -11224,7 +11363,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -11347,10 +11486,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-3.2-color"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd33",
     "buttons": [
       {
@@ -11406,10 +11547,6 @@
         "label": "$600d6af0f3"
       },
       {
-        "id": "btn14",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn15",
         "label": "$bad841dbbe"
       },
@@ -11455,7 +11592,8 @@
       },
       {
         "id": "btn26",
-        "label": "$600d6af0f3"
+        "label": "$600d6af0f3",
+        "clone_id": "c8x15-3.3-take"
       }
     ],
     "grid": {
@@ -11477,7 +11615,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -11600,10 +11738,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-3.3-take"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd34",
     "buttons": [
       {
@@ -11657,10 +11797,6 @@
       {
         "id": "btn13",
         "label": "$5d0a8e506c"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -11800,7 +11936,8 @@
       },
       {
         "id": "btn49",
-        "label": "$34d1f91fb2"
+        "label": "$34d1f91fb2",
+        "clone_id": "c8x15-3.4-go"
       },
       {
         "id": "btn50",
@@ -11978,7 +12115,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -12101,10 +12238,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-3.4-go"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd35",
     "buttons": [
       {
@@ -12158,10 +12297,6 @@
       {
         "id": "btn13",
         "label": "$0461ebd2b7"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -12305,7 +12440,8 @@
       },
       {
         "id": "btn50",
-        "label": "$0461ebd2b7"
+        "label": "$0461ebd2b7",
+        "clone_id": "c8x15-3.5-buy"
       },
       {
         "id": "btn51",
@@ -12575,7 +12711,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -12698,10 +12834,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-3.5-buy"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd36",
     "buttons": [
       {
@@ -12755,10 +12893,6 @@
       {
         "id": "btn13",
         "label": "$0f517bf3f1"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -12910,7 +13044,8 @@
       },
       {
         "id": "btn52",
-        "label": "$ecae13117d"
+        "label": "$ecae13117d",
+        "clone_id": "c8x15-3.7-read"
       },
       {
         "id": "btn53",
@@ -13164,7 +13299,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -13287,10 +13422,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-3.7-read"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd37",
     "buttons": [
       {
@@ -13326,12 +13463,9 @@
         "label": "$3e47b75000"
       },
       {
-        "id": "btn9",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn10",
-        "label": "$d529e94150"
+        "label": "$d529e94150",
+        "clone_id": "c8x15-3.8-not"
       }
     ],
     "grid": {
@@ -13353,7 +13487,7 @@
           null,
           null,
           null,
-          "btn9"
+          null
         ],
         [
           null,
@@ -13476,10 +13610,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-3.8-not"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd38",
     "buttons": [
       {
@@ -13533,10 +13669,6 @@
       {
         "id": "btn13",
         "label": "$b47bc9c397"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -13696,7 +13828,8 @@
       },
       {
         "id": "btn54",
-        "label": "$83ab982dd0"
+        "label": "$83ab982dd0",
+        "clone_id": "c8x15-3.9-every"
       },
       {
         "id": "btn55",
@@ -13966,7 +14099,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -14089,10 +14222,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-3.9-every"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd39",
     "buttons": [
       {
@@ -14146,10 +14281,6 @@
       {
         "id": "btn13",
         "label": "$2eb8ebc041"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -14285,7 +14416,8 @@
       },
       {
         "id": "btn48",
-        "label": "$df53ca2682"
+        "label": "$df53ca2682",
+        "clone_id": "c8x15-3.10-computer"
       }
     ],
     "grid": {
@@ -14307,7 +14439,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -14430,10 +14562,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-3.10-computer"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd40",
     "buttons": [
       {
@@ -14465,12 +14599,9 @@
         "label": "$f7fde5962d"
       },
       {
-        "id": "btn8",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn9",
-        "label": "$e1686078d1"
+        "label": "$e1686078d1",
+        "clone_id": "c8x15-3.11-let"
       }
     ],
     "grid": {
@@ -14492,7 +14623,7 @@
           null,
           null,
           null,
-          "btn8"
+          null
         ],
         [
           null,
@@ -14615,10 +14746,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-3.11-let"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd41",
     "buttons": [
       {
@@ -14672,10 +14805,6 @@
       {
         "id": "btn13",
         "label": "$c376109ef8"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -14847,7 +14976,8 @@
       },
       {
         "id": "btn57",
-        "label": "$74e8333ad1"
+        "label": "$74e8333ad1",
+        "clone_id": "c8x15-3.14-down"
       }
     ],
     "grid": {
@@ -14869,7 +14999,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -14992,10 +15122,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-3.14-down"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd42",
     "buttons": [
       {
@@ -15049,10 +15181,6 @@
       {
         "id": "btn13",
         "label": "$93c731f1c3"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -15244,7 +15372,8 @@
       },
       {
         "id": "btn62",
-        "label": "$67e92c8765"
+        "label": "$67e92c8765",
+        "clone_id": "c8x15-4.2-work"
       },
       {
         "id": "btn63",
@@ -15402,7 +15531,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -15525,10 +15654,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-4.2-work"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd43",
     "buttons": [
       {
@@ -15582,10 +15713,6 @@
       {
         "id": "btn13",
         "label": "$e511e2a4a4"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -15781,7 +15908,8 @@
       },
       {
         "id": "btn63",
-        "label": "$0d3fda0bdb"
+        "label": "$0d3fda0bdb",
+        "clone_id": "c8x15-4.3-family"
       },
       {
         "id": "btn64",
@@ -15851,7 +15979,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -15974,10 +16102,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-4.3-family"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd44",
     "buttons": [
       {
@@ -16031,10 +16161,6 @@
       {
         "id": "btn13",
         "label": "$4724e67c89"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -16234,7 +16360,8 @@
       },
       {
         "id": "btn64",
-        "label": "$54c84b40e9"
+        "label": "$54c84b40e9",
+        "clone_id": "c8x15-4.4-think"
       },
       {
         "id": "btn65",
@@ -16352,7 +16479,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -16475,10 +16602,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-4.4-think"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd45",
     "buttons": [
       {
@@ -16534,10 +16663,6 @@
         "label": "$c5946eb940"
       },
       {
-        "id": "btn14",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn15",
         "label": "$7587ec3e10"
       },
@@ -16563,7 +16688,8 @@
       },
       {
         "id": "btn21",
-        "label": "$b5eda0a745"
+        "label": "$b5eda0a745",
+        "clone_id": "c8x15-4.5-get"
       }
     ],
     "grid": {
@@ -16585,7 +16711,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -16708,10 +16834,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-4.5-get"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd46",
     "buttons": [
       {
@@ -16765,10 +16893,6 @@
       {
         "id": "btn13",
         "label": "$6e1c482bbe"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -16976,7 +17100,8 @@
       },
       {
         "id": "btn66",
-        "label": "$13b5bfe96f"
+        "label": "$13b5bfe96f",
+        "clone_id": "c8x15-4.6-in"
       },
       {
         "id": "btn67",
@@ -17202,7 +17327,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -17325,10 +17450,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-4.6-in"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd47",
     "buttons": [
       {
@@ -17382,10 +17509,6 @@
       {
         "id": "btn13",
         "label": "$835ef6c0b2"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -17597,7 +17720,8 @@
       },
       {
         "id": "btn67",
-        "label": "$9a97eda6d8"
+        "label": "$9a97eda6d8",
+        "clone_id": "c8x15-4.7-eat"
       },
       {
         "id": "btn68",
@@ -17795,7 +17919,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -17918,10 +18042,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-4.7-eat"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd48",
     "buttons": [
       {
@@ -17975,10 +18101,6 @@
       {
         "id": "btn13",
         "label": "$a1b8585122"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -18194,7 +18316,8 @@
       },
       {
         "id": "btn68",
-        "label": "$23a58bf927"
+        "label": "$23a58bf927",
+        "clone_id": "c8x15-4.8-with"
       },
       {
         "id": "btn69",
@@ -18384,7 +18507,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -18507,10 +18630,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-4.8-with"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd49",
     "buttons": [
       {
@@ -18550,12 +18675,9 @@
         "label": "$419107f166"
       },
       {
-        "id": "btn10",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn11",
-        "label": "$100b8cad7c"
+        "label": "$100b8cad7c",
+        "clone_id": "c8x15-4.9-any"
       }
     ],
     "grid": {
@@ -18577,7 +18699,7 @@
           null,
           null,
           null,
-          "btn10"
+          null
         ],
         [
           null,
@@ -18700,10 +18822,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-4.9-any"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd50",
     "buttons": [
       {
@@ -18759,16 +18883,13 @@
         "label": "$fbe8921e88"
       },
       {
-        "id": "btn14",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn15",
         "label": "$a49c4dc4e1"
       },
       {
         "id": "btn16",
-        "label": "$ea170e2caf"
+        "label": "$ea170e2caf",
+        "clone_id": "c8x15-4.11-find"
       }
     ],
     "grid": {
@@ -18790,7 +18911,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -18913,10 +19034,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-4.11-find"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd51",
     "buttons": [
       {
@@ -18964,12 +19087,9 @@
         "label": "$c902a61794"
       },
       {
-        "id": "btn12",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn13",
-        "label": "$ef56b0b0dd"
+        "label": "$ef56b0b0dd",
+        "clone_id": "c8x15-4.13-much"
       }
     ],
     "grid": {
@@ -18991,7 +19111,7 @@
           "btn11",
           null,
           null,
-          "btn12"
+          null
         ],
         [
           null,
@@ -19114,10 +19234,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-4.13-much"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd52",
     "buttons": [
       {
@@ -19171,10 +19293,6 @@
       {
         "id": "btn13",
         "label": "$90b884933d"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -19426,7 +19544,8 @@
       },
       {
         "id": "btn77",
-        "label": "$af9dc3cd6c"
+        "label": "$af9dc3cd6c",
+        "clone_id": "c8x15-5.2-know"
       },
       {
         "id": "btn78",
@@ -19460,7 +19579,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -19583,10 +19702,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-5.2-know"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd53",
     "buttons": [
       {
@@ -19640,10 +19761,6 @@
       {
         "id": "btn13",
         "label": "$b4628ac934"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -19899,7 +20016,8 @@
       },
       {
         "id": "btn78",
-        "label": "$059763450f"
+        "label": "$059763450f",
+        "clone_id": "c8x15-5.3-ride"
       },
       {
         "id": "btn79",
@@ -20013,7 +20131,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -20136,10 +20254,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-5.3-ride"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd54",
     "buttons": [
       {
@@ -20193,10 +20313,6 @@
       {
         "id": "btn13",
         "label": "$3d5768a8c3"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -20352,7 +20468,8 @@
       },
       {
         "id": "btn53",
-        "label": "$64b59718a4"
+        "label": "$64b59718a4",
+        "clone_id": "c8x15-5.4-talk"
       }
     ],
     "grid": {
@@ -20374,7 +20491,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -20497,10 +20614,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-5.4-talk"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd55",
     "buttons": [
       {
@@ -20554,10 +20673,6 @@
       {
         "id": "btn13",
         "label": "$2d3f28b714"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -20821,7 +20936,8 @@
       },
       {
         "id": "btn80",
-        "label": "$099dafc678"
+        "label": "$099dafc678",
+        "clone_id": "c8x15-5.5-make"
       },
       {
         "id": "btn81",
@@ -20951,7 +21067,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -21074,10 +21190,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-5.5-make"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd56",
     "buttons": [
       {
@@ -21131,10 +21249,6 @@
       {
         "id": "btn13",
         "label": "$2511fc6cb0"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -21278,7 +21392,8 @@
       },
       {
         "id": "btn50",
-        "label": "$7d0db380a5"
+        "label": "$7d0db380a5",
+        "clone_id": "c8x15-5.6-at"
       }
     ],
     "grid": {
@@ -21300,7 +21415,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -21423,10 +21538,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-5.6-at"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd57",
     "buttons": [
       {
@@ -21480,10 +21597,6 @@
       {
         "id": "btn13",
         "label": "$062fa598b0"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -21579,7 +21692,8 @@
       },
       {
         "id": "btn38",
-        "label": "$87d4eeb7de"
+        "label": "$87d4eeb7de",
+        "clone_id": "c8x15-5.7-sit"
       }
     ],
     "grid": {
@@ -21601,7 +21715,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -21724,10 +21838,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-5.7-sit"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd58",
     "buttons": [
       {
@@ -21781,10 +21897,6 @@
       {
         "id": "btn13",
         "label": "$320381dbf7"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -21900,7 +22012,8 @@
       },
       {
         "id": "btn43",
-        "label": "$7c4f294078"
+        "label": "$7c4f294078",
+        "clone_id": "c8x15-5.8-right"
       }
     ],
     "grid": {
@@ -21922,7 +22035,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -22045,10 +22158,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-5.8-right"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd59",
     "buttons": [
       {
@@ -22102,10 +22217,6 @@
       {
         "id": "btn13",
         "label": "$229cc238df"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -22281,7 +22392,8 @@
       },
       {
         "id": "btn58",
-        "label": "$efb5803993"
+        "label": "$efb5803993",
+        "clone_id": "c8x15-5.9-away"
       }
     ],
     "grid": {
@@ -22303,7 +22415,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -22426,10 +22538,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-5.9-away"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd60",
     "buttons": [
       {
@@ -22461,12 +22575,9 @@
         "label": "$71ccb7a35a"
       },
       {
-        "id": "btn8",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn9",
-        "label": "$c18788c2f2"
+        "label": "$c18788c2f2",
+        "clone_id": "c8x15-5.10-later"
       }
     ],
     "grid": {
@@ -22488,7 +22599,7 @@
           null,
           null,
           null,
-          "btn8"
+          null
         ],
         [
           null,
@@ -22611,10 +22722,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-5.10-later"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd61",
     "buttons": [
       {
@@ -22650,12 +22763,9 @@
         "label": "$b6919f9951"
       },
       {
-        "id": "btn9",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn10",
-        "label": "$080f651e3f"
+        "label": "$080f651e3f",
+        "clone_id": "c8x15-5.11-try"
       }
     ],
     "grid": {
@@ -22677,7 +22787,7 @@
           null,
           null,
           null,
-          "btn9"
+          null
         ],
         [
           null,
@@ -22800,10 +22910,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-5.11-try"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd62",
     "buttons": [
       {
@@ -22857,10 +22969,6 @@
       {
         "id": "btn13",
         "label": "$f970e2767d"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -22960,7 +23068,8 @@
       },
       {
         "id": "btn39",
-        "label": "$f970e2767d"
+        "label": "$f970e2767d",
+        "clone_id": "c8x15-5.12-as"
       }
     ],
     "grid": {
@@ -22982,7 +23091,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -23105,10 +23214,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-5.12-as"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd63",
     "buttons": [
       {
@@ -23164,10 +23275,6 @@
         "label": "$af535531f8"
       },
       {
-        "id": "btn14",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn15",
         "label": "$a3186a309d"
       },
@@ -23201,7 +23308,8 @@
       },
       {
         "id": "btn23",
-        "label": "$a3186a309d"
+        "label": "$a3186a309d",
+        "clone_id": "c8x15-6.1-want"
       }
     ],
     "grid": {
@@ -23223,7 +23331,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -23346,10 +23454,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-6.1-want"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd64",
     "buttons": [
       {
@@ -23403,10 +23513,6 @@
       {
         "id": "btn13",
         "label": "$f6ff8697ca"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -23718,7 +23824,8 @@
       },
       {
         "id": "btn92",
-        "label": "$88698b6a45"
+        "label": "$88698b6a45",
+        "clone_id": "c8x15-6.2-feel"
       },
       {
         "id": "btn93",
@@ -23848,7 +23955,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -23971,10 +24078,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-6.2-feel"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd65",
     "buttons": [
       {
@@ -24028,10 +24137,6 @@
       {
         "id": "btn13",
         "label": "$39f2a1272f"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -24347,7 +24452,8 @@
       },
       {
         "id": "btn93",
-        "label": "$613d5e4f4c"
+        "label": "$613d5e4f4c",
+        "clone_id": "c8x15-6.3-hear"
       },
       {
         "id": "btn94",
@@ -24453,7 +24559,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -24576,10 +24682,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-6.3-hear"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd66",
     "buttons": [
       {
@@ -24633,10 +24741,6 @@
       {
         "id": "btn13",
         "label": "$dcf8474d30"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -24932,7 +25036,8 @@
       },
       {
         "id": "btn88",
-        "label": "$d4579b2688"
+        "label": "$d4579b2688",
+        "clone_id": "c8x15-6.4-do"
       }
     ],
     "grid": {
@@ -24954,7 +25059,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -25077,10 +25182,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-6.4-do"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd67",
     "buttons": [
       {
@@ -25134,10 +25241,6 @@
       {
         "id": "btn13",
         "label": "$546cb00452"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -25345,7 +25448,8 @@
       },
       {
         "id": "btn66",
-        "label": "$fe17ec3c45"
+        "label": "$fe17ec3c45",
+        "clone_id": "c8x15-6.5-tell"
       }
     ],
     "grid": {
@@ -25367,7 +25471,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -25490,10 +25594,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-6.5-tell"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd68",
     "buttons": [
       {
@@ -25547,10 +25653,6 @@
       {
         "id": "btn13",
         "label": "$608f0b988d"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -25750,7 +25852,8 @@
       },
       {
         "id": "btn64",
-        "label": "$c68271a63d"
+        "label": "$c68271a63d",
+        "clone_id": "c8x15-6.6-out"
       }
     ],
     "grid": {
@@ -25772,7 +25875,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -25895,10 +25998,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-6.6-out"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd69",
     "buttons": [
       {
@@ -25952,10 +26057,6 @@
       {
         "id": "btn13",
         "label": "$a9e4f7e098"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -26171,7 +26272,8 @@
       },
       {
         "id": "btn68",
-        "label": "$c9fab33e94"
+        "label": "$c9fab33e94",
+        "clone_id": "c8x15-6.7-sleep"
       }
     ],
     "grid": {
@@ -26193,7 +26295,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -26316,10 +26418,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-6.7-sleep"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd70",
     "buttons": [
       {
@@ -26373,10 +26477,6 @@
       {
         "id": "btn13",
         "label": "$6b7b655dd2"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -26644,7 +26744,8 @@
       },
       {
         "id": "btn81",
-        "label": "$21582c6c30"
+        "label": "$21582c6c30",
+        "clone_id": "c8x15-6.8-that"
       }
     ],
     "grid": {
@@ -26666,7 +26767,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -26789,10 +26890,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-6.8-that"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd71",
     "buttons": [
       {
@@ -26848,10 +26951,6 @@
         "label": "$0aab81de5c"
       },
       {
-        "id": "btn14",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn15",
         "label": "$a7dd12b1da"
       },
@@ -26885,7 +26984,8 @@
       },
       {
         "id": "btn23",
-        "label": "$9e925e9341"
+        "label": "$9e925e9341",
+        "clone_id": "c8x15-6.9-this"
       }
     ],
     "grid": {
@@ -26907,7 +27007,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -27030,10 +27130,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-6.9-this"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd72",
     "buttons": [
       {
@@ -27087,10 +27189,6 @@
       {
         "id": "btn13",
         "label": "$1c614ee9be"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -27398,7 +27496,8 @@
       },
       {
         "id": "btn91",
-        "label": "$3af00c6cad"
+        "label": "$3af00c6cad",
+        "clone_id": "c8x15-6.10-friend"
       }
     ],
     "grid": {
@@ -27420,7 +27519,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -27543,10 +27642,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-6.10-friend"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd73",
     "buttons": [
       {
@@ -27600,10 +27701,6 @@
       {
         "id": "btn13",
         "label": "$e5cae20cc1"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -27923,7 +28020,8 @@
       },
       {
         "id": "btn94",
-        "label": "$46f9631576"
+        "label": "$46f9631576",
+        "clone_id": "c8x15-6.11-walk"
       }
     ],
     "grid": {
@@ -27945,7 +28043,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -28068,10 +28166,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-6.11-walk"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd74",
     "buttons": [
       {
@@ -28125,10 +28225,6 @@
       {
         "id": "btn13",
         "label": "$1bf864031f"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -28484,7 +28580,8 @@
       },
       {
         "id": "btn103",
-        "label": "$8b7af514f2"
+        "label": "$8b7af514f2",
+        "clone_id": "c8x15-6.13-which"
       },
       {
         "id": "btn104",
@@ -28510,7 +28607,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -28633,10 +28730,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-6.13-which"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd75",
     "buttons": [
       {
@@ -28680,12 +28779,9 @@
         "label": "$b40b1cf86d"
       },
       {
-        "id": "btn11",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn12",
-        "label": "$e680afd37e"
+        "label": "$e680afd37e",
+        "clone_id": "c8x15-6.14-would"
       }
     ],
     "grid": {
@@ -28707,7 +28803,7 @@
           null,
           null,
           null,
-          "btn11"
+          null
         ],
         [
           null,
@@ -28830,10 +28926,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-6.14-would"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd76",
     "buttons": [
       {
@@ -28887,10 +28985,6 @@
       {
         "id": "btn13",
         "label": "$22af645d18"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -28998,7 +29092,8 @@
       },
       {
         "id": "btn41",
-        "label": "$22af645d18"
+        "label": "$22af645d18",
+        "clone_id": "c8x15-7.2-new"
       }
     ],
     "grid": {
@@ -29020,7 +29115,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -29143,10 +29238,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-7.2-new"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd77",
     "buttons": [
       {
@@ -29200,10 +29297,6 @@
       {
         "id": "btn13",
         "label": "$73612947fc"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -29471,7 +29564,8 @@
       },
       {
         "id": "btn81",
-        "label": "$be1ab1632e"
+        "label": "$be1ab1632e",
+        "clone_id": "c8x15-7.3-like"
       }
     ],
     "grid": {
@@ -29493,7 +29587,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -29616,10 +29710,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-7.3-like"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd78",
     "buttons": [
       {
@@ -29673,10 +29769,6 @@
       {
         "id": "btn13",
         "label": "$2106b31fc0"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -30056,7 +30148,8 @@
       },
       {
         "id": "btn109",
-        "label": "$e877c56e4f"
+        "label": "$e877c56e4f",
+        "clone_id": "c8x15-7.4-need"
       },
       {
         "id": "btn110",
@@ -30082,7 +30175,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -30205,10 +30298,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-7.4-need"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd79",
     "buttons": [
       {
@@ -30262,10 +30357,6 @@
       {
         "id": "btn13",
         "label": "$842bd49d59"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -30429,7 +30520,8 @@
       },
       {
         "id": "btn55",
-        "label": "$a1ec23e9b9"
+        "label": "$a1ec23e9b9",
+        "clone_id": "c8x15-7.5-give"
       }
     ],
     "grid": {
@@ -30451,7 +30543,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -30574,10 +30666,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-7.5-give"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd80",
     "buttons": [
       {
@@ -30613,12 +30707,9 @@
         "label": "$7b27dc1e1a"
       },
       {
-        "id": "btn9",
-        "label": "$106a6c241b"
-      },
-      {
         "id": "btn10",
-        "label": "$a850c17cba"
+        "label": "$a850c17cba",
+        "clone_id": "c8x15-7.6-turn"
       }
     ],
     "grid": {
@@ -30640,7 +30731,7 @@
           null,
           null,
           null,
-          "btn9"
+          null
         ],
         [
           null,
@@ -30763,10 +30854,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-7.6-turn"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd81",
     "buttons": [
       {
@@ -30820,10 +30913,6 @@
       {
         "id": "btn13",
         "label": "$1ce8e028f5"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -31035,7 +31124,8 @@
       },
       {
         "id": "btn67",
-        "label": "$0b18a3d7b9"
+        "label": "$0b18a3d7b9",
+        "clone_id": "c8x15-7.7-drink"
       }
     ],
     "grid": {
@@ -31057,7 +31147,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -31180,10 +31270,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-7.7-drink"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd82",
     "buttons": [
       {
@@ -31237,10 +31329,6 @@
       {
         "id": "btn13",
         "label": "$65045a7967"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -31604,7 +31692,8 @@
       },
       {
         "id": "btn105",
-        "label": "$aae6635e04"
+        "label": "$aae6635e04",
+        "clone_id": "c8x15-7.8-little"
       }
     ],
     "grid": {
@@ -31626,7 +31715,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -31749,10 +31838,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-7.8-little"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd83",
     "buttons": [
       {
@@ -31806,10 +31897,6 @@
       {
         "id": "btn13",
         "label": "$485ec27882"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -32077,7 +32164,8 @@
       },
       {
         "id": "btn81",
-        "label": "$d861877da5"
+        "label": "$d861877da5",
+        "clone_id": "c8x15-7.9-big"
       }
     ],
     "grid": {
@@ -32099,7 +32187,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -32222,10 +32310,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-7.9-big"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd84",
     "buttons": [
       {
@@ -32279,10 +32369,6 @@
       {
         "id": "btn13",
         "label": "$7f021a1415"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -32414,7 +32500,8 @@
       },
       {
         "id": "btn47",
-        "label": "$ef399b2d44"
+        "label": "$ef399b2d44",
+        "clone_id": "c8x15-7.10-stop"
       }
     ],
     "grid": {
@@ -32436,7 +32523,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -32559,10 +32646,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-7.10-stop"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd85",
     "buttons": [
       {
@@ -32616,10 +32705,6 @@
       {
         "id": "btn13",
         "label": "$1a623a464e"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -32951,7 +33036,8 @@
       },
       {
         "id": "btn97",
-        "label": "$910955a907"
+        "label": "$910955a907",
+        "clone_id": "c8x15-7.11-be"
       }
     ],
     "grid": {
@@ -32973,7 +33059,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -33096,10 +33182,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-7.11-be"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd86",
     "buttons": [
       {
@@ -33153,10 +33241,6 @@
       {
         "id": "btn13",
         "label": "$b4d5dfdd44"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -33492,7 +33576,8 @@
       },
       {
         "id": "btn98",
-        "label": "$cc70865f1e"
+        "label": "$cc70865f1e",
+        "clone_id": "c8x15-7.12-because"
       }
     ],
     "grid": {
@@ -33514,7 +33599,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -33637,10 +33722,12 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-7.12-because"
+    ]
   },
   {
-    "format": "obs",
     "id": "brd87",
     "buttons": [
       {
@@ -33694,10 +33781,6 @@
       {
         "id": "btn13",
         "label": "$214fac42cd"
-      },
-      {
-        "id": "btn14",
-        "label": "$106a6c241b"
       },
       {
         "id": "btn15",
@@ -34085,7 +34168,8 @@
       },
       {
         "id": "btn111",
-        "label": "$755f85c272"
+        "label": "$755f85c272",
+        "clone_id": "c8x15-7.13-good"
       }
     ],
     "grid": {
@@ -34107,7 +34191,7 @@
           "btn11",
           "btn12",
           "btn13",
-          "btn14"
+          null
         ],
         [
           "btn15",
@@ -34230,6 +34314,9 @@
         ]
       ]
     },
-    "locale": "en"
+    "locale": "en",
+    "clone_ids": [
+      "c8x15-7.13-good"
+    ]
   }
 ]

@@ -55,23 +55,26 @@ if ARGV[2] == 'export'
   f.write(JSON.pretty_generate(res[:obfset]))
   f.close
 elsif ARGV[2] == 'render'
-  puts res[:obfset][0].to_json
-  board = res[:obfset][0]
-  board['grid']['order'].each do |row|
-    row_str = ""
-    row.each do |col|
-      btn = col && board['buttons'].detect{|b| b['id'] == col}
-      if btn
-        str = btn['label']
-        if btn['effort']
-          str += " (#{btn['effort'].round(1)})"
+  res[:obfset].each_with_index do |board, idx|
+    if idx == 0 || (ARGV[3] && board['id'] == ARGV[3])
+      puts "\n\n"
+      board['grid']['order'].each do |row|
+        row_str = ""
+        row.each do |col|
+          btn = col && board['buttons'].detect{|b| b['id'] == col}
+          if btn
+            str = btn['label']
+            if btn['effort']
+              str += " (#{btn['effort'].round(1)})"
+            end
+            row_str += str + "\t"
+          else
+            row_str += "_" + "\t"
+          end
         end
-        row_str += str + "\t"
-      else
-        row_str += "_" + "\t"
+        puts row_str
       end
     end
-    puts row_str
   end
 end
 # puts JSON.pretty_generate(res[:sentences])

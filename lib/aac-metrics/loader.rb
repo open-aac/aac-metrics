@@ -37,6 +37,29 @@ module AACMetrics::Loader
       end
       if obfset
         json = JSON.parse(File.read(obfset))
+        relations_hash = {}
+        json.each do |board|
+          board['grid']['order'].each_with_index do |row, row_idx|
+            row.each_with_index do |id, col_idx|
+              button = id && board['buttons'].detect{|b| b['id'] == id }
+              if button && button['label'] && !button['clone_id']
+                ref = "#{board['grid']['rows']}x#{board['grid']['columns']}-#{row_idx}.#{col_idx}"
+                pre = 'c'
+                relations_hash["cpre#{ref}-#{button['label']}"] ||= []
+                relations_hash["cpre#{ref}-#{button['label']}"] << [board, button]
+              end
+            end
+          end
+        end
+        relations_hash.each do |id, cells|
+          if cells.length > 1
+            cells.each do |board, button|
+              board['clone_ids'] ||= []
+              board['clone_ids'] << id
+              button['clone_id'] ||= id
+            end
+          end
+        end
       elsif analysis
         json = JSON.parse(File.read(analysis))
       end
@@ -84,6 +107,7 @@ module AACMetrics::Loader
       path = paths.shift
       visited_paths[path] = idx
       new_json = {
+        "format" => 'obs',
         "id" => "brd#{idx}",
         "buttons" => [],
         "grid" => {},
@@ -237,6 +261,11 @@ module AACMetrics::Loader
   def self.ingest(fn, token=nil)
     output = nil
     boards = nil
+    if fn.match(/manifest.json/)
+      json = JSON.parse(File.read(fn))
+      root_fn = json['root']
+      fn = fn.sub(/manifest.json/, root_fn)
+    end
     if fn.match(/\.obfset$/)
       boards = retrieve(fn, false)
       output = fn
