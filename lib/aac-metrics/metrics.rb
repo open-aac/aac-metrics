@@ -54,6 +54,7 @@ module AACMetrics::Metrics
       visited_board_ids = {}
       to_visit = [{board: obfset[0], level: 0, entry_x: 1.0, entry_y: 1.0}]
       set_refs = {}
+      cell_refs = {}
       rows_tally = 0.0
       cols_tally = 0.0
       root_rows = nil
@@ -73,6 +74,13 @@ module AACMetrics::Metrics
             set_refs[id] += 1
           end
         end
+        board['grid']['rows'].times do |row_idx|
+          board['grid']['columns'].times do |col_idx|
+            id = (board['grid']['order'][row_idx] || [])[col_idx]
+            cell_refs["#{row_idx}.#{col_idx}"] ||= 0.0
+            cell_refs["#{row_idx}.#{col_idx}"] += id ? 1.0 : 0.25
+          end
+        end
         if board['semantic_ids']
           board['semantic_ids'].each do |id|
             set_refs[id] ||= 0
@@ -88,7 +96,8 @@ module AACMetrics::Metrics
       end
       set_pcts = {}
       set_refs.each do |id, cnt|
-        set_pcts[id] = cnt.to_f / obfset.length.to_f
+        loc = id.split(/-/)[1]
+        set_pcts[id] = cnt.to_f / (cell_refs[loc] || obfset.length).to_f
       end
       locale = obfset[0]['locale']
       known_buttons = {}
