@@ -1,14 +1,14 @@
 # TODO:
 # Qualitative evaluation criteria:
-# - this set is easy to learn for communicators
-# - this set is easy to learn for supporters
-# - the vocabulary organization of this set makes sense
-# - this set provides clear opportunities for user-specific words to be added
-# - grammatical forms, growth over time
-# - works well for age group X, Y, Z
-# - works well for a beginning communicator
-# - allows long-term growth as-is
-# - comprehensive core
+# - this set looks easy to learn for communicators
+# - this set looks easy to learn for supporters
+# - this vocabulary organization of this set makes sense
+# - this set provides clear locations for user-specific words to be added
+# - this set supports the use of grammatical forms (tenses and other inflections)
+# - this set provides predefined simplification for beginning communicators
+# - this set allows for long-term vocabulary growth over time
+# - this vocabulary looks like it will work well for young users
+# - this vocabulary looks like it will work well for adult users
 
 # Effort algorithms for scanning/eyes
 module AACMetrics::Metrics
@@ -416,6 +416,7 @@ module AACMetrics::Metrics
     synonyms = AACMetrics::Loader.synonyms(target[:locale])
     sentences = AACMetrics::Loader.sentences(target[:locale])
     fringe = AACMetrics::Loader.fringe_words(target[:locale])
+    common_fringe = AACMetrics::Loader.common_fringe_words(target[:locale])
     common_words_obj['efforts'].each{|w, e| sortable_efforts[w] ||= e }
     common_words = common_words_obj['words']
     
@@ -609,8 +610,31 @@ module AACMetrics::Metrics
     target_effort_tally += res[:fringe_words].map{|s| s[:effort] }.sum.to_f / res[:fringe_words].length.to_f * 2.0
     comp_effort_tally += res[:fringe_words].map{|s| s[:comp_effort] }.sum.to_f / res[:fringe_words].length.to_f * 2.0
 
-    target_effort_tally += 80 # placeholder value for future added calculations
-    comp_effort_tally += 80
+    res[:common_fringe_words] = []
+    common_fringe.each do |word|
+      target_effort_score = 0.0
+      comp_effort_score = 0.0
+      synonym_words = [word] + (synonyms[word] || [])
+      effort = target_efforts[word] || target_efforts[word.downcase]
+      if !effort
+        synonym_words.each{|w| effort ||= target_efforts[w] }
+      end
+      effort ||= spelling_effort(word)
+      target_effort_score += effort
+
+      effort = comp_efforts[word] || comp_efforts[word.downcase]
+      if !effort
+        synonym_words.each{|w| effort ||= comp_efforts[w] }
+      end
+      effort ||= spelling_effort(word)
+      comp_effort_score += effort
+      res[:common_fringe_words] << {word: word, effort: target_effort_score, comp_effort: comp_effort_score}
+    end
+    target_effort_tally += res[:common_fringe_words].map{|s| s[:effort] }.sum.to_f / res[:common_fringe_words].length.to_f * 1.0
+    comp_effort_tally += res[:common_fringe_words].map{|s| s[:comp_effort] }.sum.to_f / res[:common_fringe_words].length.to_f * 1.0
+
+    target_effort_tally += 70 # placeholder value for future added calculations
+    comp_effort_tally += 70
 
 
 

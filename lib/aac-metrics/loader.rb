@@ -391,9 +391,18 @@ module AACMetrics::Loader
       end
     end
     all_words.uniq!
-    @@synonyms[locale] = all_words
+    @@fringe_words[locale] = all_words
   end
-  
+
+  def self.common_fringe_words(locale)
+    @@common_fringe_words ||= {}
+    return @@common_fringe_words[locale] if @@common_fringe_words[locale]
+    common = self.common_words(locale)['words']
+    core = self.core_lists('en').map{|r| r['words'] }.flatten.compact.uniq
+    all_words = common - core
+    @@common_fringe_words[locale] = all_words
+  end
+
   def self.base_words(locale)
     @@base_words ||= {}
     return @@base_words[locale] if @@base_words[locale]
