@@ -124,9 +124,9 @@ module AACMetrics::Metrics
             button_id = (board[:board]['grid']['order'][row_idx] || [])[col_idx]
             button = board[:board]['buttons'].detect{|b| b['id'] == button_id }
             if button && button['clone_id'] && set_pcts[button['clone_id']]
-              reuse_discount += REUSED_CLONE_FROM_OTHER_DISCOUNT * set_pcts[button['clone_id']]
+              reuse_discount += REUSED_CLONE_FROM_OTHER_BONUS * set_pcts[button['clone_id']]
             elsif button && button['semantic_id'] && set_pcts[button['semantic_id']]
-              reuse_discount += REUSED_SEMANTIC_FROM_OTHER_DISCOUNT * set_pcts[button['semantic_id']]
+              reuse_discount += REUSED_SEMANTIC_FROM_OTHER_BONUS * set_pcts[button['semantic_id']]
             end
           end
         end
@@ -195,9 +195,13 @@ module AACMetrics::Metrics
             button_effort = board_effort
             if board_pcts[button['semantic_id']]
               # TODO: Pull out these magic numbers
+              prior = button_effort
               button_effort = [button_effort, button_effort * SAME_LOCATION_AS_PRIOR_DISCOUNT / board_pcts[button['semantic_id']]].min
+#              puts "  #{button['label']} #{prior.round(1)} - #{prior - button_effort}"
             elsif board_pcts["upstream-#{button['semantic_id']}"]
+              prior = button_effort
               button_effort = [button_effort, button_effort * RECOGNIZABLE_SEMANTIC_FROM_PRIOR_DISCOUNT / board_pcts["upstream-#{button['semantic_id']}"]].min
+              # puts "  #{button['label']} #{prior.round(1)} - #{prior - button_effort}"
             end
             if board_pcts[button['clone_id']]
               button_effort = [button_effort, button_effort * SAME_LOCATION_AS_PRIOR_DISCOUNT / board_pcts[button['clone_id']]].min
@@ -274,7 +278,8 @@ module AACMetrics::Metrics
                   })
                 end
               end
-            else
+            end
+            if !button['load_board'] || button['load_board']['add_to_sentence']
               word = button['label']
               existing = known_buttons[word]
               if !existing || effort < existing[:effort] #board[:level] < existing[:level]
@@ -335,11 +340,11 @@ module AACMetrics::Metrics
   SKIPPED_VISUAL_SCAN_DISTANCE_MULTIPLIER = 0.5
   SAME_LOCATION_AS_PRIOR_DISCOUNT = 0.1
   RECOGNIZABLE_SEMANTIC_FROM_PRIOR_DISCOUNT = 0.5
-  RECOGNIZABLE_SEMANTIC_FROM_OTHER_DISCOUNT = 0.6
+  RECOGNIZABLE_SEMANTIC_FROM_OTHER_DISCOUNT = 0.5
+  REUSED_SEMANTIC_FROM_OTHER_BONUS = 0.0025
   RECOGNIZABLE_CLONE_FROM_PRIOR_DISCOUNT = 0.33
-  RECOGNIZABLE_CLONE_FROM_OTHER_DISCOUNT = 0.4
-  REUSED_SEMANTIC_FROM_OTHER_DISCOUNT = 0.0025
-  REUSED_CLONE_FROM_OTHER_DISCOUNT = 0.005
+  RECOGNIZABLE_CLONE_FROM_OTHER_DISCOUNT = 0.33
+  REUSED_CLONE_FROM_OTHER_BONUS = 0.005
 
   def self.button_size_effort(rows, cols)
     BUTTON_SIZE_MULTIPLIER * (rows + cols) / 2
@@ -486,6 +491,7 @@ module AACMetrics::Metrics
     res[:cores] = {
       :common => {name: "Common Word List", list: common_words, average_effort: common_effort, comp_effort: comp_effort}
     }
+    res[:care_components] = {}
     target_effort_tally = 0.0
     comp_effort_tally = 0.0
     # For each core list, find any missing words, and compute
@@ -515,6 +521,7 @@ module AACMetrics::Metrics
         end
         # Fallback penalty for missing word
         effort ||= spelling_effort(word)
+        reffort = effort
         list_effort += effort
 
         effort = comp_efforts[word]
@@ -523,6 +530,7 @@ module AACMetrics::Metrics
         end
         effort ||= spelling_effort(word)
         comp_effort += effort
+        # puts "#{word} - #{reffort.round(1)} - #{effort.round(1)}"
       end
       if missing.length > 0
         # puts "MISSING FROM #{list['id']} (#{missing.length}):"
@@ -535,8 +543,10 @@ module AACMetrics::Metrics
       comp_effort_tally += comp_effort
       res[:cores][list['id']] = {name: list['name'], list: list['words'], average_effort: list_effort, comp_effort: comp_effort}
     end
-    target_effort_tally = (target_effort_tally / core_lists.to_a.length) * 5.0
-    comp_effort_tally = (comp_effort_tally / core_lists.to_a.length) * 5.0
+    res[:care_components][:core] = (target_effort_tally / core_lists.to_a.length) * 5.0
+    target_effort_tally = res[:care_components][:core]
+    res[:care_components][:comp_core] = (comp_effort_tally / core_lists.to_a.length) * 5.0
+    comp_effort_tally = res[:care_components][:comp_core]
 
     # TODO: Assemble or allow a battery of word combinations,
     # and calculate the level of effort for each sequence,
@@ -584,8 +594,10 @@ module AACMetrics::Metrics
       comp_effort_score = comp_effort_score / words.length
       res[:sentences] << {sentence: words.join(' '), words: words, effort: target_effort_score, comp_effort: comp_effort_score}
     end
-    target_effort_tally += res[:sentences].map{|s| s[:effort] }.sum.to_f / res[:sentences].length.to_f * 3.0
-    comp_effort_tally += res[:sentences].map{|s| s[:comp_effort] }.sum.to_f / res[:sentences].length.to_f * 3.0
+    res[:care_components][:sentences] = res[:sentences].map{|s| s[:effort] }.sum.to_f / res[:sentences].length.to_f * 3.0
+    target_effort_tally += res[:care_components][:sentences]
+    res[:care_components][:comp_sentences] = res[:sentences].map{|s| s[:comp_effort] }.sum.to_f / res[:sentences].length.to_f * 3.0
+    comp_effort_tally += res[:care_components][:comp_sentences]
 
     res[:fringe_words] = []
     fringe.each do |word|
@@ -596,6 +608,7 @@ module AACMetrics::Metrics
       if !effort
         synonym_words.each{|w| effort ||= target_efforts[w] }
       end
+      # puts "!#{word}" unless effort
       effort ||= spelling_effort(word)
       target_effort_score += effort
 
@@ -607,8 +620,10 @@ module AACMetrics::Metrics
       comp_effort_score += effort
       res[:fringe_words] << {word: word, effort: target_effort_score, comp_effort: comp_effort_score}
     end
-    target_effort_tally += res[:fringe_words].map{|s| s[:effort] }.sum.to_f / res[:fringe_words].length.to_f * 2.0
-    comp_effort_tally += res[:fringe_words].map{|s| s[:comp_effort] }.sum.to_f / res[:fringe_words].length.to_f * 2.0
+    res[:care_components][:fringe] = res[:fringe_words].map{|s| s[:effort] }.sum.to_f / res[:fringe_words].length.to_f * 2.0
+    target_effort_tally += res[:care_components][:fringe]
+    res[:care_components][:comp_fringe] = res[:fringe_words].map{|s| s[:comp_effort] }.sum.to_f / res[:fringe_words].length.to_f * 2.0
+    comp_effort_tally += res[:care_components][:comp_fringe]
 
     res[:common_fringe_words] = []
     common_fringe.each do |word|
@@ -630,16 +645,23 @@ module AACMetrics::Metrics
       comp_effort_score += effort
       res[:common_fringe_words] << {word: word, effort: target_effort_score, comp_effort: comp_effort_score}
     end
-    target_effort_tally += res[:common_fringe_words].map{|s| s[:effort] }.sum.to_f / res[:common_fringe_words].length.to_f * 1.0
-    comp_effort_tally += res[:common_fringe_words].map{|s| s[:comp_effort] }.sum.to_f / res[:common_fringe_words].length.to_f * 1.0
+    res[:care_components][:common_fringe] = res[:common_fringe_words].map{|s| s[:effort] }.sum.to_f / res[:common_fringe_words].length.to_f * 1.0
+    target_effort_tally += res[:care_components][:common_fringe]
+    res[:care_components][:comp_common_fringe] = res[:common_fringe_words].map{|s| s[:comp_effort] }.sum.to_f / res[:common_fringe_words].length.to_f * 1.0
+    comp_effort_tally += res[:care_components][:comp_common_fringe]
 
     target_effort_tally += 70 # placeholder value for future added calculations
     comp_effort_tally += 70
 
+    # puts target_effort_tally
+    # puts comp_effort_tally
+    # puts (target_effort_tally - comp_effort_tally).abs
+    # puts JSON.pretty_generate(res[:care_components])
+#    raise 'arf'
 
 
-    res[:target_effort_score] = target_effort_tally
-    res[:comp_effort_score] = comp_effort_tally
+    res[:target_effort_score] = [0.0, 350.0 - target_effort_tally].max
+    res[:comp_effort_score] = [0.0, 350.0 - comp_effort_tally].max
     # puts "CONSIDER MAKING EASIER"
     res[:high_effort_words] = too_hard
     # puts too_hard.join('  ')

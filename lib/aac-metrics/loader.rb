@@ -20,6 +20,7 @@ module AACMetrics::Loader
           }
           if button['load_board'] && button['load_board']['id']
             new_button['load_board'] = {'id' => button['load_board']['id']}
+            new_button['load_board']['add_to_sentence'] = true if button['load_board']['add_to_sentence']
           end
           new_board['buttons'].push(new_button)
         end
@@ -177,6 +178,7 @@ module AACMetrics::Loader
                 else
                   puts "Link found with no access #{btn['load_board'].to_json}"
                 end
+                new_btn['load_board']['add_to_sentence'] = true if new_btn['load_board'] && btn['load_board']['add_to_sentence']
               elsif btn['action']
                 # TODO: track keyboard actions and don't
                 # treat action buttons for metrics
