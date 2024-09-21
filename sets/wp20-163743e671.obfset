@@ -42,6 +42,7 @@
         "id": "btn6",
         "label": "$865c0c0b4a",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd6"
         },
         "clone_id": "c4x5-1.0-I "
@@ -50,6 +51,7 @@
         "id": "btn7",
         "label": "$b77cc7925e",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd7"
         }
       },
@@ -80,6 +82,7 @@
         "id": "btn11",
         "label": "$0d149b90e7",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd11"
         },
         "clone_id": "c4x5-2.0-it"
@@ -88,6 +91,7 @@
         "id": "btn12",
         "label": "$2b623ef9b8",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd7"
         }
       },
@@ -100,6 +104,7 @@
         "id": "btn14",
         "label": "$d4579b2688",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd12"
         },
         "clone_id": "c4x5-2.3-do"
@@ -116,6 +121,7 @@
         "id": "btn16",
         "label": "$639bae9ac6",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd6"
         }
       },
@@ -123,6 +129,7 @@
         "id": "btn17",
         "label": "$c57daeb8b2",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd14"
         }
       },
@@ -216,6 +223,7 @@
         "id": "btn3",
         "label": "$0193e062c1",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd17"
         }
       },
@@ -243,6 +251,7 @@
         "id": "btn9",
         "label": "$a2a551a645",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd18"
         }
       },
@@ -283,6 +292,7 @@
         "id": "btn17",
         "label": "What will we do ",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd20"
         }
       },
@@ -290,6 +300,7 @@
         "id": "btn18",
         "label": "$4015e9ce43",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd21"
         },
         "clone_id": "c4x5-3.2-are"
@@ -298,6 +309,7 @@
         "id": "btn19",
         "label": "$ee85b62281",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd12"
         },
         "clone_id": "c4x5-3.3-did"
@@ -392,6 +404,7 @@
         "id": "btn9",
         "label": "$6f96cfdfe5",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd22"
         }
       },
@@ -399,6 +412,7 @@
         "id": "btn10",
         "label": "$9eb0d040ef",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd22"
         }
       },
@@ -417,6 +431,7 @@
         "id": "btn13",
         "label": "$2bb3d86d95",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd6"
         }
       },
@@ -424,6 +439,7 @@
         "id": "btn14",
         "label": "$ff1ccf57e9",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd6"
         }
       },
@@ -491,6 +507,7 @@
         "id": "btn1",
         "label": "$89c78c1e80",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd25"
         }
       },
@@ -671,7 +688,8 @@
         "id": "btn6",
         "label": "$23a58bf927",
         "load_board": {
-          "id": "brd3"
+          "id": "brd3",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-1.0-with"
       },
@@ -796,6 +814,7 @@
         "id": "btn1",
         "label": "$9a97eda6d8",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd31"
         },
         "clone_id": "c4x5-0.0-eat"
@@ -804,6 +823,7 @@
         "id": "btn2",
         "label": "$0b18a3d7b9",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd32"
         },
         "clone_id": "c4x5-0.1-drink"
@@ -812,6 +832,7 @@
         "id": "btn3",
         "label": "$b5c0b187fe",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd7"
         }
       },
@@ -824,7 +845,8 @@
         "id": "btn5",
         "label": "$34d1f91fb2",
         "load_board": {
-          "id": "brd5"
+          "id": "brd5",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-0.4-go"
       },
@@ -832,6 +854,7 @@
         "id": "btn6",
         "label": "$88698b6a45",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd13"
         }
       },
@@ -839,6 +862,7 @@
         "id": "btn7",
         "label": "$a3186a309d",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd7"
         },
         "clone_id": "c4x5-1.1-want"
@@ -847,7 +871,8 @@
         "id": "btn8",
         "label": "$dd22b70914",
         "load_board": {
-          "id": "brd5"
+          "id": "brd5",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-1.2-went "
       },
@@ -855,6 +880,7 @@
         "id": "btn9",
         "label": "$a3b34c0871",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd33"
         },
         "clone_id": "c4x5-1.3-play"
@@ -873,6 +899,7 @@
         "id": "btn12",
         "label": "$be1ab1632e",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd7"
         }
       },
@@ -880,6 +907,7 @@
         "id": "btn13",
         "label": "$2c61ebff5a",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd8"
         },
         "clone_id": "c4x5-2.2-can"
@@ -888,6 +916,7 @@
         "id": "btn14",
         "label": "$d4579b2688",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd17"
         },
         "clone_id": "c4x5-2.3-do"
@@ -896,6 +925,7 @@
         "id": "btn15",
         "label": "$18218139ee",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd8"
         },
         "clone_id": "c4x5-2.4-will"
@@ -904,6 +934,7 @@
         "id": "btn16",
         "label": "$5970929a42",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd17"
         }
       },
@@ -911,6 +942,7 @@
         "id": "btn17",
         "label": "$e877c56e4f",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd14"
         },
         "clone_id": "c4x5-3.1-need"
@@ -919,6 +951,7 @@
         "id": "btn18",
         "label": "$4015e9ce43",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd34"
         },
         "clone_id": "c4x5-3.2-are"
@@ -927,6 +960,7 @@
         "id": "btn19",
         "label": "$ee85b62281",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd17"
         },
         "clone_id": "c4x5-3.3-did"
@@ -1002,6 +1036,7 @@
         "id": "btn1",
         "label": "$8dc67e5da2",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd31"
         }
       },
@@ -1009,6 +1044,7 @@
         "id": "btn2",
         "label": "$23c4bb5744",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd32"
         }
       },
@@ -1028,7 +1064,8 @@
         "id": "btn5",
         "label": "$f8d7aa1cbf",
         "load_board": {
-          "id": "brd5"
+          "id": "brd5",
+          "add_to_sentence": true
         }
       },
       {
@@ -1040,6 +1077,7 @@
         "id": "btn7",
         "label": "$cb4aa9dae8",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd35"
         }
       },
@@ -1047,6 +1085,7 @@
         "id": "btn8",
         "label": "$01b6e20344",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd8"
         },
         "clone_id": "c4x5-1.2-to"
@@ -1055,6 +1094,7 @@
         "id": "btn9",
         "label": "$4d1f63a154",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd33"
         }
       },
@@ -1075,6 +1115,7 @@
         "id": "btn12",
         "label": "$7b803e9da6",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd36"
         }
       },
@@ -1082,6 +1123,7 @@
         "id": "btn13",
         "label": "$a425158594",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd37"
         }
       },
@@ -1186,6 +1228,7 @@
         "id": "btn1",
         "label": "$9a97eda6d8",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd31"
         },
         "clone_id": "c4x5-0.0-eat"
@@ -1194,6 +1237,7 @@
         "id": "btn2",
         "label": "$0b18a3d7b9",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd32"
         },
         "clone_id": "c4x5-0.1-drink"
@@ -1202,7 +1246,8 @@
         "id": "btn3",
         "label": "$12de3a4dab",
         "load_board": {
-          "id": "brd5"
+          "id": "brd5",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-0.2-come"
       },
@@ -1215,7 +1260,8 @@
         "id": "btn5",
         "label": "$34d1f91fb2",
         "load_board": {
-          "id": "brd5"
+          "id": "brd5",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-0.4-go"
       },
@@ -1227,6 +1273,7 @@
         "id": "btn7",
         "label": "$839d7228b5",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd35"
         }
       },
@@ -1239,6 +1286,7 @@
         "id": "btn9",
         "label": "$a3b34c0871",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd33"
         },
         "clone_id": "c4x5-1.3-play"
@@ -1257,6 +1305,7 @@
         "id": "btn12",
         "label": "$ecae13117d",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd36"
         }
       },
@@ -1264,6 +1313,7 @@
         "id": "btn13",
         "label": "$d2974c96dc",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd37"
         },
         "clone_id": "c4x5-2.2-watch"
@@ -1378,6 +1428,7 @@
         "id": "btn3",
         "label": "$8972508ac7",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd39"
         }
       },
@@ -1422,6 +1473,7 @@
         "id": "btn12",
         "label": "$69faab6268",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd40"
         }
       },
@@ -1761,6 +1813,7 @@
         "id": "btn2",
         "label": "$b771356267",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd32"
         },
         "clone_id": "c4x5-0.1-drinks"
@@ -1769,7 +1822,8 @@
         "id": "btn3",
         "label": "$a102c4a959",
         "load_board": {
-          "id": "brd7"
+          "id": "brd7",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-0.2-loves"
       },
@@ -1782,7 +1836,8 @@
         "id": "btn5",
         "label": "$89fe7b5ca5",
         "load_board": {
-          "id": "brd5"
+          "id": "brd5",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-0.4-goes"
       },
@@ -1790,6 +1845,7 @@
         "id": "btn6",
         "label": "$c6c24400cd",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd13"
         },
         "clone_id": "c4x5-1.0-feels "
@@ -1798,7 +1854,8 @@
         "id": "btn7",
         "label": "$f30453f8ca",
         "load_board": {
-          "id": "brd7"
+          "id": "brd7",
+          "add_to_sentence": true
         }
       },
       {
@@ -1810,6 +1867,7 @@
         "id": "btn9",
         "label": "$ed4018190d",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd33"
         },
         "clone_id": "c4x5-1.3-plays"
@@ -1828,7 +1886,8 @@
         "id": "btn12",
         "label": "$cc71d8f3dc",
         "load_board": {
-          "id": "brd7"
+          "id": "brd7",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-2.1-likes "
       },
@@ -1836,7 +1895,8 @@
         "id": "btn13",
         "label": "$2c61ebff5a",
         "load_board": {
-          "id": "brd8"
+          "id": "brd8",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-2.2-can"
       },
@@ -1844,6 +1904,7 @@
         "id": "btn14",
         "label": "$5440e70c43",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd17"
         },
         "clone_id": "c4x5-2.3-does"
@@ -1852,7 +1913,8 @@
         "id": "btn15",
         "label": "$18218139ee",
         "load_board": {
-          "id": "brd8"
+          "id": "brd8",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-2.4-will"
       },
@@ -1860,6 +1922,7 @@
         "id": "btn16",
         "label": "$59a7709f7e",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd17"
         },
         "clone_id": "c4x5-3.0-doesn't"
@@ -1868,6 +1931,7 @@
         "id": "btn17",
         "label": "$35ea8083fa",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd14"
         },
         "clone_id": "c4x5-3.1-needs "
@@ -1876,6 +1940,7 @@
         "id": "btn18",
         "label": "$a2a551a645",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd42"
         },
         "clone_id": "c4x5-3.2-is"
@@ -1884,7 +1949,8 @@
         "id": "btn19",
         "label": "$ee85b62281",
         "load_board": {
-          "id": "brd6"
+          "id": "brd6",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-3.3-did"
       },
@@ -1975,6 +2041,7 @@
         "id": "btn3",
         "label": "$865c0c0b4a",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd17"
         },
         "clone_id": "c4x5-1.0-I "
@@ -1997,6 +2064,7 @@
         "id": "btn7",
         "label": "$6f96cfdfe5",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd17"
         },
         "clone_id": "c4x5-2.1-he"
@@ -2005,6 +2073,7 @@
         "id": "btn8",
         "label": "$9eb0d040ef",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd17"
         },
         "clone_id": "c4x5-2.2-she"
@@ -2013,6 +2082,7 @@
         "id": "btn9",
         "label": "$ff1ccf57e9",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd17"
         }
       },
@@ -2025,6 +2095,7 @@
         "id": "btn11",
         "label": "$639bae9ac6",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd17"
         },
         "clone_id": "c4x5-3.0-you "
@@ -2038,6 +2109,7 @@
         "id": "btn13",
         "label": "$2bb3d86d95",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd17"
         }
       },
@@ -2110,6 +2182,7 @@
         "id": "btn1",
         "label": "$755f85c272",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd44"
         },
         "clone_id": "c4x5-0.0-good"
@@ -2280,7 +2353,8 @@
         "id": "btn5",
         "label": "$01b6e20344",
         "load_board": {
-          "id": "brd8"
+          "id": "brd8",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-1.2-to"
       },
@@ -2332,6 +2406,7 @@
         "id": "btn15",
         "label": "$0cc175b9c0",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd15"
         },
         "clone_id": "c4x5-3.2-a "
@@ -2423,6 +2498,7 @@
         "id": "btn4",
         "label": "$13b5bfe96f",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd47"
         },
         "clone_id": "c4x5-0.3-in"
@@ -2431,6 +2507,7 @@
         "id": "btn5",
         "label": "$c68271a63d",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd48"
         },
         "clone_id": "c4x5-0.4-out"
@@ -2752,6 +2829,7 @@
         "id": "btn1",
         "label": "$9a97eda6d8",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd31"
         },
         "clone_id": "c4x5-0.0-eat"
@@ -2760,6 +2838,7 @@
         "id": "btn2",
         "label": "$0b18a3d7b9",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd32"
         },
         "clone_id": "c4x5-0.1-drink"
@@ -2768,7 +2847,8 @@
         "id": "btn3",
         "label": "$12de3a4dab",
         "load_board": {
-          "id": "brd5"
+          "id": "brd5",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-0.2-come"
       },
@@ -2781,7 +2861,8 @@
         "id": "btn5",
         "label": "$34d1f91fb2",
         "load_board": {
-          "id": "brd5"
+          "id": "brd5",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-0.4-go"
       },
@@ -2789,14 +2870,16 @@
         "id": "btn6",
         "label": "$88698b6a45",
         "load_board": {
-          "id": "brd13"
+          "id": "brd13",
+          "add_to_sentence": true
         }
       },
       {
         "id": "btn7",
         "label": "$a3186a309d",
         "load_board": {
-          "id": "brd7"
+          "id": "brd7",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-1.1-want"
       },
@@ -2812,6 +2895,7 @@
         "id": "btn9",
         "label": "$a3b34c0871",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd33"
         },
         "clone_id": "c4x5-1.3-play"
@@ -2829,13 +2913,15 @@
         "id": "btn12",
         "label": "$be1ab1632e",
         "load_board": {
-          "id": "brd7"
+          "id": "brd7",
+          "add_to_sentence": true
         }
       },
       {
         "id": "btn13",
         "label": "$d2974c96dc",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd37"
         },
         "clone_id": "c4x5-2.2-watch"
@@ -2858,7 +2944,8 @@
         "id": "btn17",
         "label": "$e877c56e4f",
         "load_board": {
-          "id": "brd14"
+          "id": "brd14",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-3.1-need"
       },
@@ -2946,6 +3033,7 @@
         "id": "btn1",
         "label": "What is your name? ",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd66"
         }
       },
@@ -2983,6 +3071,7 @@
         "id": "btn7",
         "label": "$6f96cfdfe5",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd34"
         },
         "clone_id": "c4x5-2.1-he"
@@ -2991,6 +3080,7 @@
         "id": "btn8",
         "label": "$9eb0d040ef",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd34"
         },
         "clone_id": "c4x5-2.2-she"
@@ -3272,6 +3362,7 @@
         "id": "btn3",
         "label": "$639bae9ac6",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd34"
         },
         "clone_id": "c4x5-3.0-you "
@@ -3280,6 +3371,7 @@
         "id": "btn4",
         "label": "$2bb3d86d95",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd34"
         }
       },
@@ -3287,6 +3379,7 @@
         "id": "btn5",
         "label": "$ff1ccf57e9",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd34"
         }
       },
@@ -3344,6 +3437,7 @@
         "id": "btn1",
         "label": "$369b4a938f",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd31"
         },
         "clone_id": "c4x5-0.0-eats"
@@ -3352,6 +3446,7 @@
         "id": "btn2",
         "label": "$b771356267",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd32"
         },
         "clone_id": "c4x5-0.1-drinks"
@@ -3360,7 +3455,8 @@
         "id": "btn3",
         "label": "$a102c4a959",
         "load_board": {
-          "id": "brd7"
+          "id": "brd7",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-0.2-loves"
       },
@@ -3373,7 +3469,8 @@
         "id": "btn5",
         "label": "$89fe7b5ca5",
         "load_board": {
-          "id": "brd5"
+          "id": "brd5",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-0.4-goes"
       },
@@ -3381,7 +3478,8 @@
         "id": "btn6",
         "label": "$c6c24400cd",
         "load_board": {
-          "id": "brd13"
+          "id": "brd13",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-1.0-feels "
       },
@@ -3389,14 +3487,16 @@
         "id": "btn7",
         "label": "$f30453f8ca",
         "load_board": {
-          "id": "brd7"
+          "id": "brd7",
+          "add_to_sentence": true
         }
       },
       {
         "id": "btn8",
         "label": "$dd22b70914",
         "load_board": {
-          "id": "brd5"
+          "id": "brd5",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-1.2-went "
       },
@@ -3404,6 +3504,7 @@
         "id": "btn9",
         "label": "$ed4018190d",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd33"
         },
         "clone_id": "c4x5-1.3-plays"
@@ -3422,7 +3523,8 @@
         "id": "btn12",
         "label": "$cc71d8f3dc",
         "load_board": {
-          "id": "brd7"
+          "id": "brd7",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-2.1-likes "
       },
@@ -3430,7 +3532,8 @@
         "id": "btn13",
         "label": "$2c61ebff5a",
         "load_board": {
-          "id": "brd8"
+          "id": "brd8",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-2.2-can"
       },
@@ -3438,7 +3541,8 @@
         "id": "btn14",
         "label": "$5440e70c43",
         "load_board": {
-          "id": "brd17"
+          "id": "brd17",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-2.3-does"
       },
@@ -3446,7 +3550,8 @@
         "id": "btn15",
         "label": "$18218139ee",
         "load_board": {
-          "id": "brd8"
+          "id": "brd8",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-2.4-will"
       },
@@ -3454,7 +3559,8 @@
         "id": "btn16",
         "label": "$59a7709f7e",
         "load_board": {
-          "id": "brd17"
+          "id": "brd17",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-3.0-doesn't"
       },
@@ -3462,7 +3568,8 @@
         "id": "btn17",
         "label": "$35ea8083fa",
         "load_board": {
-          "id": "brd14"
+          "id": "brd14",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-3.1-needs "
       },
@@ -3470,6 +3577,7 @@
         "id": "btn18",
         "label": "$a2a551a645",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd34"
         },
         "clone_id": "c4x5-3.2-is"
@@ -3478,7 +3586,8 @@
         "id": "btn19",
         "label": "$ee85b62281",
         "load_board": {
-          "id": "brd6"
+          "id": "brd6",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-3.3-did"
       },
@@ -3745,6 +3854,7 @@
         "id": "btn1",
         "label": "$787c74a2e6",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd68"
         },
         "clone_id": "c4x5-1.0-Sunday "
@@ -3753,6 +3863,7 @@
         "id": "btn2",
         "label": "$944ba223a5",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd68"
         },
         "clone_id": "c4x5-1.1-Monday "
@@ -3761,6 +3872,7 @@
         "id": "btn3",
         "label": "$1a31a6f65c",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd68"
         },
         "clone_id": "c4x5-2.0-Tuesday "
@@ -3769,6 +3881,7 @@
         "id": "btn4",
         "label": "$aae446086f",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd68"
         },
         "clone_id": "c4x5-2.1-Wednesday "
@@ -3777,6 +3890,7 @@
         "id": "btn5",
         "label": "$c395246f71",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd68"
         },
         "clone_id": "c4x5-2.2-Thursday "
@@ -3785,6 +3899,7 @@
         "id": "btn6",
         "label": "$f6f7fec07f",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd68"
         },
         "clone_id": "c4x5-3.1-Friday "
@@ -3793,6 +3908,7 @@
         "id": "btn7",
         "label": "$6036c3d913",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd68"
         },
         "clone_id": "c4x5-3.2-Saturday "
@@ -4018,7 +4134,8 @@
         "id": "btn6",
         "label": "Tomorrow will be ",
         "load_board": {
-          "id": "brd25"
+          "id": "brd25",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-1.0-Tomorrow will be "
       },
@@ -4525,7 +4642,8 @@
         "id": "btn6",
         "label": "$7d0db380a5",
         "load_board": {
-          "id": "brd28"
+          "id": "brd28",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-1.0-at"
       },
@@ -4966,21 +5084,24 @@
         "id": "btn1",
         "label": "$dfc429d5d3",
         "load_board": {
-          "id": "brd31"
+          "id": "brd31",
+          "add_to_sentence": true
         }
       },
       {
         "id": "btn2",
         "label": "$1ce8e028f5",
         "load_board": {
-          "id": "brd32"
+          "id": "brd32",
+          "add_to_sentence": true
         }
       },
       {
         "id": "btn3",
         "label": "$5d8963ae21",
         "load_board": {
-          "id": "brd5"
+          "id": "brd5",
+          "add_to_sentence": true
         }
       },
       {
@@ -4991,7 +5112,8 @@
         "id": "btn5",
         "label": "$f2bab06044",
         "load_board": {
-          "id": "brd5"
+          "id": "brd5",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-0.4-going"
       },
@@ -5003,6 +5125,7 @@
         "id": "btn7",
         "label": "$a6e71e02cd",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd35"
         }
       },
@@ -5014,7 +5137,8 @@
         "id": "btn9",
         "label": "$7ed501a93c",
         "load_board": {
-          "id": "brd33"
+          "id": "brd33",
+          "add_to_sentence": true
         }
       },
       {
@@ -5033,6 +5157,7 @@
         "id": "btn12",
         "label": "$eceadc1d40",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd36"
         }
       },
@@ -5040,6 +5165,7 @@
         "id": "btn13",
         "label": "$fbf90254b7",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd37"
         }
       },
@@ -5572,6 +5698,7 @@
         "id": "btn6",
         "label": "$c0bb722d28",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd53"
         }
       },
@@ -5611,7 +5738,8 @@
         "id": "btn15",
         "label": "$64b59718a4",
         "load_board": {
-          "id": "brd15"
+          "id": "brd15",
+          "add_to_sentence": true
         }
       },
       {
@@ -5622,6 +5750,7 @@
         "id": "btn17",
         "label": "$a850c17cba",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd86"
         }
       },
@@ -5708,7 +5837,8 @@
         "id": "btn5",
         "label": "$f2bab06044",
         "load_board": {
-          "id": "brd5"
+          "id": "brd5",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-0.4-going"
       },
@@ -5716,7 +5846,8 @@
         "id": "btn6",
         "label": "$ed8c35a1ac",
         "load_board": {
-          "id": "brd13"
+          "id": "brd13",
+          "add_to_sentence": true
         }
       },
       {
@@ -6239,7 +6370,8 @@
         "id": "btn1",
         "label": "$369b4a938f",
         "load_board": {
-          "id": "brd31"
+          "id": "brd31",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-0.0-eats"
       },
@@ -6247,7 +6379,8 @@
         "id": "btn2",
         "label": "$b771356267",
         "load_board": {
-          "id": "brd32"
+          "id": "brd32",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-0.1-drinks"
       },
@@ -6255,7 +6388,8 @@
         "id": "btn3",
         "label": "$abcc7832a1",
         "load_board": {
-          "id": "brd5"
+          "id": "brd5",
+          "add_to_sentence": true
         }
       },
       {
@@ -6266,7 +6400,8 @@
         "id": "btn5",
         "label": "$89fe7b5ca5",
         "load_board": {
-          "id": "brd5"
+          "id": "brd5",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-0.4-goes"
       },
@@ -6278,7 +6413,8 @@
         "id": "btn7",
         "label": "$34637718ad",
         "load_board": {
-          "id": "brd35"
+          "id": "brd35",
+          "add_to_sentence": true
         }
       },
       {
@@ -6290,7 +6426,8 @@
         "id": "btn9",
         "label": "$ed4018190d",
         "load_board": {
-          "id": "brd33"
+          "id": "brd33",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-1.3-plays"
       },
@@ -6308,14 +6445,16 @@
         "id": "btn12",
         "label": "$0fb9cf5f04",
         "load_board": {
-          "id": "brd36"
+          "id": "brd36",
+          "add_to_sentence": true
         }
       },
       {
         "id": "btn13",
         "label": "$2d6b6aad43",
         "load_board": {
-          "id": "brd37"
+          "id": "brd37",
+          "add_to_sentence": true
         }
       },
       {
@@ -6439,7 +6578,8 @@
         "id": "btn7",
         "label": "$01b6e20344",
         "load_board": {
-          "id": "brd8"
+          "id": "brd8",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-1.2-to"
       },
@@ -6907,7 +7047,8 @@
         "id": "btn18",
         "label": "$0cc175b9c0",
         "load_board": {
-          "id": "brd15"
+          "id": "brd15",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-3.2-a "
       },
@@ -7073,7 +7214,8 @@
         "id": "btn18",
         "label": "$0cc175b9c0",
         "load_board": {
-          "id": "brd15"
+          "id": "brd15",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-3.2-a "
       },
@@ -7151,6 +7293,7 @@
         "id": "btn1",
         "label": "$100b8cad7c",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd94"
         }
       },
@@ -7174,6 +7317,7 @@
         "id": "btn6",
         "label": "$83ab982dd0",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd95"
         }
       },
@@ -7198,6 +7342,7 @@
         "id": "btn11",
         "label": "$03d59e663c",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd96"
         }
       },
@@ -7205,7 +7350,8 @@
         "id": "btn12",
         "label": "$d850f04cdb",
         "load_board": {
-          "id": "brd15"
+          "id": "brd15",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-2.1-there"
       },
@@ -7213,7 +7359,8 @@
         "id": "btn13",
         "label": "$6c92285fa6",
         "load_board": {
-          "id": "brd15"
+          "id": "brd15",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-2.2-here"
       },
@@ -8306,7 +8453,8 @@
         "id": "btn2",
         "label": "Something hurts, it's my ",
         "load_board": {
-          "id": "brd53"
+          "id": "brd53",
+          "add_to_sentence": true
         }
       },
       {
@@ -9199,6 +9347,7 @@
         "id": "btn7",
         "label": "$98706b57fb",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd124"
         }
       },
@@ -11643,7 +11792,8 @@
         "id": "btn6",
         "label": "$a7ea886ca6",
         "load_board": {
-          "id": "brd53"
+          "id": "brd53",
+          "add_to_sentence": true
         }
       },
       {
@@ -11682,7 +11832,8 @@
         "id": "btn15",
         "label": "$72810d6f5f",
         "load_board": {
-          "id": "brd15"
+          "id": "brd15",
+          "add_to_sentence": true
         }
       },
       {
@@ -11693,6 +11844,7 @@
         "id": "btn17",
         "label": "$59588ec7ce",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd86"
         }
       },
@@ -12706,7 +12858,8 @@
         "id": "btn7",
         "label": "$2aa357378e",
         "load_board": {
-          "id": "brd42"
+          "id": "brd42",
+          "add_to_sentence": true
         }
       }
     ],
@@ -12777,7 +12930,8 @@
         "id": "btn6",
         "label": "$7e2bf25600",
         "load_board": {
-          "id": "brd53"
+          "id": "brd53",
+          "add_to_sentence": true
         }
       },
       {
@@ -12816,7 +12970,8 @@
         "id": "btn15",
         "label": "$fe56992af1",
         "load_board": {
-          "id": "brd15"
+          "id": "brd15",
+          "add_to_sentence": true
         }
       },
       {
@@ -12827,7 +12982,8 @@
         "id": "btn17",
         "label": "$7b27dc1e1a",
         "load_board": {
-          "id": "brd86"
+          "id": "brd86",
+          "add_to_sentence": true
         }
       },
       {
@@ -16737,6 +16893,7 @@
         "id": "btn4",
         "label": "$8bf8854beb",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd225"
         }
       },
@@ -17478,7 +17635,8 @@
         "id": "btn14",
         "label": "$5058f1af83",
         "load_board": {
-          "id": "brd63"
+          "id": "brd63",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-3.3-. "
       },
@@ -17543,6 +17701,7 @@
         "id": "btn1",
         "label": "$89c78c1e80",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd229"
         }
       },
@@ -17550,6 +17709,7 @@
         "id": "btn2",
         "label": "$89c78c1e80",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd229"
         }
       },
@@ -17557,6 +17717,7 @@
         "id": "btn3",
         "label": "The weather is ",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd230"
         }
       },
@@ -17568,6 +17729,7 @@
         "id": "btn5",
         "label": "Tomorrow will be ",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd229"
         },
         "clone_id": "c4x5-1.0-Tomorrow will be "
@@ -17576,6 +17738,7 @@
         "id": "btn6",
         "label": "$1363512db5",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd229"
         }
       },
@@ -17583,6 +17746,7 @@
         "id": "btn7",
         "label": "$1363512db5",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd229"
         }
       },
@@ -17590,6 +17754,7 @@
         "id": "btn8",
         "label": "Tomorrow will be ",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd229"
         }
       },
@@ -17597,6 +17762,7 @@
         "id": "btn9",
         "label": "The season is ",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd231"
         }
       },
@@ -17734,7 +17900,8 @@
         "id": "btn16",
         "label": "$5058f1af83",
         "load_board": {
-          "id": "brd63"
+          "id": "brd63",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-3.3-. "
       },
@@ -20699,7 +20866,8 @@
         "id": "btn3",
         "label": "$88698b6a45",
         "load_board": {
-          "id": "brd13"
+          "id": "brd13",
+          "add_to_sentence": true
         }
       },
       {
@@ -21218,7 +21386,8 @@
         "id": "btn1",
         "label": "$3f347890f9",
         "load_board": {
-          "id": "brd8"
+          "id": "brd8",
+          "add_to_sentence": true
         }
       },
       {
@@ -21257,14 +21426,16 @@
         "id": "btn10",
         "label": "$be1ab1632e",
         "load_board": {
-          "id": "brd7"
+          "id": "brd7",
+          "add_to_sentence": true
         }
       },
       {
         "id": "btn11",
         "label": "$839d7228b5",
         "load_board": {
-          "id": "brd35"
+          "id": "brd35",
+          "add_to_sentence": true
         }
       },
       {
@@ -21304,7 +21475,8 @@
         "id": "btn19",
         "label": "$b5c0b187fe",
         "load_board": {
-          "id": "brd7"
+          "id": "brd7",
+          "add_to_sentence": true
         }
       }
     ],
@@ -22176,14 +22348,16 @@
         "id": "btn6",
         "label": "$a77b359894",
         "load_board": {
-          "id": "brd34"
+          "id": "brd34",
+          "add_to_sentence": true
         }
       },
       {
         "id": "btn7",
         "label": "$2b016d9095",
         "load_board": {
-          "id": "brd34"
+          "id": "brd34",
+          "add_to_sentence": true
         }
       },
       {
@@ -30451,6 +30625,7 @@
         "id": "btn1",
         "label": "$787c74a2e6",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd283"
         },
         "clone_id": "c4x5-1.0-Sunday "
@@ -30459,6 +30634,7 @@
         "id": "btn2",
         "label": "$944ba223a5",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd283"
         },
         "clone_id": "c4x5-1.1-Monday "
@@ -30467,6 +30643,7 @@
         "id": "btn3",
         "label": "$1a31a6f65c",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd283"
         },
         "clone_id": "c4x5-2.0-Tuesday "
@@ -30475,6 +30652,7 @@
         "id": "btn4",
         "label": "$aae446086f",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd283"
         },
         "clone_id": "c4x5-2.1-Wednesday "
@@ -30483,6 +30661,7 @@
         "id": "btn5",
         "label": "$c395246f71",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd283"
         },
         "clone_id": "c4x5-2.2-Thursday "
@@ -30491,6 +30670,7 @@
         "id": "btn6",
         "label": "$f6f7fec07f",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd283"
         },
         "clone_id": "c4x5-3.1-Friday "
@@ -30499,6 +30679,7 @@
         "id": "btn7",
         "label": "$6036c3d913",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd283"
         },
         "clone_id": "c4x5-3.2-Saturday "
@@ -30631,7 +30812,8 @@
         "id": "btn15",
         "label": "$5058f1af83",
         "load_board": {
-          "id": "brd123"
+          "id": "brd123",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-3.3-. "
       },
@@ -35811,7 +35993,8 @@
         "id": "btn4",
         "label": "$f016441d00",
         "load_board": {
-          "id": "brd13"
+          "id": "brd13",
+          "add_to_sentence": true
         }
       },
       {
@@ -36631,7 +36814,8 @@
         "id": "btn14",
         "label": "$5058f1af83",
         "load_board": {
-          "id": "brd123"
+          "id": "brd123",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-3.3-. "
       },
@@ -37697,7 +37881,8 @@
         "id": "btn18",
         "label": "$ea6b2efbdd",
         "load_board": {
-          "id": "brd123"
+          "id": "brd123",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-3.2-2019"
       },
@@ -37705,7 +37890,8 @@
         "id": "btn19",
         "label": "$5058f1af83",
         "load_board": {
-          "id": "brd123"
+          "id": "brd123",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-3.3-. "
       },
@@ -38638,7 +38824,8 @@
         "id": "btn18",
         "label": "$ea6b2efbdd",
         "load_board": {
-          "id": "brd123"
+          "id": "brd123",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-3.2-2019"
       },
@@ -38646,7 +38833,8 @@
         "id": "btn19",
         "label": "$5058f1af83",
         "load_board": {
-          "id": "brd123"
+          "id": "brd123",
+          "add_to_sentence": true
         },
         "clone_id": "c4x5-3.3-. "
       },
