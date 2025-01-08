@@ -1,6 +1,6 @@
 [
-  ["I", "want", "to", "go"],
   ["I", "like", "to", "be", "here", "with", "you"],
+  ["I", "want", "to", "go"],
   ["where", "are", "you", "from"],
   ["I", "see", "a", "pretty", "yellow", "flower"],
   ["yesterday", "I", "went", "to", "the", "doctor"],
@@ -27,5 +27,6 @@
   ["stir", "it", "well", "first"],
   ["you", "are", "better", "than", "that"],
   ["is", "it", "normal", "to", "miss", "her", "this", "much"],
-  ["I", "vote", "we", "sit", "under", "the", "umbrella"]
+  ["I", "vote", "we", "sit", "under", "the", "umbrella"],
+  ["my", "favorite", "color", "is", "yellow"]
 ]

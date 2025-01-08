@@ -20,6 +20,7 @@ module AACMetrics::Loader
           }
           if button['load_board'] && button['load_board']['id']
             new_button['load_board'] = {'id' => button['load_board']['id']}
+            new_button['load_board']['temporary_home'] = button['load_board']['temporary_home'] if button['load_board']['temporary_home'] == true || button['load_board']['temporary_home'] == 'prior'
             new_button['load_board']['add_to_sentence'] = true if button['load_board']['add_to_sentence']
           end
           new_board['buttons'].push(new_button)
@@ -73,11 +74,11 @@ module AACMetrics::Loader
       if json.is_a?(Array)
         json.each do |brd|
           brd['buttons'].each do |btn|
-            if btn['label'].match(/^\$/)
+            if (btn['label'] || '').match(/^\$/)
               word = base[btn['label'].sub(/^\$/, '')]
               btn['label'] = word if word
             end
-            btn['label'] = btn['label'].gsub(/’/, '')
+            btn['label'] = (btn['label'] || '').gsub(/’/, '')
           end
         end
       elsif json.is_a?(Hash)
@@ -159,6 +160,12 @@ module AACMetrics::Loader
               # record load_board reference
               btn_idx += 1
               if btn['load_board']
+                if !btn['load_board']['path'] && btn['load_board']['id']
+                  bpath = File.join(File.dirname(path), btn['load_board']['id'] + '.obf')
+                  if File.exists?(bpath)
+                    btn['load_board']['path'] = bpath
+                  end
+                end
                 if btn['load_board']['path']
                   if visited_paths[btn['load_board']['path']]
                     new_btn['load_board'] = {'id' => "brd#{visited_paths[btn['load_board']['path']]}"}
@@ -176,8 +183,10 @@ module AACMetrics::Loader
                     new_btn['load_board'] = {'tmp_path' => btn['load_board']['data_url']}
                   end
                 else
+                  puts path
                   puts "Link found with no access #{btn['load_board'].to_json}"
                 end
+                new_btn['load_board']['temporary_home'] = true if new_btn['load_board'] && btn['load_board']['temporary_home']
                 new_btn['load_board']['add_to_sentence'] = true if new_btn['load_board'] && btn['load_board']['add_to_sentence']
               elsif btn['action']
                 # TODO: track keyboard actions and don't

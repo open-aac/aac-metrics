@@ -30,14 +30,16 @@ module AACMetrics::Metrics
     # as the link used to get there if they share an id
   def self.analyze(obfset, output=true, include_obfset=false)
     locale = nil
-    buttons = []
+    buttons = nil
     set_refs = {}
     grid = {}
+    alt_scores = {}
 
     if obfset.is_a?(Hash) && obfset['buttons']
       locale = obfset['locale'] || 'en'
       set_refs = obfset['reference_counts']
       grid = obfset['grid']
+      alt_scores = obfset['alternates']
       buttons = []
       obfset['buttons'].each do |btn|
         buttons << {
@@ -51,6 +53,7 @@ module AACMetrics::Metrics
       end
       total_boards = obfset['total_boards']
     else
+      start_boards = [obfset[0]]
       visited_board_ids = {}
       to_visit = [{board: obfset[0], level: 0, entry_x: 1.0, entry_y: 1.0}]
       set_refs = {}
@@ -87,6 +90,17 @@ module AACMetrics::Metrics
             set_refs[id] += 1
           end
         end
+        board['buttons'].each do |link_btn|
+          if link_btn['load_board'] && link_btn['load_board']['id'] && link_btn['load_board']['temporary_home']
+            # TODO: buttons can have multiple efforts, depending
+            # on if they are navigable from a temporary_home
+            if link_btn['load_board']['temporary_home'] == 'prior'
+              start_boards << board
+            elsif link_btn['load_board']['temporary_home'] == true
+              start_boards << obfset.detect{|b| b['id'] == link_btn['load_board']['id']}
+            end
+          end
+        end
       end
       # If the average grid size is much different than the root
       # grid size, only then use the average as the size for this board set
@@ -99,7 +113,52 @@ module AACMetrics::Metrics
         loc = id.split(/-/)[1]
         set_pcts[id] = cnt.to_f / (cell_refs[loc] || obfset.length).to_f
       end
-      locale = obfset[0]['locale']
+
+      total_boards = nil
+      locale = nil
+      clusters = nil
+      # TODO: this list used to be reversed, but I don't know why.
+      # What we want is for these analyses to be run for the root
+      # board, don't we?
+      # puts JSON.pretty_generate(obfset[0])
+      start_boards.uniq.each do |brd|
+        analysis = analyze_for(obfset, brd, set_pcts, output)
+        buttons ||= analysis[:buttons]
+        if brd != obfset[0]
+          alt_scores[brd['id']] = {
+            buttons: analysis[:buttons],
+            levels: analysis[:levels]
+          }
+        end
+        total_boards ||= analysis[:total_boards]
+        clusters ||= analysis[:levels]
+        locale ||= analysis[:locale]
+      end
+    end
+    res = {
+      analysis_version: AACMetrics::VERSION,
+      locale: locale,
+      total_boards: total_boards,
+      total_buttons: buttons.length,
+      reference_counts: set_refs,
+      grid: {
+        rows: root_rows,
+        columns: root_cols
+      },
+      buttons: buttons,
+      levels: clusters,
+      alternates: alt_scores
+    }
+    if include_obfset
+      res[:obfset] = obfset
+    end
+    res
+  end
+
+  def self.analyze_for(obfset, brd, set_pcts, output)
+      visited_board_ids = {}
+      to_visit = [{board: brd, level: 0, entry_x: 1.0, entry_y: 1.0}]
+      locale = brd['locale'] || 'en'
       known_buttons = {}
       while to_visit.length > 0
         board = to_visit.shift
@@ -173,7 +232,7 @@ module AACMetrics::Metrics
             button_id = (board[:board]['grid']['order'][row_idx] || [])[col_idx]
             button = board[:board]['buttons'].detect{|b| b['id'] == button_id }
             # prior_buttons += 0.1 if !button
-            next unless button
+            next unless button && (button['label'] || button['vocalization'] || '').length > 0
             x = (btn_width / 2)  + (btn_width * col_idx)
             y = (btn_height / 2) + (btn_height * row_idx)
             # prior_buttons = (row_idx * board[:board]['grid']['columns']) + col_idx
@@ -250,6 +309,10 @@ module AACMetrics::Metrics
             effort += board[:prior_effort] || 0
             prior_buttons += 1
 
+            # TODO: If any board links are sticky, or if
+            # the board set isn't auto-home, or any board links
+            # are add_to_sentence, then the logic will be different
+            # for calculating effort scores, since the route matters
             if button['load_board']
               try_visit = false
               # For linked buttons, only traverse if
@@ -267,10 +330,14 @@ module AACMetrics::Metrics
                 next_board = obfset.detect{|brd| brd['id'] == button['load_board']['id'] }
                 change_effort = BOARD_CHANGE_PROCESSING_EFFORT
                 if next_board
+                  temp_home_id = board[:temporary_home_id]
+                  temp_home_id = board[:board]['id'] if button['load_board']['temporary_home'] == 'prior'
+                  temp_home_id = button['load_board']['id'] if button['load_board']['temporary_home'] == true
                   to_visit.push({
                     board: next_board,
                     level: board[:level] + 1,
                     prior_effort: effort + change_effort,
+                    temporary_home_id: temp_home_id,
                     entry_x: x,
                     entry_y: y,
                     entry_clone_id: button['clone_id'],
@@ -282,29 +349,34 @@ module AACMetrics::Metrics
             if !button['load_board'] || button['load_board']['add_to_sentence']
               word = button['label']
               existing = known_buttons[word]
-              if !existing || effort < existing[:effort] #board[:level] < existing[:level]
-                if board_pcts[button['clone_id']]
-                  effort -= [BOARD_CHANGE_PROCESSING_EFFORT, BOARD_CHANGE_PROCESSING_EFFORT * 0.3 / board_pcts[button['clone_id']]].min
-                elsif board_pcts[button['semantic_id']]
-                  effort -= [BOARD_CHANGE_PROCESSING_EFFORT, BOARD_CHANGE_PROCESSING_EFFORT * 0.5 / board_pcts[button['semantic_id']]].min
-                end
-
-                known_buttons[word] = {
+              if board_pcts[button['clone_id']]
+                effort -= [BOARD_CHANGE_PROCESSING_EFFORT, BOARD_CHANGE_PROCESSING_EFFORT * 0.3 / board_pcts[button['clone_id']]].min
+              elsif board_pcts[button['semantic_id']]
+                effort -= [BOARD_CHANGE_PROCESSING_EFFORT, BOARD_CHANGE_PROCESSING_EFFORT * 0.5 / board_pcts[button['semantic_id']]].min
+              end
+              if !existing || effort < existing[:effort]
+                ww = {
                   id: "#{button['id']}::#{board[:board]['id']}",
                   label: word,
                   level: board[:level],
                   effort: effort,
                 }
+                # If a board set has any temporary_home links,
+                # then that can possibly affect the effort
+                # score for sentences
+                if board[:temporary_home_id]
+                  ww[:temporary_home_id] = board[:temporary_home_id]
+                end
+                known_buttons[word] = ww
               end
             end
             button['effort'] = effort
-
           end
         end
-      end
+      end # end to_visit list
       buttons = known_buttons.to_a.map(&:last)
       total_boards = visited_board_ids.keys.length
-    end
+
     buttons = buttons.sort_by{|b| [b[:effort] || 1, b[:label] || ""] }
     clusters = {}
     buttons.each do |btn| 
@@ -316,18 +388,29 @@ module AACMetrics::Metrics
       locale: locale,
       total_boards: total_boards,
       total_buttons: buttons.length,
-      reference_counts: set_refs,
-      grid: {
-        rows: root_rows,
-        columns: root_cols
-      },
       buttons: buttons,
       levels: clusters
     }
-    if include_obfset
-      res[:obfset] = obfset
-    end
     res
+  end
+
+  class ExtraFloat < Numeric
+    include Math
+    def initialize(float=0.0)
+      @float = Float(float)
+    end
+  
+    def to_f
+      @float.to_f
+    end
+
+    def method_missing(message, *args, &block)
+      if block_given?
+        @float.public_send(message, *args, &block)
+      else
+        @float.public_send(message, *args)
+      end
+    end
   end
 
   SQRT2 = Math.sqrt(2)
@@ -335,6 +418,8 @@ module AACMetrics::Metrics
   FIELD_SIZE_MULTIPLIER = 0.005
   VISUAL_SCAN_MULTIPLIER = 0.015
   BOARD_CHANGE_PROCESSING_EFFORT = 1.0
+  BOARD_HOME_EFFORT = 1.0
+  COMBINED_WORDS_REMEMBERING_EFFORT = 1.0
   DISTANCE_MULTIPLIER = 0.4
   DISTANCE_THRESHOLD_TO_SKIP_VISUAL_SCAN = 0.1
   SKIPPED_VISUAL_SCAN_DISTANCE_MULTIPLIER = 0.5
@@ -382,8 +467,20 @@ module AACMetrics::Metrics
     compare[:buttons].each do |btn|
       compare_words << btn[:label]
       compare_buttons[btn[:label]] = btn
-      comp_efforts[btn[:label]] = btn[:effort]
+      comp_efforts[btn[:label]] = ExtraFloat.new(btn[:effort])
+      comp_efforts[btn[:label]].instance_variable_set('@temp_home_id', btn[:temporary_home_id])
       comp_levels[btn[:label]] = btn[:level]
+    end
+    compare[:alternates].each do |id, alt|
+      efforts = {}
+      levels = {}
+      alt[:buttons].each do |btn|
+        efforts[btn[:label]] = ExtraFloat.new(btn[:effort])
+        efforts[btn[:label]].instance_variable_set('@temp_home_id', btn[:temporary_home_id])
+        levels[btn[:label]] = btn[:level]
+      end
+      comp_efforts["H:#{id}"] = efforts
+      comp_levels["H:#{id}"] = levels
     end
 
     sortable_efforts = {}
@@ -396,7 +493,9 @@ module AACMetrics::Metrics
     # very frequent core words and use that when available
     res[:buttons].each{|b| 
       target_words << b[:label]
-      target_efforts[b[:label]] = b[:effort]
+      target_efforts[b[:label]] = ExtraFloat.new(b[:effort])
+      target_efforts[b[:label]].instance_variable_set('@temp_home_id', b[:temporary_home_id])
+
       target_levels[b[:label]] = b[:level]
       sortable_efforts[b[:label]] = b[:effort] 
       comp = compare_buttons[b[:label]]
@@ -405,6 +504,18 @@ module AACMetrics::Metrics
         b[:comp_effort] = comp[:effort]
       end
     }
+    res[:alternates].each do |id, alt|
+      efforts = {}
+      levels = {}
+      alt[:buttons].each do |btn|
+        efforts[btn[:label]] = ExtraFloat.new(btn[:effort])
+        efforts[btn[:label]].instance_variable_set('@temp_home_id', btn[:temporary_home_id])
+        levels[btn[:label]] = btn[:level]
+      end
+      target_efforts["H:#{id}"] = efforts
+      target_levels["H:#{id}"] = levels
+    end
+    res.delete(:alternates)
     # Effort scores are the mean of thw scores from the
     # two sets, or just a singular value if in only one set
     compare[:buttons].each{|b| 
@@ -437,7 +548,6 @@ module AACMetrics::Metrics
         end
       end
     end
-
     
     missing = (compare_words - target_words).sort_by{|w| sortable_efforts[w] }
     missing = missing.select do |word|
@@ -515,20 +625,11 @@ module AACMetrics::Metrics
         end
 
         # Calculate the effort for the target and comp sets
-        effort = target_efforts[word]
-        if !effort
-          words.each{|w| effort ||= target_efforts[w] }
-        end
-        # Fallback penalty for missing word
-        effort ||= spelling_effort(word)
+        effort, level = best_match(word, target_efforts, nil, synonyms)
         reffort = effort
         list_effort += effort
 
-        effort = comp_efforts[word]
-        if !effort
-          words.each{|w| effort ||= comp_efforts[w] }
-        end
-        effort ||= spelling_effort(word)
+        effort, level = best_match(word, comp_efforts, nil, synonyms)
         comp_effort += effort
         # puts "#{word} - #{reffort.round(1)} - #{effort.round(1)}"
       end
@@ -548,50 +649,18 @@ module AACMetrics::Metrics
     res[:care_components][:comp_core] = (comp_effort_tally / core_lists.to_a.length) * 5.0
     comp_effort_tally = res[:care_components][:comp_core]
 
-    # TODO: Assemble or allow a battery of word combinations,
+    # Assemble or allow a battery of word combinations,
     # and calculate the level of effort for each sequence,
     # as well as an average level of effort across combinations.
+    # TODO: sets with temporary_home settings will have custom
+    # effort scores for subsequent words in the sentence
     res[:sentences] = []
     sentences.each do |words|
-      target_effort_score = 0.0
-      comp_effort_score = 0.0
-      words.each_with_index do |word, idx|
-        synonym_words = [word] + (synonyms[word] || [])
-        effort = target_efforts[word] || target_efforts[word.downcase]
-        level = target_levels[word] || target_levels[word.downcase]
-        if !effort
-          synonym_words.each do |w| 
-            if !effort && target_efforts[w]
-              effort = target_efforts[w]
-              level = target_levels[w]
-            end
-          end
-        end
-        effort ||= spelling_effort(word)
-        if level && level > 0 && idx > 0
-          effort += BOARD_CHANGE_PROCESSING_EFFORT
-        end
-        ee = effort
-        target_effort_score += effort
+      sequence = best_combo(words, target_efforts, target_levels, synonyms)
+      target_effort_score = sequence.map{|w, e| e }.sum.to_f / words.length.to_f
+      sequence = best_combo(words, comp_efforts, comp_levels, synonyms)
+      comp_effort_score = sequence.map{|w, e| e }.sum.to_f / words.length.to_f
 
-        effort = comp_efforts[word] || comp_efforts[word.downcase]
-        level = comp_levels[word] || comp_levels[word.downcase]
-        if !effort
-          synonym_words.each do |w| 
-            if !effort && comp_efforts[w]
-              effort = comp_efforts[w]
-              level = comp_levels[w]
-            end
-          end
-        end
-        effort ||= spelling_effort(word)
-        if level && level > 0 && idx > 0
-          effort += BOARD_CHANGE_PROCESSING_EFFORT
-        end
-        comp_effort_score += effort
-      end
-      target_effort_score = target_effort_score / words.length
-      comp_effort_score = comp_effort_score / words.length
       res[:sentences] << {sentence: words.join(' '), words: words, effort: target_effort_score, comp_effort: comp_effort_score}
     end
     res[:care_components][:sentences] = res[:sentences].map{|s| s[:effort] }.sum.to_f / res[:sentences].length.to_f * 3.0
@@ -603,20 +672,11 @@ module AACMetrics::Metrics
     fringe.each do |word|
       target_effort_score = 0.0
       comp_effort_score = 0.0
-      synonym_words = [word] + (synonyms[word] || [])
-      effort = target_efforts[word] || target_efforts[word.downcase]
-      if !effort
-        synonym_words.each{|w| effort ||= target_efforts[w] }
-      end
-      # puts "!#{word}" unless effort
-      effort ||= spelling_effort(word)
+
+      effort, level = best_match(word, target_efforts, nil, synonyms)
       target_effort_score += effort
 
-      effort = comp_efforts[word] || comp_efforts[word.downcase]
-      if !effort
-        synonym_words.each{|w| effort ||= comp_efforts[w] }
-      end
-      effort ||= spelling_effort(word)
+      effort, level = best_match(word, comp_efforts, nil, synonyms)
       comp_effort_score += effort
       res[:fringe_words] << {word: word, effort: target_effort_score, comp_effort: comp_effort_score}
     end
@@ -629,19 +689,10 @@ module AACMetrics::Metrics
     common_fringe.each do |word|
       target_effort_score = 0.0
       comp_effort_score = 0.0
-      synonym_words = [word] + (synonyms[word] || [])
-      effort = target_efforts[word] || target_efforts[word.downcase]
-      if !effort
-        synonym_words.each{|w| effort ||= target_efforts[w] }
-      end
-      effort ||= spelling_effort(word)
+      effort, level = best_match(word, target_efforts, nil, synonyms)
       target_effort_score += effort
 
-      effort = comp_efforts[word] || comp_efforts[word.downcase]
-      if !effort
-        synonym_words.each{|w| effort ||= comp_efforts[w] }
-      end
-      effort ||= spelling_effort(word)
+      effort, level = best_match(word, comp_efforts, nil, synonyms)
       comp_effort_score += effort
       res[:common_fringe_words] << {word: word, effort: target_effort_score, comp_effort: comp_effort_score}
     end
@@ -653,13 +704,6 @@ module AACMetrics::Metrics
     target_effort_tally += 70 # placeholder value for future added calculations
     comp_effort_tally += 70
 
-    # puts target_effort_tally
-    # puts comp_effort_tally
-    # puts (target_effort_tally - comp_effort_tally).abs
-    # puts JSON.pretty_generate(res[:care_components])
-#    raise 'arf'
-
-
     res[:target_effort_score] = [0.0, 350.0 - target_effort_tally].max
     res[:comp_effort_score] = [0.0, 350.0 - comp_effort_tally].max
     # puts "CONSIDER MAKING EASIER"
@@ -669,5 +713,95 @@ module AACMetrics::Metrics
     res[:low_effort_words] = too_easy
     # puts too_easy.join('  ')
     res
+  end
+
+  # Find the effort for a word, its synonyms, or its spelling.
+  # Always returns a non-nil effort score
+  def self.best_match(word, target_efforts, target_levels, synonyms)
+    synonym_words = [word] + (synonyms[word] || [])
+    effort = target_efforts[word] || target_efforts[word.downcase]
+    target_levels ||= {}
+    level = target_levels[word] || target_levels[word.downcase]
+    if !effort
+      synonym_words.each do |w| 
+        if !effort && target_efforts[w]
+          effort = target_efforts[w]
+          level = target_levels[w]
+        end
+      end
+    end
+    # Fallback penalty for missing word
+    fallback_effort = spelling_effort(word)
+    effort = fallback_effort if !effort || fallback_effort < effort
+
+    [effort, level || 0]
+  end
+
+  def self.best_combo(words, efforts, levels, synonyms)
+    options = [{next_idx: 0, list: []}]
+    words.length.times do |idx|
+      options.each do |option|
+        home_id = option[:temporary_home_id]
+        if option[:next_idx] == idx
+          combos = forward_combos(words, idx, efforts, levels)
+          if home_id
+            # Effort of hitting home button, and processing change, plus usual
+            combos.each{|c| c[:effort] += BOARD_HOME_EFFORT + BOARD_CHANGE_PROCESSING_EFFORT}
+            more_combos = forward_combos(words, idx, efforts["H:#{home_id}"] || {}, levels["H:#{home_id}"] || {})
+            more_combos.each{|c| c[:temporary_home_id] ||= home_id }
+            combos += more_combos
+          end
+          combos.each do |combo|
+            if idx > 0 && combo[:level] && combo[:level] > 0
+              combo[:effort] += BOARD_CHANGE_PROCESSING_EFFORT
+            end
+            options << {
+              next_idx: idx + combo[:size],
+              list: option[:list] + [[combo[:partial], combo[:effort]]],
+              temporary_home_id: combo[:temporary_home_id]
+            }
+          end
+          effort, level = best_match(words[idx], efforts, levels, synonyms)
+          option[:temporary_home_id] = effort.instance_variable_get('@temp_home_id')
+          effort += BOARD_CHANGE_PROCESSING_EFFORT if idx > 0 && level && level > 0
+          if home_id
+            effort += BOARD_HOME_EFFORT + BOARD_CHANGE_PROCESSING_EFFORT
+            other_effort, other_level = best_match(words[idx], efforts["H:#{home_id}"] || {}, levels["H:#{home_id}"] || {}, synonyms)
+            new_home_id = other_effort.instance_variable_get('@temp_home_id') || home_id
+            other_effort += BOARD_CHANGE_PROCESSING_EFFORT if idx > 0 && other_level && other_level > 0
+            other_list = option[:list] + [[words[idx], other_effort]]
+            options << {next_idx: idx + 1, list: other_list, temporary_home_id: new_home_id}
+          end
+          option[:list] << [words[idx], effort]
+          option[:next_idx] = idx + 1
+        end
+      end
+    end
+    options.sort_by{|o| o[:list].map{|w, e| e}.sum }.reverse[0][:list]
+  end
+
+  # Checks if any buttons will work for multiple words in a sentence
+  def self.forward_combos(words, idx, target_efforts, target_levels)
+    words_left = words.length - idx
+    combos = []
+    skip = 0
+    temp_home_id = nil
+    if words_left > 1
+      (words_left - 1).times do |minus|
+        partial = words[idx, words_left - minus].join(' ')
+        if target_efforts[partial] || target_efforts[partial.downcase]
+          effort = (target_efforts[partial] || target_efforts[partial.downcase]) + COMBINED_WORDS_REMEMBERING_EFFORT
+          level = target_levels[partial] || target_levels[partial.downcase]
+          combos << {
+            partial: partial,
+            effort: effort, 
+            temporary_home_id: effort.instance_variable_get('@temp_home_id'),
+            level: level, 
+            size: words_left - minus
+          }
+        end
+      end
+    end
+    combos
   end
 end
