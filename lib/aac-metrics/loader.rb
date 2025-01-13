@@ -187,7 +187,10 @@ module AACMetrics::Loader
                   puts "Link found with no access #{btn['load_board'].to_json}"
                 end
                 new_btn['load_board']['temporary_home'] = true if new_btn['load_board'] && btn['load_board']['temporary_home']
+                new_btn['load_board']['temporary_home'] = true if new_btn['load_board'] && btn['ext_coughdrop_home_lock']
                 new_btn['load_board']['add_to_sentence'] = true if new_btn['load_board'] && btn['load_board']['add_to_sentence']
+                new_btn['load_board']['add_to_sentence'] = true if new_btn['load_board'] && btn['ext_coughdrop_add_to_vocalization']
+                new_btn['load_board']['add_to_sentence'] = true if new_btn['load_board'] && btn['ext_coughdrop_add_vocalization']
               elsif btn['action']
                 # TODO: track keyboard actions and don't
                 # treat action buttons for metrics

@@ -45,6 +45,8 @@
         "id": "btn6",
         "label": "$1251e5efbf",
         "load_board": {
+          "temporary_home": true,
+          "add_to_sentence": true,
           "id": "brd7"
         },
         "clone_id": "c3x5-1.0-That is"
@@ -53,6 +55,8 @@
         "id": "btn7",
         "label": "I'd like to go",
         "load_board": {
+          "temporary_home": true,
+          "add_to_sentence": true,
           "id": "brd8"
         }
       },
@@ -60,6 +64,8 @@
         "id": "btn8",
         "label": "$b77cc7925e",
         "load_board": {
+          "temporary_home": true,
+          "add_to_sentence": true,
           "id": "brd9"
         }
       },
@@ -67,6 +73,8 @@
         "id": "btn9",
         "label": "Let's talk about",
         "load_board": {
+          "temporary_home": true,
+          "add_to_sentence": true,
           "id": "brd10"
         }
       },
@@ -74,6 +82,8 @@
         "id": "btn10",
         "label": "$a2d9a4759d",
         "load_board": {
+          "temporary_home": true,
+          "add_to_sentence": true,
           "id": "brd11"
         }
       },
@@ -81,6 +91,8 @@
         "id": "btn11",
         "label": "$019ed9e92b",
         "load_board": {
+          "temporary_home": true,
+          "add_to_sentence": true,
           "id": "brd12"
         }
       },
@@ -88,6 +100,8 @@
         "id": "btn12",
         "label": "I was wondering",
         "load_board": {
+          "temporary_home": true,
+          "add_to_sentence": true,
           "id": "brd13"
         }
       },
@@ -109,6 +123,8 @@
         "id": "btn15",
         "label": "$fd93f552bd",
         "load_board": {
+          "temporary_home": true,
+          "add_to_sentence": true,
           "id": "brd16"
         }
       }
@@ -156,6 +172,7 @@
         "id": "btn1",
         "label": "I will spell it for you",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd17"
         }
       },
@@ -163,6 +180,7 @@
         "id": "btn2",
         "label": "It starts with",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd17"
         }
       },
@@ -170,6 +188,7 @@
         "id": "btn3",
         "label": "Let me give you a clue",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd4"
         }
       },
@@ -345,6 +364,7 @@
         "id": "btn2",
         "label": "$12a032ce91",
         "load_board": {
+          "temporary_home": true,
           "id": "brd21"
         }
       },
@@ -352,6 +372,7 @@
         "id": "btn3",
         "label": "$2529a252a4",
         "load_board": {
+          "temporary_home": true,
           "id": "brd7"
         }
       },
@@ -366,6 +387,7 @@
         "id": "btn5",
         "label": "$07cc694b9b",
         "load_board": {
+          "temporary_home": true,
           "id": "brd22"
         }
       },
@@ -373,6 +395,7 @@
         "id": "btn6",
         "label": "$ebb67a4271",
         "load_board": {
+          "temporary_home": true,
           "id": "brd23"
         }
       },
@@ -380,6 +403,7 @@
         "id": "btn7",
         "label": "$dfc429d5d3",
         "load_board": {
+          "temporary_home": true,
           "id": "brd24"
         }
       },
@@ -387,6 +411,7 @@
         "id": "btn8",
         "label": "$77004ea213",
         "load_board": {
+          "temporary_home": true,
           "id": "brd25"
         }
       },
@@ -401,6 +426,7 @@
         "id": "btn10",
         "label": "$ab7dc89534",
         "load_board": {
+          "temporary_home": true,
           "id": "brd27"
         },
         "clone_id": "c3x5-1.4-places"
@@ -409,6 +435,7 @@
         "id": "btn11",
         "label": "$555bf8344c",
         "load_board": {
+          "temporary_home": true,
           "id": "brd28"
         }
       },
@@ -416,6 +443,7 @@
         "id": "btn12",
         "label": "$7516c3b355",
         "load_board": {
+          "temporary_home": true,
           "id": "brd29"
         }
       },
@@ -423,6 +451,7 @@
         "id": "btn13",
         "label": "$f16cc584ce",
         "load_board": {
+          "temporary_home": true,
           "id": "brd30"
         }
       },
@@ -430,6 +459,7 @@
         "id": "btn14",
         "label": "$50cf199129",
         "load_board": {
+          "temporary_home": true,
           "id": "brd31"
         }
       },
@@ -1649,6 +1679,7 @@
         "id": "btn1",
         "label": "$ad0c9a67d4",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd50"
         }
       },
@@ -1656,6 +1687,7 @@
         "id": "btn2",
         "label": "$019ed9e92b",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd36"
         }
       },
@@ -1670,6 +1702,7 @@
         "id": "btn4",
         "label": "$de61d52313",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd48"
         }
       },
@@ -1696,6 +1729,7 @@
         "id": "btn9",
         "label": "I need to go to the bathroom",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd52"
         }
       },
@@ -2510,6 +2544,7 @@
         "id": "btn1",
         "label": "$609f889836",
         "load_board": {
+          "temporary_home": true,
           "id": "brd75"
         }
       },
@@ -2517,6 +2552,7 @@
         "id": "btn2",
         "label": "$d016b20073",
         "load_board": {
+          "temporary_home": true,
           "id": "brd76"
         }
       },
@@ -2524,6 +2560,7 @@
         "id": "btn3",
         "label": "$f375dbeedc",
         "load_board": {
+          "temporary_home": true,
           "id": "brd77"
         }
       },
@@ -2531,6 +2568,7 @@
         "id": "btn4",
         "label": "$088495f309",
         "load_board": {
+          "temporary_home": true,
           "id": "brd78"
         }
       },
@@ -2538,6 +2576,7 @@
         "id": "btn5",
         "label": "$8ee8c6059d",
         "load_board": {
+          "temporary_home": true,
           "id": "brd79"
         }
       },
@@ -2561,6 +2600,7 @@
         "id": "btn10",
         "label": "$efacc17633",
         "load_board": {
+          "temporary_home": true,
           "id": "brd43"
         }
       },
@@ -2736,6 +2776,7 @@
         "id": "btn1",
         "label": "$af453c2cbb",
         "load_board": {
+          "temporary_home": true,
           "id": "brd87"
         }
       },
@@ -2743,6 +2784,7 @@
         "id": "btn2",
         "label": "$106a6c241b",
         "load_board": {
+          "temporary_home": true,
           "id": "brd88"
         }
       },
@@ -2750,6 +2792,7 @@
         "id": "btn3",
         "label": "$7516c3b355",
         "load_board": {
+          "temporary_home": true,
           "id": "brd29"
         }
       },
@@ -2757,6 +2800,7 @@
         "id": "btn4",
         "label": "$67e92c8765",
         "load_board": {
+          "temporary_home": true,
           "id": "brd89"
         }
       },
@@ -2787,6 +2831,7 @@
         "id": "btn10",
         "label": "$69266c67e7",
         "load_board": {
+          "temporary_home": true,
           "id": "brd91"
         },
         "clone_id": "c3x5-1.4-travel"
@@ -3114,6 +3159,7 @@
         "id": "btn1",
         "label": "$25d961aa72",
         "load_board": {
+          "temporary_home": true,
           "id": "brd100"
         }
       },
@@ -4899,6 +4945,7 @@
         "id": "btn14",
         "label": "$41a0236ad1",
         "load_board": {
+          "add_to_sentence": true,
           "id": "brd129"
         }
       }
@@ -6668,6 +6715,7 @@
         "id": "btn1",
         "label": "$841d8ef108",
         "load_board": {
+          "temporary_home": true,
           "id": "brd150"
         }
       },
@@ -6675,6 +6723,7 @@
         "id": "btn2",
         "label": "$b0da275520",
         "load_board": {
+          "temporary_home": true,
           "id": "brd151"
         }
       },
@@ -6682,6 +6731,7 @@
         "id": "btn3",
         "label": "$9cfa7aefcc",
         "load_board": {
+          "temporary_home": true,
           "id": "brd122"
         }
       },
@@ -6689,6 +6739,7 @@
         "id": "btn4",
         "label": "$f3fd9f9838",
         "load_board": {
+          "temporary_home": true,
           "id": "brd123"
         }
       },
@@ -6696,6 +6747,7 @@
         "id": "btn5",
         "label": "$2c5f64ab07",
         "load_board": {
+          "temporary_home": true,
           "id": "brd152"
         }
       },
@@ -6715,6 +6767,7 @@
         "id": "btn9",
         "label": "$eceadc1d40",
         "load_board": {
+          "temporary_home": true,
           "id": "brd153"
         }
       },
@@ -6738,6 +6791,7 @@
         "id": "btn14",
         "label": "$6bcd663791",
         "load_board": {
+          "temporary_home": true,
           "id": "brd154"
         }
       }
@@ -6779,6 +6833,7 @@
         "id": "btn1",
         "label": "$cf673f7ee8",
         "load_board": {
+          "temporary_home": true,
           "id": "brd155"
         },
         "clone_id": "c3x5-0.0-birthday"
@@ -6787,6 +6842,7 @@
         "id": "btn2",
         "label": "$3d4fe7a00b",
         "load_board": {
+          "temporary_home": true,
           "id": "brd156"
         },
         "clone_id": "c3x5-0.1-Christmas"
@@ -6795,6 +6851,7 @@
         "id": "btn3",
         "label": "$a6539c35ec",
         "load_board": {
+          "temporary_home": true,
           "id": "brd157"
         },
         "clone_id": "c3x5-0.2-Halloween"
@@ -6803,6 +6860,7 @@
         "id": "btn4",
         "label": "$154f020f4c",
         "load_board": {
+          "temporary_home": true,
           "id": "brd158"
         },
         "clone_id": "c3x5-0.3-Easter"
@@ -6811,6 +6869,7 @@
         "id": "btn5",
         "label": "$65bd107566",
         "load_board": {
+          "temporary_home": true,
           "id": "brd159"
         },
         "clone_id": "c3x5-0.4-Thanksgiving"
@@ -6902,6 +6961,7 @@
         "id": "btn1",
         "label": "$55ba44c548",
         "load_board": {
+          "temporary_home": true,
           "id": "brd162"
         }
       },
@@ -6909,6 +6969,7 @@
         "id": "btn2",
         "label": "$18d6769919",
         "load_board": {
+          "temporary_home": true,
           "id": "brd163"
         }
       },
@@ -6916,6 +6977,7 @@
         "id": "btn3",
         "label": "$2800cc7f2f",
         "load_board": {
+          "temporary_home": true,
           "id": "brd164"
         }
       },
@@ -6923,6 +6985,7 @@
         "id": "btn4",
         "label": "$7d520907f5",
         "load_board": {
+          "temporary_home": true,
           "id": "brd165"
         }
       },
@@ -6930,6 +6993,7 @@
         "id": "btn5",
         "label": "$56b7bb6871",
         "load_board": {
+          "temporary_home": true,
           "id": "brd166"
         }
       },
@@ -7018,6 +7082,7 @@
         "id": "btn2",
         "label": "$da443a0ad9",
         "load_board": {
+          "temporary_home": true,
           "id": "brd168"
         }
       },
@@ -7025,6 +7090,7 @@
         "id": "btn3",
         "label": "$d0199f51d2",
         "load_board": {
+          "temporary_home": true,
           "id": "brd169"
         }
       },
@@ -7032,6 +7098,7 @@
         "id": "btn4",
         "label": "$276f8db0b8",
         "load_board": {
+          "temporary_home": true,
           "id": "brd170"
         }
       },
@@ -7039,6 +7106,7 @@
         "id": "btn5",
         "label": "$f001f90ba8",
         "load_board": {
+          "temporary_home": true,
           "id": "brd171"
         }
       },
@@ -7921,7 +7989,8 @@
         "id": "btn1",
         "label": "$9460370bb0",
         "load_board": {
-          "id": "brd79"
+          "id": "brd79",
+          "temporary_home": true
         },
         "clone_id": "c3x5-0.0-water"
       },
@@ -7929,6 +7998,7 @@
         "id": "btn2",
         "label": "$38df36a418",
         "load_board": {
+          "temporary_home": true,
           "id": "brd198"
         }
       },
@@ -7936,7 +8006,8 @@
         "id": "btn3",
         "label": "$088495f309",
         "load_board": {
-          "id": "brd78"
+          "id": "brd78",
+          "temporary_home": true
         }
       },
       {
@@ -7969,6 +8040,7 @@
         "id": "btn9",
         "label": "$ff2364a0be",
         "load_board": {
+          "temporary_home": true,
           "id": "brd199"
         }
       },

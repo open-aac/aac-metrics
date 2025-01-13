@@ -1,14 +1,8 @@
 # TODO:
 # Qualitative evaluation criteria:
-# - this set looks easy to learn for communicators
-# - this set looks easy to learn for supporters
-# - this vocabulary organization of this set makes sense
 # - this set provides clear locations for user-specific words to be added
 # - this set supports the use of grammatical forms (tenses and other inflections)
 # - this set provides predefined simplification for beginning communicators
-# - this set allows for long-term vocabulary growth over time
-# - this vocabulary looks like it will work well for young users
-# - this vocabulary looks like it will work well for adult users
 
 # Effort algorithms for scanning/eyes
 module AACMetrics::Metrics
@@ -139,7 +133,8 @@ module AACMetrics::Metrics
       analysis_version: AACMetrics::VERSION,
       locale: locale,
       total_boards: total_boards,
-      total_buttons: buttons.length,
+      total_buttons: buttons.map{|b| b[:count] || 1}.sum,
+      total_words: buttons.map{|b| b[:label] }.uniq.length,
       reference_counts: set_refs,
       grid: {
         rows: root_rows,
@@ -360,6 +355,7 @@ module AACMetrics::Metrics
                   label: word,
                   level: board[:level],
                   effort: effort,
+                  count: ((existing || {})[:count] || 0) + 1
                 }
                 # If a board set has any temporary_home links,
                 # then that can possibly affect the effort
@@ -458,6 +454,7 @@ module AACMetrics::Metrics
     compare = AACMetrics::Metrics.analyze(compset, false)
     res[:comp_boards] = compare[:total_boards]
     res[:comp_buttons] = compare[:total_buttons]
+    res[:comp_words] = compare[:total_words]
     res[:comp_grid] = compare[:grid]
     
     compare_words = []
