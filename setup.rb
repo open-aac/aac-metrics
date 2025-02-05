@@ -41,7 +41,11 @@ end
 
 puts ""
 res[:sentences].each do |sentence|
-  puts "SCORE FOR #{sentence[:sentence]} #{sentence[:effort].round(2)} vs #{sentence[:comp_effort].round(2)}"
+  str = "SCORE FOR #{sentence[:sentence]} #{sentence[:effort].round(2)}"
+  str += "*" if sentence[:typing]
+  str +=  " vs #{sentence[:comp_effort].round(2)}"
+  str += "*" if sentence[:comp_typing]
+  puts str
 end
 
 puts ""

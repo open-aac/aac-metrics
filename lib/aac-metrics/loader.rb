@@ -330,6 +330,7 @@ module AACMetrics::Loader
     path = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'sets', "common_words.#{locale}.json"))    
     res = JSON.parse(File.read(path)) rescue nil
     if !res || res['version'] != AACMetrics::VERSION || res['files'] != files
+      # When version changes or the file list changes, regenerate
       efforts = {}
       common_words = nil
       common_paths.each do |path|
@@ -345,7 +346,8 @@ module AACMetrics::Loader
       end
       common_words -= ['']
       efforts.each do |word, vals|
-        if vals.length == common_paths.length
+        # If a word is in 80% of the common vocabs, include it in the list
+        if vals.length >= (common_paths.length * 0.8)
           efforts[word] = vals.sum.to_f / vals.length
         else
           efforts.delete(word)
@@ -401,7 +403,7 @@ module AACMetrics::Loader
     list = JSON.parse(File.read(path))
     list.each do |set|
       set['categories'].each do |cat|
-        all_words += cat['words']
+        all_words += cat['words'].sort unless cat['id'] == 'aggregate'
       end
     end
     all_words.uniq!

@@ -622,11 +622,11 @@ module AACMetrics::Metrics
         end
 
         # Calculate the effort for the target and comp sets
-        effort, level = best_match(word, target_efforts, nil, synonyms)
+        effort, level, fallback = best_match(word, target_efforts, nil, synonyms)
         reffort = effort
         list_effort += effort
 
-        effort, level = best_match(word, comp_efforts, nil, synonyms)
+        effort, level, fallback = best_match(word, comp_efforts, nil, synonyms)
         comp_effort += effort
         # puts "#{word} - #{reffort.round(1)} - #{effort.round(1)}"
       end
@@ -654,11 +654,13 @@ module AACMetrics::Metrics
     res[:sentences] = []
     sentences.each do |words|
       sequence = best_combo(words, target_efforts, target_levels, synonyms)
-      target_effort_score = sequence.map{|w, e| e }.sum.to_f / words.length.to_f
+      target_effort_score = sequence[:list].map{|w, e| e }.sum.to_f / words.length.to_f
+      typing = sequence[:fallback]
       sequence = best_combo(words, comp_efforts, comp_levels, synonyms)
-      comp_effort_score = sequence.map{|w, e| e }.sum.to_f / words.length.to_f
+      comp_effort_score = sequence[:list].map{|w, e| e }.sum.to_f / words.length.to_f
+      comp_typing = sequence[:fallback]
 
-      res[:sentences] << {sentence: words.join(' '), words: words, effort: target_effort_score, comp_effort: comp_effort_score}
+      res[:sentences] << {sentence: words.join(' '), words: words, effort: target_effort_score, typing: typing, comp_effort: comp_effort_score, comp_typing: comp_typing}
     end
     res[:care_components][:sentences] = res[:sentences].map{|s| s[:effort] }.sum.to_f / res[:sentences].length.to_f * 3.0
     target_effort_tally += res[:care_components][:sentences]
@@ -666,14 +668,16 @@ module AACMetrics::Metrics
     comp_effort_tally += res[:care_components][:comp_sentences]
 
     res[:fringe_words] = []
+    res[:missing]['fringe'] = {name: "Fringe Large Possible Corpus", list: []}
     fringe.each do |word|
       target_effort_score = 0.0
       comp_effort_score = 0.0
 
-      effort, level = best_match(word, target_efforts, nil, synonyms)
+      effort, level, fallback = best_match(word, target_efforts, nil, synonyms)
       target_effort_score += effort
+      res[:missing]['fringe'][:list] << word if fallback
 
-      effort, level = best_match(word, comp_efforts, nil, synonyms)
+      effort, level, fallback = best_match(word, comp_efforts, nil, synonyms)
       comp_effort_score += effort
       res[:fringe_words] << {word: word, effort: target_effort_score, comp_effort: comp_effort_score}
     end
@@ -683,13 +687,15 @@ module AACMetrics::Metrics
     comp_effort_tally += res[:care_components][:comp_fringe]
 
     res[:common_fringe_words] = []
+    res[:missing]['common_fringe'] = {name: "High-Use Fringe Corpus", list: []}
     common_fringe.each do |word|
       target_effort_score = 0.0
       comp_effort_score = 0.0
-      effort, level = best_match(word, target_efforts, nil, synonyms)
+      effort, level, fallback = best_match(word, target_efforts, nil, synonyms)
       target_effort_score += effort
+      res[:missing]['common_fringe'][:list] << word if fallback
 
-      effort, level = best_match(word, comp_efforts, nil, synonyms)
+      effort, level, fallback = best_match(word, comp_efforts, nil, synonyms)
       comp_effort_score += effort
       res[:common_fringe_words] << {word: word, effort: target_effort_score, comp_effort: comp_effort_score}
     end
@@ -727,11 +733,16 @@ module AACMetrics::Metrics
         end
       end
     end
+    used_fallback = false
+
     # Fallback penalty for missing word
     fallback_effort = spelling_effort(word)
-    effort = fallback_effort if !effort || fallback_effort < effort
+    if !effort || fallback_effort < effort
+      used_fallback = true
+      effort = fallback_effort 
+    end
 
-    [effort, level || 0]
+    [effort, level || 0, used_fallback]
   end
 
   def self.best_combo(words, efforts, levels, synonyms)
@@ -755,26 +766,28 @@ module AACMetrics::Metrics
             options << {
               next_idx: idx + combo[:size],
               list: option[:list] + [[combo[:partial], combo[:effort]]],
-              temporary_home_id: combo[:temporary_home_id]
+              temporary_home_id: combo[:temporary_home_id],
+              fallback: option[:fallback]
             }
           end
-          effort, level = best_match(words[idx], efforts, levels, synonyms)
+          effort, level, fallback = best_match(words[idx], efforts, levels, synonyms)
           option[:temporary_home_id] = effort.instance_variable_get('@temp_home_id')
+          option[:fallback] = true if fallback
           effort += BOARD_CHANGE_PROCESSING_EFFORT if idx > 0 && level && level > 0
           if home_id
             effort += BOARD_HOME_EFFORT + BOARD_CHANGE_PROCESSING_EFFORT
-            other_effort, other_level = best_match(words[idx], efforts["H:#{home_id}"] || {}, levels["H:#{home_id}"] || {}, synonyms)
+            other_effort, other_level, other_fallback = best_match(words[idx], efforts["H:#{home_id}"] || {}, levels["H:#{home_id}"] || {}, synonyms)
             new_home_id = other_effort.instance_variable_get('@temp_home_id') || home_id
             other_effort += BOARD_CHANGE_PROCESSING_EFFORT if idx > 0 && other_level && other_level > 0
             other_list = option[:list] + [[words[idx], other_effort]]
-            options << {next_idx: idx + 1, list: other_list, temporary_home_id: new_home_id}
+            options << {next_idx: idx + 1, list: other_list, temporary_home_id: new_home_id, fallback: option[:fallback] || other_fallback}
           end
           option[:list] << [words[idx], effort]
           option[:next_idx] = idx + 1
         end
       end
     end
-    options.sort_by{|o| o[:list].map{|w, e| e}.sum }.reverse[0][:list]
+    options.sort_by{|o| o[:list].map{|w, e| e}.sum }.reverse[0]
   end
 
   # Checks if any buttons will work for multiple words in a sentence
